@@ -1,3 +1,5 @@
+//Variables//
+
 $h1: 4rem;
 $h2: 4.375rem;
 $h3: 1.875rem;
@@ -8,6 +10,8 @@ $color1: #257593;
 $color2: #73658a;
 $color3: #b982ae;
 $BackgroundColor: Black;
+
+//footer//
 
 h1 {
   font-size: $h1;
@@ -30,10 +34,11 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 6rem;
-  justify-content: center;
+  height: 7.3rem;
+  justify-content: flex-start;
   gap: -8px;
 }
+//Logos Footer//
 
 .ImgLog {
   height: 2.3rem;
@@ -52,7 +57,6 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /*   padding-left: ;
- */
-  gap: 0;
 }
+
+//XXXXX//
