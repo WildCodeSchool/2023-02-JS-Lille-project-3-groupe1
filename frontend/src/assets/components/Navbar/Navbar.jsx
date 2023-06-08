@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
-import logo from "../logos/nega.png";
-import profil from "../profil.png";
+import logo from "../../logos/nega.png";
+import profil from "../../logos/profil.png";
 
 export default function Navbar() {
   return (
