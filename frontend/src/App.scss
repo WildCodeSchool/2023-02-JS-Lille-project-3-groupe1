@@ -2,6 +2,8 @@ $h1: 4rem;
 $h2: 4, 375rem;
 $h3: 1.875rem;
 $font-size: 0.75rem;
+$TitleFont: "Pill Gothic 600mg", sans-serif;
+/* $TextFont: */
 $color1: #257593;
 $color2: #73658a;
 $color3: #b982ae;
@@ -11,4 +13,5 @@ h1 {
   font-size: $h1;
   background-color: $color2;
   width: 100%;
+  font-family: $TitleFont;
 }
