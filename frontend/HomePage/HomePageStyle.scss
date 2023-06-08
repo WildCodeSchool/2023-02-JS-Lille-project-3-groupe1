@@ -1,0 +1,150 @@
+// Variable Definitions
+
+$color-background-div: #257593; // Couleur des div
+$font-content: #e3e4e2; // Couleur de l'écriture
+$h1: 4rem;
+$h2: 4.375rem;
+$h3: 1.875rem;
+$h4: 0.8rem;
+$font-size: 0.75rem;
+$font: "Pill Gothic 600mg", sans-serif;
+
+// CSS Reset
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+}
+
+// Background Image with Opacity
+
+.background-image {
+  background-image: url(../src/assets/image/FRAD974_40FI105bis.jpg); // Image de fond
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container-background-opacity {
+  background-color: #00000087; // Couleur de fond avec opacité
+  height: 100vh;
+  width: 100vw;
+}
+
+// Home Page Description Opacity
+
+.container-description-home-opacity {
+  border: $color-background-div solid 5px; // Bordure de la div hexagonale
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #00000087; // Couleur de fond avec opacité
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $font-content; // Couleur du contenu
+}
+
+// Home Page Description Text
+
+.description-home {
+  font-size: 25px; // Taille de police
+  margin-bottom: 15%; // Marge inférieure
+  margin-left: 5%; // Marge gauche
+  margin-right: 5%; // Marge droite
+  text-align: center; // Alignement du texte
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+// Hexagon Button
+.hexagon-text {
+  filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.749)); // Ombre du texte
+  cursor: pointer; // Curseur pointeur
+  transition: color 500ms ease, text-shadow 500ms ease; // Transition pour la couleur du texte et l'ombre du texte
+  color: $color-background-div;
+  font-size: 15rem; // Taille de police
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // Centrage horizontal et vertical
+  margin-top: 12%; // Marge supérieure
+  text-decoration: none; // Pas de soulignement du texte
+}
+// Hexagon Button on Hover
+
+.hexagon-button:hover {
+  text-shadow: 0 0 10px $font-content; // Text shadow on hover
+
+  .hexagon-para:hover {
+    color: $font-content; // Text color on hover (specific to hexagon paragraph)
+  }
+}
+
+// Hexagon Paragraph
+
+.hexagon-para {
+  cursor: pointer; // Cursor style
+  transition: color 500ms ease; // Transition for text color and text shadow
+  font-size: 1.275rem; // Font size
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // Center alignment
+  margin-top: 15.5%; // Top margin
+  text-decoration: none; // Text decoration (no underline)
+  color: $font-content; // Text color
+  text-shadow: none;
+}
+
+.hexagon-voir {
+  cursor: pointer; // Cursor style
+  transition: color 500ms ease; // Transition for text color and text shadow
+  font-size: 4rem; // Font size
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // Center alignment
+  margin-top: 13%; // Top margin
+  text-decoration: none; // Text decoration (no underline)
+  color: $font-content; // Text color
+}
