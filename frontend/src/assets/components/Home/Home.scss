@@ -1,0 +1,47 @@
+@import "./src/variable.scss";
+
+.logohome {
+  width: 300px;
+}
+
+.containerhome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+}
+
+.afca {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin-top: 5vh;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  font-family: $font;
+}
+
+.galerie {
+  background-color: $color1;
+  padding: 10px 20px 10px 20px;
+  font-size: $h2;
+  font-family: $font;
+  text-decoration: none;
+  color: white;
+  box-shadow: 8px 5px 5px -2px black;
+}
+
+.sliderart {
+  margin-top: 5vh;
+  height: 30vh;
+  width: 150px;
+  background-image: url("../../../image/AD974_40FI106.jpg");
+  background-size: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
