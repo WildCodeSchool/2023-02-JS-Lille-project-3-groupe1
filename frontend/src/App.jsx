@@ -1,11 +1,16 @@
 import "./App.scss";
+import { BrowserRouter as Routes, Route } from "react-router-dom";
+import Navbar from "./assets/components/Navbar";
+
 export default function App() {
   return (
-    <div>
-      <h1>Tableaux 1.</h1>
-      <h2>Tableaux 1.</h2>
-      <h3>Tableaux 1.</h3>
-      <h4>Tableaux 1.</h4>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element="" />
+        <Route path="/galerie" element="" />
+        <Route path="/apropos" element="" />
+      </Routes>{" "}
+    </>
   );
 }
