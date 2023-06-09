@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 // Import Swiper React components
 import "swiper/scss"; // eslint-disable-line
-// import "swiper/react";
 import "swiper/scss/free-mode";
 import "swiper/scss/navigation";
 import "swiper/scss/thumbs";
@@ -11,12 +10,14 @@ import { Swiper, SwiperSlide } from "swiper/react"; // eslint-disable-line
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper"; // eslint-disable-line
+import useineBelAir from "../assets/image/UsineBelAir_40FI78.jpg";
+import treviseCannes from "../assets/image/trevise-cannes_1861.jpg";
 
 export default function Carousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <>
+    <div className="swiper-container">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
@@ -32,16 +33,10 @@ export default function Carousel() {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-            alt="nature"
-          />
+          <img src={useineBelAir} alt="nature" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://swiperjs.com/demos/images/nature-2.jpg"
-            alt="nature"
-          />
+          <img src={treviseCannes} alt="nature" />
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -103,18 +98,10 @@ export default function Carousel() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img
-            className="imgbot"
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-            alt="nature"
-          />
+          <img className="imgbot" src={useineBelAir} alt="nature" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="imgbot"
-            src="https://swiperjs.com/demos/images/nature-2.jpg"
-            alt="nature"
-          />
+          <img className="imgbot" src={treviseCannes} alt="nature" />
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -173,6 +160,6 @@ export default function Carousel() {
           />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
