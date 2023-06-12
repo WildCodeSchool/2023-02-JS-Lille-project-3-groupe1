@@ -1,13 +1,17 @@
+//Variables//
+
 $h1: 4rem;
-$h2: 4, 375rem;
+$h2: 4.375rem;
 $h3: 1.875rem;
+$h4: 0.8rem;
 $font-size: 0.75rem;
 $TitleFont: "Pill Gothic 600mg", sans-serif;
-/* $TextFont: */
 $color1: #257593;
 $color2: #73658a;
 $color3: #b982ae;
 $BackgroundColor: Black;
+
+//footer//
 
 h1 {
   font-size: $h1;
@@ -15,3 +19,44 @@ h1 {
   width: 100%;
   font-family: $TitleFont;
 }
+.Footer {
+  font-size: $h4;
+  font-family: $TitleFont;
+  color: white;
+  background-color: $color1;
+  margin-top: 0.3rem;
+  padding: -2.5rem;
+  position: fixed;
+  bottom: -2.2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 7.3rem;
+  justify-content: flex-start;
+  gap: -8px;
+}
+//Logos Footer//
+
+.ImgLog {
+  height: 2.3rem;
+}
+.ImgLog2 {
+  height: 4.2rem;
+  margin: -13px;
+  padding-left: 0.7rem;
+}
+.ImgObj {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ImgWild {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+//XXXXX//
