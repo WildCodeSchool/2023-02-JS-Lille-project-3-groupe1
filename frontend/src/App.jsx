@@ -8,6 +8,7 @@ export default function App() {
   return (
     <div className="appcontainer">
       <Navbar />
+      <Footer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/galerie" element="" />
