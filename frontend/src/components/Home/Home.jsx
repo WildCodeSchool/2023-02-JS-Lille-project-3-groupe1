@@ -1,25 +1,8 @@
 import { NavLink } from "react-router-dom";
 import logohome from "../../assets/logos/logohome.svg";
 import "./Home.scss";
-import { useState } from "react";
-import axios from "axios";
-import test from "../../assets/Liste_oeuvres.json";
+
 export default function Home() {
-  // const [getArt, setGetArt] = useState([]);
-
-  // const listArt = () => {
-  //   axios
-  //     .get("Liste_oeuvres.json")
-  //     .then((response) => {
-  //       setGetArt(response.data[0]);
-  //       console.log(response.data);
-  //       console.log(listArt());
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
-  console.log(test.link);
-
   return (
     <div className="containerhome">
       <div className="afca">
@@ -54,12 +37,12 @@ export default function Home() {
         <div>
           <span className="sliderart1">dsd</span>
         </div>
-        {test &&
+        {/* {test &&
           test.map((test) => (
             <div key={test.id}>
               <img src={test.link} key={test.id} alt="unkbs" />
             </div>
-          ))}
+          ))} */}
         <div>
           <span className="sliderart2">dsdsds</span>
         </div>
