@@ -34,4 +34,12 @@ router.put("/authors/:id", authorControllers.edit);
 router.post("/authors", authorControllers.add);
 router.delete("/authors/:id", authorControllers.destroy);
 
+const favoriControllers = require("./controllers/favoriControllers");
+
+router.get("/favori", favoriControllers.browse);
+router.get("/favori/:id", favoriControllers.read);
+router.put("/favori/:id", favoriControllers.edit);
+router.post("/favori", favoriControllers.add);
+router.delete("/favori/:id", favoriControllers.destroy);
+
 module.exports = router;

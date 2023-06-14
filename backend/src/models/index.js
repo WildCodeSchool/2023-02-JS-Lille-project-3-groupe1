@@ -48,6 +48,11 @@ const AuthorManager = require("./AuthorManager");
 
 models.author = new AuthorManager();
 models.author.setDatabase(pool);
+
+const FavoriManager = require("./FavoriManager");
+
+models.favori = new FavoriManager();
+models.favori.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
