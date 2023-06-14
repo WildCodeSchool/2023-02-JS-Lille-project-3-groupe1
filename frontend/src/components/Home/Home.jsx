@@ -32,19 +32,10 @@ export default function Home() {
       <NavLink to="/galerie" className="galerie">
         Voir les œuvres
       </NavLink>
-
+{/* bas de la home */}
       <div className="sliderhome">
         <div>
           <span className="sliderart1">dsd</span>
-        </div>
-        {/* {test &&
-          test.map((test) => (
-            <div key={test.id}>
-              <img src={test.link} key={test.id} alt="unkbs" />
-            </div>
-          ))} */}
-        <div>
-          <span className="sliderart2">dsdsds</span>
         </div>
       </div>
     </div>
