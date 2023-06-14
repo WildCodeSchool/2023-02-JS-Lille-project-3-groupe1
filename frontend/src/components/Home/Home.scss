@@ -35,13 +35,32 @@
   text-decoration: none;
   color: white;
   box-shadow: 8px 5px 5px -2px black;
+  margin-bottom: 20px;
 }
 
-.sliderart {
+.sliderart1 {
   margin-top: 5vh;
-  height: 30vh;
-  width: 150px;
-  background-image: url("../../../image/AD974_40FI106.jpg");
+  display: flex;
+  background-image: url("../../image/FRAD974_40FI55.jpg");
   background-size: cover;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  height: 160px;
+  width: 150px;
+
+  margin-top: 200px;
+}
+.sliderart2 {
+  margin-top: 5vh;
+  display: flex;
+  background-image: url("../../image/FRAD974_40FI74.jpg");
+  background-size: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  height: 160px;
+  width: 150px;
+  margin: 10px;
+}
+.sliderhome {
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
 }
