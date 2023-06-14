@@ -13,5 +13,9 @@ router.delete("/items/:id", itemControllers.destroy);
 const artworksControllers = require("./controllers/artworkControllers");
 
 router.get("/artworks", artworksControllers.browse);
+router.get("/artworks/:id", artworksControllers.read);
+router.put("/artworks/:id", artworksControllers.edit);
+router.post("/artworks", artworksControllers.add);
+router.delete("/artworks/:id", artworksControllers.destroy);
 
 module.exports = router;
