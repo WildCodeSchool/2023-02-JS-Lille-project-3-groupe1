@@ -18,4 +18,12 @@ router.put("/artworks/:id", artworksControllers.edit);
 router.post("/artworks", artworksControllers.add);
 router.delete("/artworks/:id", artworksControllers.destroy);
 
+const usersControllers = require("./controllers/usersControllers");
+
+router.get("/users", usersControllers.browse);
+router.get("/users/:id", usersControllers.read);
+router.put("/users/:id", usersControllers.edit);
+router.post("/users", usersControllers.add);
+router.delete("/users/:id", usersControllers.destroy);
+
 module.exports = router;
