@@ -32,7 +32,7 @@ export default function Home() {
       <NavLink to="/galerie" className="galerie">
         Voir les œuvres
       </NavLink>
-{/* bas de la home */}
+      {/* bas de la home */}
       <div className="sliderhome">
         <div>
           <span className="sliderart1">dsd</span>
