@@ -9,6 +9,7 @@ class ArtworksManager extends AbstractManager {
     return this.database.query(
       `insert into ${this.table} (url,full_title,short_title,description,dimensions,technique,author,year_created,category,related_article) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
+        artworks.url,
         artworks.full_title,
         artworks.short_title,
         artworks.description,
@@ -26,6 +27,7 @@ class ArtworksManager extends AbstractManager {
     return this.database.query(
       `update ${this.table} set url = ?,full_title = ?,short_title = ?,description = ?,dimensions = ?,technique = ?,author = ?,year_created = ?,category = ?,related_article = ?, where id = ?`,
       [
+        artworks.url,
         artworks.full_title,
         artworks.short_title,
         artworks.description,
