@@ -11,7 +11,7 @@
 
 .background-image {
   background-image: url(../src/assets/brushes-4226688_1280.jpg); // Image de fond
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 
 .container-background-opacity {
   background-color: #00000087; // Couleur de fond avec opacité
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
@@ -41,7 +41,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: $font-content; // Couleur du contenu
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 // Home Page Description Text
