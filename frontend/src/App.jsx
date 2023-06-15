@@ -1,18 +1,25 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import Footer from "./components/Footer";
+import Home from "./page/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
     <div className="appcontainer">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/galerie" element="" />
-        <Route path="/apropos" element="" />
-      </Routes>
+      <div className="navapp">
+        <Navbar />
+      </div>
+      <div className="containerapp">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/galerie" element="" />
+          <Route path="/apropos" element="" />
+        </Routes>
+      </div>
+      <div className="footerapp">
+        <Footer />
+      </div>
     </div>
   );
 }

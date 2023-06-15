@@ -1,47 +1,16 @@
+@import "./variable.scss";
 
 .appcontainer {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
-.Footer {
-  font-size: $h4;
-  font-family: $TitleFont;
-  color: white;
-  background-color: $color1;
-  margin-top: 0.3rem;
-  padding: -2.5rem;
-  position: fixed;
-  bottom: -2.2rem;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 7.3rem;
-  justify-content: flex-start;
-  gap: -8px;
+.navapp {
+  height: 13vh;
 }
-//Logos Footer//
-
-.ImgLog {
-  height: 2.3rem;
+.containerapp {
+  height: fit-content;
 }
-.ImgLog2 {
-  height: 4.2rem;
-  margin: -13px;
-  padding-left: 0.7rem;
+.footerapp {
+  height: 13vh;
 }
-.ImgObj {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.ImgWild {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-//XXXXX//
