@@ -1,16 +1,6 @@
-// Variable Definitions
-
-$color-background-div: #257593; // Couleur des div
-$font-content: #e3e4e2; // Couleur de l'écriture
-$h1: 4rem;
-$h2: 4.375rem;
-$h3: 1.875rem;
-$h4: 0.8rem;
-$font-size: 0.75rem;
-$font: "Pill Gothic 600mg", sans-serif;
+@import "../src/variable.scss";
 
 // CSS Reset
-
 * {
   margin: 0;
   padding: 0;
@@ -44,13 +34,14 @@ $font: "Pill Gothic 600mg", sans-serif;
   justify-content: center;
   position: relative;
   background-color: #00000087; // Couleur de fond avec opacité
-  height: 80%;
+  height: 70%;
   width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: $font-content; // Couleur du contenu
+  margin-top: 5%;
 }
 
 // Home Page Description Text
@@ -107,7 +98,7 @@ $font: "Pill Gothic 600mg", sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); // Centrage horizontal et vertical
-  margin-top: 12%; // Marge supérieure
+  margin-top: 10%; // Marge supérieure
   text-decoration: none; // Pas de soulignement du texte
 }
 // Hexagon Button on Hover
@@ -130,7 +121,7 @@ $font: "Pill Gothic 600mg", sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); // Center alignment
-  margin-top: 15.5%; // Top margin
+  margin-top: 14%; // Top margin
   text-decoration: none; // Text decoration (no underline)
   color: $font-content; // Text color
   text-shadow: none;
@@ -144,7 +135,7 @@ $font: "Pill Gothic 600mg", sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); // Center alignment
-  margin-top: 13%; // Top margin
+  margin-top: 11%; // Top margin
   text-decoration: none; // Text decoration (no underline)
   color: $font-content; // Text color
 }

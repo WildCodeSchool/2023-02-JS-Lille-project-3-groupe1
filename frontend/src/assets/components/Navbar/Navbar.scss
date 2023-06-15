@@ -7,7 +7,7 @@ nav {
   align-items: center;
   height: 13vh;
   width: 100%;
-  background-color: $color1;
+  background-color: rgb(35, 114, 174);
 }
 ul {
   position: absolute;
@@ -36,7 +36,7 @@ li:hover {
   clip-path: polygon(0% 0, 100% 0%, 100% 60%, 50% 80%, 0 60%, 0 25%);
 }
 li:hover a {
-  color: $color1;
+  color: white;
 }
 a.inactive {
   color: #ffffff;
@@ -49,7 +49,7 @@ a.inactive {
   display: flex;
 }
 a.active {
-  color: $color1;
+  color: white;
   text-decoration: none;
   font-family: $font;
   height: 13vh;
