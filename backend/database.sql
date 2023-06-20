@@ -63,6 +63,7 @@ CREATE TABLE `artworks` (
   `author_id` int NOT NULL,
   `category` varchar(45) NOT NULL,
   `related_article` mediumtext,
+  `img_ref` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_artworks_author_idx` (`author_id`),
   CONSTRAINT `fk_artworks_author` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`)
