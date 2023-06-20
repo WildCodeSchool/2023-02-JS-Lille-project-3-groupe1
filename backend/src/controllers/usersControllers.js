@@ -29,14 +29,14 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const users = req.body;
+  const user = req.body;
 
   // TODO validations (length, format...)
 
-  users.id = parseInt(req.params.id, 10);
+  user.id = parseInt(req.params.id, 10);
 
   models.users
-    .update(users)
+    .update(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -51,12 +51,12 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const users = req.body;
+  const user = req.body;
 
   // TODO validations (length, format...)
 
   models.users
-    .insert(users)
+    .insert(user)
     .then(([result]) => {
       res.location(`/userss/${result.insertId}`).sendStatus(201);
     })
