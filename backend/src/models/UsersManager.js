@@ -2,20 +2,20 @@ const AbstractManager = require("./AbstractManager");
 
 class UsersManager extends AbstractManager {
   constructor() {
-    super({ table: "users" });
+    super({ table: "user" });
   }
 
-  insert(users) {
+  insert(user) {
     return this.database.query(
       `insert into ${this.table} (name, mail, hashedPassword, admin) values (?, ?, ?, ?)`,
-      [users.name, users.mail, users.hashedPassword, users.admin]
+      [user.name, user.mail, user.hashedPassword, user.admin]
     );
   }
 
-  update(users) {
+  update(user) {
     return this.database.query(
       `update ${this.table} set name = ?, mail= ?, hashedPassword=?, admin=? where id = ?`,
-      [users.name, users.mail, users.hashedPassword, users.admin, users.id]
+      [user.name, user.mail, user.hashedPassword, user.admin, user.id]
     );
   }
 }
