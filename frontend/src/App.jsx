@@ -3,6 +3,7 @@ import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
+import Author from "./components/Author/Author";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
       <div className="containerapp">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/galerie" element="" />
+          <Route path="/galerie" element={<Author />} />
           <Route path="/apropos" element="" />
         </Routes>
       </div>

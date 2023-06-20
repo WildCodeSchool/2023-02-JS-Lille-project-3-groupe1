@@ -7,14 +7,13 @@ import img3 from "../../assets/image/FRAD974_40FI52.jpg";
 import img4 from "../../assets/image/FRAD974_40FI80.jpg";
 import img5 from "../../assets/image/MORTIER.de.TREVISE_Mr.Bourraye.dans.jardin.Casernes_1861.jpg";
 import img6 from "../../assets/image/UsineBelAir_40FI78.jpg";
-import img7 from "../../assets/image/UsineBelAir_40FI78.jpg";
 
 export default function Home() {
   return (
     <div className="containerhome">
-      <div className="afca">
+      <div className="afac">
         <div className="imghome">
-          <img className="logohome" src={logohome} alt="logo afca" />
+          <img className="logohome" src={logohome} alt="logo afac" />
         </div>
 
         <div className="text">
@@ -60,7 +59,7 @@ export default function Home() {
           <img className="sliderart2" src={img6} alt="art" />
         </div>
         <div>
-          <img className="sliderart1" src={img7} alt="art" />
+          <img className="sliderart1" src={img6} alt="art" />
         </div>
         <div>
           <img className="sliderart2" src={img4} alt="art" />

@@ -1,0 +1,28 @@
+@import "../../variable.scss";
+
+.authorcontainer {
+  margin: 50px auto;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px #bdbdbd;
+  transition: all ease 200ms;
+  border: 8px ridge rgba(0, 0, 0, 0.6);
+  border-radius: 2rem;
+}
+.profilpic {
+  height: 30vh;
+}
+.img {
+  height: 30vh;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  font-size: $text;
+}
+.authorcontainer:hover {
+  transform: scale(1.03);
+  box-shadow: 0 13px 40px -5px $color3, 0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
+    0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+}
