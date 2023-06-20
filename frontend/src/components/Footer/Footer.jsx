@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import Logo1 from "../assets/ObjetTemoin/Logos - Objet Témoin/PNG/Logo1.png";
-import Wild from "../assets/ObjetTemoin/Logos - Objet Témoin/PNG/Wild.png";
+import Logo1 from "../../assets/ObjetTemoin/Logos - Objet Témoin/PNG/Logo1.png";
+import Wild from "../../assets/ObjetTemoin/Logos - Objet Témoin/PNG/Wild.png";
+import "./Footer.scss";
 
 export default function Footer() {
   return (
