@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 // Import Swiper React components
-import "swiper/scss"; // eslint-disable-line
-import "swiper/scss/free-mode";
-import "swiper/scss/navigation";
-import "swiper/scss/thumbs";
-import "./carousel.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import useineBelAir from "../assets/image/UsineBelAir_40FI78.jpg";
 import treviseCannes from "../assets/image/trevise-cannes_1861.jpg";
+import "./carousel.scss";
 
 export default function Carousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  // const allPics = List;
 
   return (
     <div className="swiper-container">
@@ -30,10 +26,6 @@ export default function Carousel() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {/* {allPics.map((images) => (
-          <SwiperSlide>
-            <img key={images.ADR} src={images.link} alt="nature" />
-          </SwiperSlide> */}
         <SwiperSlide>
           <img src={treviseCannes} alt="nature" />
         </SwiperSlide>
