@@ -1,18 +1,28 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-// import AuthorCard from "./AuthorCard";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import AuthorCard from "./AuthorCard";
 
-// export default function Author() {
-//   const [author, setAuthor] = useState([]);
-//   useEffect(() => {
-//     axios.get("localhost:3000/author").then((d) => {
-//       setAuthor(d.data.result[0]);
-//       //   console.log(res.data.result[0]);
-//     });
-//   }, []);
-//   return (
-//     <div>
-//       <AuthorCard author={res.data} />
-//     </div>
-//   );
-// }
+function Author() {
+  const [authors, setAuthors] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/authors")
+      .then((response) => {
+        setAuthors(response.data); // Utiliser response.data pour obtenir le tableau d'auteurs
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  return (
+    <div>
+      {authors.map((author) => (
+        <AuthorCard key={author.id} authors={authors[0]} />
+      ))}
+    </div>
+  );
+}
+
+export default Author;
