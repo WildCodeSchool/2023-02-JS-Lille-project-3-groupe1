@@ -1,7 +1,6 @@
-/* eslint-disable import/no-unresolved */
 import React, { useState } from "react";
 // Import Swiper React components
-import "swiper/scss"; // eslint-disable-line
+import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/navigation";
 import "swiper/scss/thumbs";
