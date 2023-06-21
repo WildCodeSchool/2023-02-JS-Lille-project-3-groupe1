@@ -36,6 +36,7 @@ const edit = (req, res) => {
   user.id = parseInt(req.params.id, 10);
 
   models.user
+
     .update(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -54,6 +55,7 @@ const add = (req, res) => {
   const user = req.body;
 
   // TODO validations (length, format...)
+
 
   models.user
     .insert(user)
