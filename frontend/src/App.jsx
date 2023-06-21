@@ -1,21 +1,27 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./page/Home/Home";
+import Footer from "./components/Footer/Footer";
+import Author from "./components/Author/Author";
 import Carousel from "./components/carousel";
-// import Hexagon from "./components/hexagon"; // import hex from "hexagon.png";
 
 export default function App() {
   return (
-    <div>
-      {/* <body>
-        <nav class="navMenu">
-          <a href="#">Home</a>
-          <a href="#">Blog</a>
-          <a href="#">Work</a>
-          <a href="#">About</a>
-          <div className="dot">⬢</div>
-        </nav>
-      </body> */}
-      {/* <h1>Tableaux 1.</h1> */}
-      <Carousel />
+    <div className="appcontainer">
+      <div className="navapp">
+        <Navbar />
+      </div>
+      <div className="containerapp">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/galerie" element={<Author />} />
+          <Route path="/apropos" element="" />
+        </Routes>
+      </div>
+      <div className="footerapp">
+        <Footer />
+      </div>
     </div>
   );
 }
