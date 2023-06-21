@@ -36,8 +36,8 @@ models.item.setDatabase(pool);
 
 const UsersManager = require("./UsersManager");
 
-models.users = new UsersManager();
-models.users.setDatabase(pool);
+models.user = new UsersManager();
+models.user.setDatabase(pool);
 
 const ArtworkManager = require("./ArtworkManager");
 

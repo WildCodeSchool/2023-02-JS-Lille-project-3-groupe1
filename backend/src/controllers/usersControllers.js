@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.users
+  models.user
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.users
+  models.user
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -35,7 +35,8 @@ const edit = (req, res) => {
 
   user.id = parseInt(req.params.id, 10);
 
-  models.users
+  models.user
+
     .update(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -55,10 +56,11 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.users
+
+  models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/userss/${result.insertId}`).sendStatus(201);
+      res.location(`/users/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -67,7 +69,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.users
+  models.user
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {

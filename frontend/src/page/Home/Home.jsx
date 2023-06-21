@@ -10,9 +10,9 @@ import img6 from "../../assets/image/UsineBelAir_40FI78.jpg";
 export default function Home() {
   return (
     <div className="containerhome">
-      <div className="afca">
+      <div className="afac">
         <div className="imghome">
-          <img className="logohome" src={logohome} alt="logo afca" />
+          <img className="logohome" src={logohome} alt="logo afac" />
         </div>
 
         <div className="text">
