@@ -56,7 +56,6 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-
   models.user
     .insert(user)
     .then(([result]) => {
