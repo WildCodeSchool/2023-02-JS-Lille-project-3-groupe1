@@ -9,8 +9,7 @@ function AuthorCard({ authors }) {
         <img className="profilpic" src={autoportait} alt="" />
         <div className="info">
           <h4>
-            {authors.firstname}
-            {authors.lastname}
+            {authors.firstname} {authors.lastname}
           </h4>
           <h4>Date de naissance: {authors.dob}</h4>
           <h4>Date de mort: {authors.dod}</h4>
