@@ -3,8 +3,7 @@ import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
-// import Author from "./components/Author/Author";
-// import Gallery from "./page/Home/Galerie/Galerie";
+
 import Carousel from "./components/Carousel/carousel";
 
 export default function App() {
