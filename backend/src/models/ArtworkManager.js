@@ -7,7 +7,7 @@ class ArtworksManager extends AbstractManager {
 
   insert(artworks) {
     return this.database.query(
-      `insert into ${this.table} (url,full_title,short_title,description,dimensions,technique,author,year_created,category,related_article) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (url,full_title,short_title,description,dimensions,technique,year_created,author_id, category,related_article, img_ref) values (?, ?, ?, ?, ?, ?, ?, ?,?,?, ?)`,
       [
         artworks.url,
         artworks.full_title,
@@ -15,17 +15,18 @@ class ArtworksManager extends AbstractManager {
         artworks.description,
         artworks.dimensions,
         artworks.technique,
-        artworks.author,
         artworks.year_created,
+        artworks.author_id,
         artworks.category,
         artworks.related_article,
+        artworks.img_ref,
       ]
     );
   }
 
   update(artworks) {
     return this.database.query(
-      `update ${this.table} set url = ?,full_title = ?,short_title = ?,description = ?,dimensions = ?,technique = ?,author = ?,year_created = ?,category = ?,related_article = ?, where id = ?`,
+      `update ${this.table} set url = ?,full_title = ?,short_title = ?,description = ?,dimensions = ?,technique = ?, year_created = ?, author_id = ?, category = ?,related_article = ?, img_ref=? where id = ?`,
       [
         artworks.url,
         artworks.full_title,
@@ -33,10 +34,11 @@ class ArtworksManager extends AbstractManager {
         artworks.description,
         artworks.dimensions,
         artworks.technique,
-        artworks.author,
         artworks.year_created,
+        artworks.author_id,
         artworks.category,
         artworks.related_article,
+        artworks.img_ref,
         artworks.id,
       ]
     );
