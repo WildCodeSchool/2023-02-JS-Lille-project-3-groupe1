@@ -140,6 +140,80 @@ export default function Home() {
           <div className="slide">
             <img className="sliderart1" src={img6} alt="art" />
           </div>
+          <div className="slide">
+            <img className="sliderart2" src={img2} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img5} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img1} alt="art" />
+          </div>
+
+          <div className="slide">
+            <img className="sliderart1" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img5} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img1} alt="art" />
+          </div>
+
+          <div className="slide">
+            <img className="sliderart1" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img3} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img5} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img1} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img1} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart2" src={img1} alt="art" />
+          </div>
+          <div className="slide">
+            <img className="sliderart1" src={img6} alt="art" />
+          </div>
         </div>
       </div>
     </div>

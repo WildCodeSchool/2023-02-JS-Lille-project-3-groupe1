@@ -47,7 +47,7 @@
 .slider {
   display: flex;
   flex-direction: row;
-  width: calc(150px * 12);
+  // width: calc(150px * 24);
 }
 
 .sliderart1 {
@@ -55,6 +55,7 @@
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   height: 160px;
   width: 150px;
+  margin-bottom: 120px;
 }
 .sliderart2 {
   background-size: cover;
@@ -65,9 +66,9 @@
 //slider img
 .slide-track {
   display: inline-block;
-  animation: move 10s linear infinite;
+  animation: move 20s linear infinite;
   white-space: nowrap;
-  width: calc(150px * 24);
+  width: calc(150px * 12);
 }
 
 .slide-track > * {
@@ -80,6 +81,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-10%);
+    transform: translateX(-50%);
   }
 }
