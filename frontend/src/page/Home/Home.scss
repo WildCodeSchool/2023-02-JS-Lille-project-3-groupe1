@@ -13,8 +13,10 @@
   overflow-x: hidden;
   margin-bottom: 5vh;
 }
-
-.afca {
+.imghome {
+  margin-right: 3vw;
+}
+.afac {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -27,6 +29,7 @@
   flex-direction: column;
   margin-left: 5vw;
   font-family: $font;
+  margin: auto;
 }
 
 .galerie {
