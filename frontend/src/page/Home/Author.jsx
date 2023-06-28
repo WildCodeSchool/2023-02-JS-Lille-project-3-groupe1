@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import AuthorCard from "./AuthorCard";
+import AuthorCard from "../../components/Author/AuthorCard";
 
 function Author() {
   const [authors, setAuthors] = useState([]);
