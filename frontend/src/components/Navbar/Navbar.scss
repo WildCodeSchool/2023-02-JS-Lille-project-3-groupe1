@@ -6,7 +6,7 @@ nav {
   justify-content: center;
   align-items: center;
   height: 13vh;
-  width: 100%;
+  width: 100vw;
   background-color: $color1;
 }
 ul {
@@ -61,4 +61,5 @@ a.active {
   right: 2vw;
   top: 1.5vh;
   height: 7vh;
+
 }

@@ -1,0 +1,15 @@
+@import "./variable.scss";
+
+.appcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.navapp {
+  height: 13vh;
+}
+.containerapp {
+}
+.footerapp {
+  height: 13vh;
+}
