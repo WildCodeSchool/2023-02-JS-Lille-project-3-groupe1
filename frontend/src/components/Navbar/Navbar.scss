@@ -13,7 +13,7 @@ ul {
   position: absolute;
   display: flex;
   flex-direction: inherit;
-  gap: 3rem;
+  gap: 3vh;
   height: 13vh;
 }
 li {
@@ -25,19 +25,9 @@ li {
 
 li a.active {
   background-color: #ffffff;
-
   clip-path: polygon(0% 0, 100% 0%, 100% 70%, 50% 100%, 0 70%, 0 25%);
 }
 
-li:hover {
-  background-color: #ffffff;
-  -moz-clip-path: polygon(0% 0, 100% 0%, 100% 60%, 50% 81%, 0 60%, 0 25%);
-  -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 60%, 50% 81%, 0 60%, 0 25%);
-  clip-path: polygon(0% 0, 100% 0%, 100% 60%, 50% 80%, 0 60%, 0 25%);
-}
-li:hover a {
-  color: $color1;
-}
 a.inactive {
   color: #ffffff;
   text-decoration: none;
@@ -47,6 +37,7 @@ a.inactive {
   padding-right: 2vh;
   align-items: center;
   display: flex;
+  font-size: 3vh;
 }
 a.active {
   color: $color1;
@@ -60,14 +51,14 @@ a.active {
 }
 
 .logo {
-  width: 170px;
+  height: 12vh;
   position: absolute;
   left: 2vw;
   top: 0;
 }
 .profil {
-  width: 50px;
   position: absolute;
   right: 2vw;
-  top: 20px;
+  top: 1.5vh;
+  height: 7vh;
 }
