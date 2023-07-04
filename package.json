@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "dotenv": "^16.3.1",
-    "mysql2": "^3.4.0",
     "nanogallery2": "^3.0.5",
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.1",
