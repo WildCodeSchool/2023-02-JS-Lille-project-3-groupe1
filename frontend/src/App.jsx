@@ -6,7 +6,6 @@ import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Carousel from "./components/Carousel/carousel";
 
-
 export default function App() {
   return (
     <div className="appcontainer">
