@@ -1,4 +1,302 @@
-@import "./src/variable.scss";
+@import "../../variable.scss";
+
+// Background Image with Opacity
+
+.background-image {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/Background Image/brushes-4226688_1280.jpg"); // Image de fond
+
+}
+
+.opacity {
+  display: flex;
+  height: inherit;
+  background-color: #000000af;
+
+}
+
+.container-background-opacity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: $color-background-div solid 5px;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.719);
+}
+
+.container-description-home-opacity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font;
+  color: $font-content;
+  font-size: $h3;
+  text-align: center;
+  padding: 2vw;
+  gap: 50px;
+}
+.voir{
+  font-size: $voir;
+}
+.description-home{
+  margin: 20px;
+}
+.hexagon-button {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  width: 150px;
+  height: 150px;
+  background-color: $color-background-div;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.background {
+}
+
+// .container-description-home-opacity {
+//   border: $color-background-div solid 5px; // Bordure de la div hexagonale
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   position: relative;
+//   background-color: #00000087; // Couleur de fond avec opacité
+//   height: 70%;
+//   width: 80%;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   color: $font-content; // Couleur du contenu
+//   margin-top: 3%;
+// }
+
+// // Home Page Description Text
+
+// .description-home {
+//   font-size: 25px; // Taille de police
+//   margin-bottom: 15%; // Marge inférieure
+//   margin-left: 5%; // Marge gauche
+//   margin-right: 5%; // Marge droite
+//   text-align: center; // Alignement du texte
+//   -webkit-animation-name: pulse;
+//   animation-name: pulse;
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+//   @-webkit-keyframes pulse {
+//     0% {
+//       -webkit-transform: scale3d(1, 1, 1);
+//       transform: scale3d(1, 1, 1);
+//     }
+//     50% {
+//       -webkit-transform: scale3d(1.05, 1.05, 1.05);
+//       transform: scale3d(1.05, 1.05, 1.05);
+//     }
+//     100% {
+//       -webkit-transform: scale3d(1, 1, 1);
+//       transform: scale3d(1, 1, 1);
+//     }
+//   }
+//   @keyframes pulse {
+//     0% {
+//       -webkit-transform: scale3d(1, 1, 1);
+//       transform: scale3d(1, 1, 1);
+//     }
+//     50% {
+//       -webkit-transform: scale3d(1.05, 1.05, 1.05);
+//       transform: scale3d(1.05, 1.05, 1.05);
+//     }
+//     100% {
+//       -webkit-transform: scale3d(1, 1, 1);
+//       transform: scale3d(1, 1, 1);
+//     }
+//   }
+// }
+// // Hexagon Button
+// .hexagon-text {
+//   filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.749)); // Ombre du texte
+//   cursor: pointer; // Curseur pointeur
+//   transition: color 500ms ease, text-shadow 500ms ease; // Transition pour la couleur du texte et l'ombre du texte
+//   color: $color-background-div;
+//   font-size: 15rem; // Taille de police
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%); // Centrage horizontal et vertical
+//   margin-top: 10%; // Marge supérieure
+//   text-decoration: none; // Pas de soulignement du texte
+// }
+// // Hexagon Button on Hover
+
+// .hexagon-button:hover {
+//   text-shadow: 0 0 10px $font-content; // Text shadow on hover
+
+//   .hexagon-para:hover {
+//     color: $font-content; // Text color on hover (specific to hexagon paragraph)
+//   }
+// }
+
+// // Hexagon Paragraph
+
+// .hexagon-para {
+//   cursor: pointer; // Cursor style
+//   transition: color 500ms ease; // Transition for text color and text shadow
+//   font-size: 1.275rem; // Font size
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%); // Center alignment
+//   margin-top: 14%; // Top margin
+//   text-decoration: none; // Text decoration (no underline)
+//   color: $font-content; // Text color
+// }
+.logohome {
+  width: 300px;
+}
+
+.containerhome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+}
+
+.afac {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin-top: 5vh;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  font-family: $font;
+}
+
+.galerie {
+  background-color: $color1;
+  padding: 10px 20px 10px 20px;
+  font-size: $h2;
+  font-family: $font;
+  text-decoration: none;
+  color: white;
+  box-shadow: 8px 5px 5px -2px black;
+  margin-bottom: 20px;
+}
+.sliderhome {
+  display: flex;
+  flex-direction: row;
+}
+
+.sliderart1 {
+  margin-top: 5vh;
+  display: flex;
+  background-size: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  height: 160px;
+  width: 150px;
+
+  margin-top: 200px;
+}
+.sliderart2 {
+  margin-top: 5vh;
+  display: flex;
+  back.logohome {
+    width: 300px;
+  }
+
+  .containerhome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+    margin-bottom: 5vh;
+  }
+
+  .afac {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    margin-top: 5vh;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    font-family: $font;
+  }
+
+  .galerie {
+    background-color: $color1;
+    padding: 10px 20px 10px 20px;
+    font-size: $h2;
+    font-family: $font;
+    text-decoration: none;
+    color: white;
+    box-shadow: 8px 5px 5px -2px black;
+    margin-bottom: 20px;
+  }
+  .sliderhome {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .sliderart1 {
+    margin-top: 5vh;
+    display: flex;
+    background-size: cover;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    height: 160px;
+    width: 150px;
+
+    margin-top: 200px;
+  }
+  .sliderart2 {
+    margin-top: 5vh;
+    display: flex;
+    background-size: cover;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    height: 160px;
+    width: 150px;
+    margin: 10px;
+  }
+  ground-size: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  height: 160px;
+  width: 150px;
+  margin: 10px;
+}
+// .hexagon-voir {
+//   cursor: pointer; // Cursor style
+//   transition: color 500ms ease; // Transition for text color and text shadow
+//   font-size: 4rem; // Font size
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%); // Center alignment
+//   margin-top: 11%; // Top margin
+//   text-decoration: none; // Text decoration (no underline)
+//   color: $font-content; // Text color
+// }
 
 .logohome {
   width: 300px;

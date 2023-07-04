@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import logohome from "../../assets/logos/logohome.svg";
 import "./Home.scss";
 import img1 from "../../assets/image/AD974_40FI72-ChanvertGolo.jpg";
@@ -7,8 +9,22 @@ import img3 from "../../assets/image/FRAD974_40FI52.jpg";
 import img5 from "../../assets/image/MORTIER.de.TREVISE_Mr.Bourraye.dans.jardin.Casernes_1861.jpg";
 import img6 from "../../assets/image/UsineBelAir_40FI78.jpg";
 
-export default function Home() {
-  return (
+function Home() {
+  const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setLargeurEcran(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const contenuDesktop = (
     <div className="containerhome">
       <div className="afac">
         <div className="imghome">
@@ -17,9 +33,9 @@ export default function Home() {
 
         <div className="text">
           <p>
-            L’Association des Familles Amies de Capeline 974 souhaite mettre à
-            disposition des élèves de l’Océan Indien et de leurs familles des
-            ressources spécifiques aux espaces ultramarins.
+            L’Association des HomePageFamilles Amies de Capeline 974 souhaite
+            mettre à disposition des élèves de l’Océan Indien et de leurs
+            familles des ressources spécifiques aux espaces ultramarins.
           </p>
           <p>
             Plongez au cœur de la magie artistique lors de notre exposition
@@ -37,7 +53,7 @@ export default function Home() {
       <NavLink to="/galerie" className="galerie">
         Voir les œuvres
       </NavLink>
-      {/* bas de la home */}
+
       <div className="sliderhome">
         <div>
           <img className="sliderart1" src={img1} alt="art" />
@@ -66,4 +82,44 @@ export default function Home() {
       </div>
     </div>
   );
+
+  const contenuTablette = (
+    <div className="background-image">
+      <div className="opacity">
+        <div className="container-background-opacity">
+          <div className="container-description-home-opacity">
+            <div className="description-home">
+              L'Association des Familles Amies de Capeline 974 est résolument
+              engagée à soutenir les élèves de l'Océan Indien et leurs familles
+              en leur offrant des ressources spécifiques aux espaces
+              ultramarins. Nous sommes fiers de contribuer à leur épanouissement
+              éducatif, culturel et social, et de jouer un rôle significatif
+              dans le renforcement des communautés ultramarines. <br /> <br />
+              Dans le cadre des prestigieuses Journées Européennes du Patrimoine
+              2023, notre association a entrepris un projet d'envergure : la
+              création d'une galerie virtuelle novatrice. Cette galerie sera le
+              fruit d'un travail minutieux, mettant en valeur une sélection
+              rigoureuse d'une vingtaine d'aquarelles et de dessins
+              représentatifs de notre patrimoine artistique.
+            </div>
+            <div className="hexagon-button">
+              <div className="hexagon-voir">
+                <div className="voir">Voir</div>
+                <div>les oeuvres</div>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      {largeurEcran >= 1181 ? contenuDesktop : <div>{contenuTablette}</div>}
+    </div>
+  );
 }
+
+export default Home;
