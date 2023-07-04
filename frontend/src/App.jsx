@@ -5,6 +5,8 @@ import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
 
 import Carousel from "./components/Carousel/carousel";
+// import Galerie from "./page/Home/Galerie/Galerie";
+import GaleriePG from "./page/Home/Galerie/Galeriepg";
 
 export default function App() {
   return (
@@ -15,7 +17,7 @@ export default function App() {
       <div className="containerapp">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/galerie" element={<Carousel />} />
+          <Route path="/galerie" element={<GaleriePG />} />
           <Route path="/apropos" element="" />
         </Routes>
       </div>
