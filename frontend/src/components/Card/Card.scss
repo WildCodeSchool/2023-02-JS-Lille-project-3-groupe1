@@ -1,0 +1,39 @@
+@import "./src/variable.scss";
+
+.CardFlip {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 5px;
+  border: 5px solid rgb(38, 255, 0);
+  box-shadow: 0px, 0px, 15px, black;
+  user-select: none;
+  cursor: pointer;
+}
+
+.frontCard,
+.backCard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font;
+  font-size: $h3;
+  color: rgb(0, 55, 255);
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.frontCard {
+  background-color: rgb(0, 0, 0);
+}
+
+.backCard {
+  display: none;
+  background-color: black;
+  transform: rotateY(180deg);
+}
