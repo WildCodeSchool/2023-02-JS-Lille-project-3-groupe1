@@ -7,13 +7,15 @@ export default function Navbar() {
   return (
     <nav>
       <NavLink to="/" className="logo">
-        <img className="logo" src={logo} alt="HomePage" />
+        <img className="logo-img" src={logo} alt="HomePage" />
       </NavLink>
       <ul>
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-inactive"
+            }
           >
             Accueil
           </NavLink>
@@ -21,7 +23,9 @@ export default function Navbar() {
         <li>
           <NavLink
             to="/galerie"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-inactive"
+            }
           >
             Galerie
           </NavLink>
@@ -29,13 +33,15 @@ export default function Navbar() {
         <li>
           <NavLink
             to="/apropos"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            className={({ isActive }) =>
+              isActive ? "navlink-active" : "navlink-inactive"
+            }
           >
             À propos
           </NavLink>
         </li>
       </ul>
-      <NavLink to="/profil" className="profil">
+      <NavLink to="/account/favoris">
         <img className="profil" src={profil} alt="Profil" />
       </NavLink>
     </nav>
