@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginRegisterStyle.scss";
 
 function LoginRegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const validateEmail = (email) => {
     // Expression régulière pour vérifier le format de l'adresse e-mail
@@ -36,6 +39,10 @@ function LoginRegisterForm() {
     // Le reste du code de soumission du formulaire...
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="container-form">
       <div className="title-form">AFAC 974</div>
@@ -59,15 +66,18 @@ function LoginRegisterForm() {
           <div className="input-field">
             <span className="fas fa-lock p-2"></span>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Entrez votre mot de passe"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className=""
             />
-            <button className="btn bg-white text-muted">
-              <span className="far fa-eye-slash"></span>
+            <button
+              className="btn bg-white text-muted"
+              onClick={togglePasswordVisibility}
+            >
+              <FontAwesomeIcon icon={faEyeSlash} />
             </button>
           </div>
         </div>
