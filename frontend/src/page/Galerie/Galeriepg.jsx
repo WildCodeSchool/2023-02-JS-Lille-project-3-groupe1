@@ -99,7 +99,7 @@ function GaleriePG() {
 
   return (
     <div>
-      {largeurEcran > 1024 ? (
+      {largeurEcran > 1181 ? (
         contenuDesktop
       ) : (
         <div className="tablet-container">{contenuTablette}</div>
