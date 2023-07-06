@@ -9,19 +9,6 @@
   margin-bottom: 2%;
   gap: 3vh;
 }
-// .galleryContainer {
-//   height: 10vw;
-//   margin: 20px;
-// }
-// .imageContainer {
-//   display: flex;
-//   flex-direction: column;
-//   flex-wrap: wrap;
-//   gap: 80px;
-// }
-// .imageContainer > img {
-//   width: 20px;
-// }
 
 .imageContainer {
   display: flex;
@@ -34,6 +21,7 @@
   border-radius: 3px;
   padding: 2%;
   background-color: rgb(246, 246, 246);
+  font-family: $font;
 
   img {
     width: 100%;
@@ -53,4 +41,17 @@
 }
 .details {
   margin: 2%;
+  color: $bg;
+  font-family: $font;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+}
+h3 {
+  font-size: $h3;
 }

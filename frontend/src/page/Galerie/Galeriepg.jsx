@@ -1,18 +1,47 @@
-import React, { useState } from "react";
-// Import Swiper React components
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+
+import Card from "./card";
+
+import "./Galerie.scss";
+import "./carousel.scss";
+
+import "swiper/swiper-bundle.css";
 import useineBelAir from "../../assets/image/UsineBelAir_40FI78.jpg";
 import treviseCannes from "../../assets/image/trevise-cannes_1861.jpg";
-import "./carousel.scss";
 import lapli from "../../assets/image/lapli Tampon.jpg";
 import girl from "../../assets/image/MORTIERTREVISE_Elise_1861.jpg";
 
-export default function Carousel() {
+function GaleriePG() {
+  const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setLargeurEcran(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const contenuDesktop = (
+    <div className="galleryContainer">
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </div>
+  );
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  return (
+  const contenuTablette = (
     <div className="swiper-container">
       <Swiper
         style={{
@@ -67,4 +96,16 @@ export default function Carousel() {
       </Swiper>
     </div>
   );
+
+  return (
+    <div>
+      {largeurEcran > 1024 ? (
+        contenuDesktop
+      ) : (
+        <div className="tablet-container">{contenuTablette}</div>
+      )}
+    </div>
+  );
 }
+
+export default GaleriePG;

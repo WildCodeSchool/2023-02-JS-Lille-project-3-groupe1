@@ -1,19 +1,8 @@
+/* eslint-disable */
 import React from "react";
 import Modal from "react-modal";
-
-import caille from "../../../assets/image/caille.jpg";
+import caille from "../../assets/image/caille.jpg";
 import "./Galerie.scss";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 function Card() {
   let subtitle;
@@ -41,7 +30,6 @@ function Card() {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        // style={customStyles}
         contentLabel="Image"
       >
         <div className="fullCard">
@@ -59,7 +47,7 @@ function Card() {
               assumenda molestias quo, nemo quibusdam dolore rerum libero
               facere. In ipsum ducimus ex.
             </p>
-            <a href="#">Link to articles</a>{" "}
+            <a href="#">Link to articles</a>
           </div>
         </div>
       </Modal>

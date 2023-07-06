@@ -3,10 +3,7 @@ import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
-
-import Carousel from "./components/Carousel/carousel";
-// import Galerie from "./page/Home/Galerie/Galerie";
-import GaleriePG from "./page/Home/Galerie/Galeriepg";
+import GaleriePG from "./page/Galerie/Galeriepg";
 
 export default function App() {
   return (
