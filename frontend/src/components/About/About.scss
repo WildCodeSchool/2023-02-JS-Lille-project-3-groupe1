@@ -5,3 +5,11 @@
   width: 500px;
   perspective: 1000px;
 }
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100vh;
+  background-image: url(../../assets/image/FRAD974_40FI80.jpg);
+  background-size: cover;
+  align-items: center;
+}
