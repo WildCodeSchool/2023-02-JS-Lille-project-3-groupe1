@@ -1,45 +1,48 @@
 const express = require("express");
 
 const router = express.Router();
-
-const itemControllers = require("./controllers/itemControllers");
-
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+const {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+} = require("./services/auth");
 
 const artworksControllers = require("./controllers/artworkControllers");
-
-router.get("/artworks", artworksControllers.browse);
-router.get("/artworks/:id", artworksControllers.read);
-router.put("/artworks/:id", artworksControllers.edit);
-router.post("/artworks", artworksControllers.add);
-router.delete("/artworks/:id", artworksControllers.destroy);
-
+const favoriControllers = require("./controllers/favoriControllers");
 const usersControllers = require("./controllers/usersControllers");
-
-router.get("/users", usersControllers.browse);
-router.get("/users/:id", usersControllers.read);
-router.put("/users/:id", usersControllers.edit);
-router.post("/users", usersControllers.add);
-router.delete("/users/:id", usersControllers.destroy);
-
 const authorControllers = require("./controllers/authorControllers");
 
+router.post(
+  "/login",
+  usersControllers.getUserByEmailWithPasswordAndPassToNext,
+  verifyPassword
+);
 router.get("/authors", authorControllers.browse);
 router.get("/authors/:id", authorControllers.read);
-router.put("/authors/:id", authorControllers.edit);
-router.post("/authors", authorControllers.add);
-router.delete("/authors/:id", authorControllers.destroy);
+router.get("/artworks", artworksControllers.browse);
+router.get("/artworks/:id", artworksControllers.read);
+router.put("/artworks/:id", verifyToken, artworksControllers.edit);
+router.delete("/artworks/:id", verifyToken, artworksControllers.destroy);
+router.post("/artworks", verifyToken, artworksControllers.add);
+router.post("/users", hashPassword, usersControllers.add);
 
-const favoriControllers = require("./controllers/favoriControllers");
+router.use(verifyToken);
+router.put("/users/:id", verifyToken, hashPassword, usersControllers.edit);
+router.get("/users", verifyToken, usersControllers.browse);
+router.get("/users/:id", verifyToken, usersControllers.read);
+router.delete("/users/:id", verifyToken, usersControllers.destroy);
 
-router.get("/favori", favoriControllers.browse);
-router.get("/favori/:id", favoriControllers.read);
-router.put("/favori/:id", favoriControllers.edit);
-router.post("/favori", favoriControllers.add);
-router.delete("/favori/:id", favoriControllers.destroy);
+// route hashed
+
+router.put("/authors/:id", verifyToken, authorControllers.edit);
+router.delete("/authors/:id", verifyToken, authorControllers.destroy);
+
+router.post("/authors", verifyToken, authorControllers.add);
+
+router.get("/favori", verifyToken, favoriControllers.browse);
+router.get("/favori/:id", verifyToken, favoriControllers.read);
+router.put("/favori/:id", verifyToken, favoriControllers.edit);
+router.post("/favori", verifyToken, favoriControllers.add);
+router.delete("/favori/:id", verifyToken, favoriControllers.destroy);
 
 module.exports = router;
