@@ -35,7 +35,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <NavLink to="/profil" className={profil}>
+      <NavLink to="/profil" className="profil">
         <img className="profil" src={profil} alt="Profil" />
       </NavLink>
     </nav>
