@@ -1,14 +1,17 @@
 @import "../../variable.scss";
 
 .FlipCardComp {
-  height: 300px;
-  width: 500px;
-  perspective: 1000px;
+  margin-bottom: 18vh;
+  display: flex;
+  width: 70%;
+  height: 31%;
+  justify-content: center;
 }
 .container {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
-  height: 100vh;
+  height: 74vh;
   background-image: url(../../assets/image/FRAD974_40FI80.jpg);
   background-size: cover;
   align-items: center;

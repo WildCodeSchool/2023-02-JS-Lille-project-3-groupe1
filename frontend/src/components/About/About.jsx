@@ -9,11 +9,11 @@ export default function AproposFlipCard() {
   const [showFront2, setShowFront2] = useState(true);
 
   const flipCard1 = () => {
-    setShowFront((v) => !v);
+    setShowFront((flip) => !flip);
   };
 
   const flipCard2 = () => {
-    setShowFront2((v) => !v);
+    setShowFront2((flip) => !flip);
   };
 
   return (

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Card.scss";
 import "./flip-transition.scss";
-import LogoImg from "../../assets/logos/AfacFlip.png";
 
 export default function Card({ onClick }) {
   const handleClick = (event) => {
@@ -19,9 +18,7 @@ export default function Card({ onClick }) {
       tabIndex={0}
       role="button"
     >
-      <div className="frontCard">
-        <img className="ImgFlip2" src={LogoImg} alt="Logo" />
-      </div>
+      <div className="frontCard" />
       <div className="backCard">
         <p>
           L'Association des Familles Amies de Capeline 974 est une organisation

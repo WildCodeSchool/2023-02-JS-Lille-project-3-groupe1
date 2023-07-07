@@ -1,13 +1,12 @@
 @import "../../variable.scss";
 
 .authorcontainer {
-  margin: 50px auto;
-  max-width: 400px;
+  margin: 6.33vh auto;
+  max-width: 50.69vh;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 10px 10px 30px #bdbdbd;
+  box-shadow: 1.26vh 1.26vh 4.94vh #bdbdbd;
   transition: all ease 200ms;
-  border: 8px ridge rgba(0, 0, 0, 0.6);
+  border: 1.01vh ridge rgba(0, 0, 0, 0.6);
   border-radius: 2rem;
 }
 .profilpic {
@@ -23,6 +22,7 @@
 }
 .authorcontainer:hover {
   transform: scale(1.03);
-  box-shadow: 0 13px 40px -5px $color3, 0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
-    0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+  box-shadow: 0 1.64vh 5.06vh -0.63 $color3,
+    0 1.01vh 4.05vh -1.01vh hsla(0, 0%, 0%, 0.14),
+    0 -0.76vh 4.05vh -0.76vh hsla(0, 0%, 0%, 0.02);
 }

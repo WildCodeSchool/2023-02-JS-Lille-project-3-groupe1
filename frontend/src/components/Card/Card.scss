@@ -1,21 +1,23 @@
 @import "./src/variable.scss";
 
 .CardFlip {
-  height: 100%;
-  width: 100%;
+  height: 40vh;
+  width: 55vh;
   transform-style: preserve-3d;
   position: relative;
-  border: 5px solid rgb(0, 0, 0);
-  box-shadow: 0px, 0px, 15px, black;
+  border: 0.63vh solid rgb(0, 0, 0);
+  box-shadow: 0px, 0px, 1.9vh, black;
   user-select: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.63vh;
+  padding: 2vh;
+  background-color: white;
 }
 
 .frontCard,
 .backCard {
-  height: 100%;
-  width: 100%;
+  height: 40vh;
+  width: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,22 +31,21 @@
 
 .frontCard {
   background-color: rgb(0, 0, 0);
+  background-image: url(../../assets/logos/AfacFlip.png);
+  background-size: contain;
+  background-position: center;
 }
 
 .backCard {
   background-color: rgb(255, 255, 255);
   transform: rotateY(180deg);
   color: black;
-  font-size: 15px;
+  font-size: 1.7vh;
   font-family: $font;
 }
 
 .ImgFlip2 {
-  width: 500px;
-  height: 300px;
-}
-.ImgFlip2 {
-  width: 500px;
-  height: 300px;
-  border-radius: 5px;
+  width: 55.37vh;
+  height: 40.02vh;
+  border-radius: 0.63vh;
 }
