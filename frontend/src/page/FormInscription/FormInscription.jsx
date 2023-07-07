@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./form_connection.scss";
+import "./FormInscription.scss";
 
-function LoginForm() {
+function FormInscription() {
   const [formData, setFormData] = useState({
+    name: "",
     mail: "",
-    hashedPassword: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -16,23 +17,33 @@ function LoginForm() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/login", formData)
+      .post("http://localhost:5000/users", formData)
       .then(() => {
-        // console.log("Requête réussie :", response);
         // Réinitialiser le formulaire après soumission réussie
         setFormData({
+          name: "",
           mail: "",
-          hashedPassword: "",
+          password: "",
         });
       })
-      .catch((error) => {
-        console.error("Erreur lors de la requête :", error);
-      });
+      .catch();
   };
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
+        <label>
+          Nom:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <br />
         <label>
           Email:
           <input
@@ -48,17 +59,17 @@ function LoginForm() {
           Mot de passe:
           <input
             type="password"
-            name="hashedPassword"
-            value={formData.hashedPassword}
+            name="password"
+            value={formData.password}
             onChange={handleChange}
             required
           />
         </label>
         <br />
-        <button type="submit">Se connecter</button>
+        <button type="submit">Enregistrer</button>
       </form>
     </div>
   );
 }
 
-export default LoginForm;
+export default FormInscription;
