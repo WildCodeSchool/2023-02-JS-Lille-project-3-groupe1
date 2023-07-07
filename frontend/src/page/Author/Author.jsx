@@ -9,7 +9,7 @@ function Author() {
     axios
       .get("http://localhost:5000/authors")
       .then((response) => {
-        setAuthors(response.data); // Utiliser response.data pour obtenir le tableau d'auteurs
+        setAuthors(response.data);
       })
       .catch((err) => {
         console.error(err);

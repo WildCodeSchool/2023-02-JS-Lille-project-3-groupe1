@@ -1,5 +1,23 @@
 @import "./src/variable.scss";
 
+body {
+  width: 100vw;
+}
+.galleryContainer {
+  height: 10vw;
+  margin: 20px;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+.imageContainer > img {
+  width: 20px;
+}
+@import "./src/variable.scss";
+
 .galleryContainer {
   display: flex;
   flex-wrap: wrap;

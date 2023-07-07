@@ -122,7 +122,7 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
 //       console.error(error);
 //       res.status(500).send("Error retrieving data from the database");
 //     });
-//};
+// };
 
 module.exports = {
   browse,

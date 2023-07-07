@@ -25,7 +25,7 @@ class UsersManager extends AbstractManager {
     ]);
   }
 }
-//login(mail, hashedPassword) {
+// login(mail, hashedPassword) {
 //     const table = "user";
 
 //     const query = `SELECT * FROM ${table} WHERE mail = ? AND hashedPassword = ?`;

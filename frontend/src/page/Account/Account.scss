@@ -1,0 +1,31 @@
+@import "../../variable.scss";
+.container_account {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh;
+  height: 100vh;
+  width: 90vw;
+}
+
+.onglet {
+  display: flex;
+  justify-content: flex-start;
+  width: fit-content;
+}
+
+.liste {
+  font-size: $text;
+  padding: 15px;
+  cursor: pointer;
+  color: #000000;
+  text-decoration: none;
+  background-color: rgb(125, 192, 207);
+  width: fit-content;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin-right: 2vw;
+}
+
+.liste.active {
+  font-weight: bold;
+}
