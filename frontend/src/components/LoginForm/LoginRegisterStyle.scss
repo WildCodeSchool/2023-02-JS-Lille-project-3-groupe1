@@ -32,15 +32,15 @@ body {
   text-align: center;
   background-color: #ffffff;
   align-items: center;
-}
 
-.container-form a {
-  text-decoration: none;
-  font-weight: bold;
-}
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-.container-form a:visited {
-  color: #257693;
+  a:visited {
+    color: #257693;
+  }
 }
 
 // Titre du formulaire
@@ -49,36 +49,47 @@ body {
   font-size: 4rem;
   font-weight: bold;
   color: #257693;
-
 }
 
 // Zone pour entrer les informations
 .enter-informations {
   font-family: "Poppins", sans-serif;
-
   color: grey;
 }
 
 // Champ de saisie
 .input-informations {
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  
-  }
-  
-  
-  input {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    width: 100%;
-    padding: 0px 2px;
-    font-family: "Poppins", sans-serif;  
-    border: 2px solid #257693;
-  }
+  position: relative;
+}
+
+.input-informations input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 0px 2px;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid #257693;
+  border-radius: 5px;
+  padding-right: 40px;
+}
+
+.input-informations .eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-informations .eye-icon:hover {
+  color: #257693;
+}
 
 // Bouton de validation du formulaire
 .submit-button {
