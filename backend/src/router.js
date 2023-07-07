@@ -32,11 +32,8 @@ router.get("/users", verifyToken, usersControllers.browse);
 router.get("/users/:id", verifyToken, usersControllers.read);
 router.delete("/users/:id", verifyToken, usersControllers.destroy);
 
-// route hashed
-
 router.put("/authors/:id", verifyToken, authorControllers.edit);
 router.delete("/authors/:id", verifyToken, authorControllers.destroy);
-
 router.post("/authors", verifyToken, authorControllers.add);
 
 router.get("/favori", verifyToken, favoriControllers.browse);
