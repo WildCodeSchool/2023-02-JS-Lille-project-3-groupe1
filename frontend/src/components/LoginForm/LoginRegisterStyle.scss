@@ -1,84 +1,105 @@
+// Importation des polices Google Fonts
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap");
+
+// Importation des variables depuis le fichier "variable.scss"
 @import "../../variable.scss";
 
+// Réinitialisation des styles pour tous les éléments
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+// Styles généraux pour le corps de la page
 body {
   background-color: #eee;
   height: 100vh;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to top, #fff 20%, #2576939d 80%) no-repeat;
+  background: linear-gradient(to top, #fff 10%, #257693 90%) no-repeat;
 }
 
+// Conteneur principal du formulaire
 .container-form {
-  max-width: 100vh;
-  margin: 50px auto;
-  padding: 30px 40px;
-  box-shadow: 20px 20px 80px rgb(206, 206, 206);
-  border: $color-background-div solid 5px;
+  max-width: 65vh;
+  margin: 60px auto;
+  padding: 40px 40px;
+  box-shadow: 20px 20px 80px 5px #ffffff;
+  border: #257593 solid;
+  border-radius: 15px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   text-align: center;
+  background-color: #ffffff;
+  align-items: center;
 }
 
+.container-form a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container-form a:visited {
+  color: #257693;
+}
+
+// Titre du formulaire
 .title-form {
   font-family: $font;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: #257693;
-  border: limegreen solid 5px;
+
 }
 
+// Zone pour entrer les informations
 .enter-informations {
   font-family: "Poppins", sans-serif;
-  border: rgb(26, 82, 202) solid 5px;
+
+  color: grey;
 }
 
-.input-field {
-  border-radius: 5px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid #400485;
-  color: #400485;
-}
+// Champ de saisie
+.input-informations {
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+  }
+  
+  
+  input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0px 2px;
+    font-family: "Poppins", sans-serif;  
+    border: 2px solid #257693;
+  }
 
-.input-field:hover {
-  color: #7b4ca0;
-  border: 1px solid #7b4ca0;
-}
-
-input {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  width: 100%;
-  padding: 0px 2px;
-  font-family: "Poppins", sans-serif;
-}
-
-.btn.btn-block {
-  border-radius: 20px;
-  background-color: #400485;
+// Bouton de validation du formulaire
+.submit-button {
+  border-radius: 2px;
+  background-color: #257693;
   color: #fff;
+  border: none;
 }
 
-.btn.btn-block:hover {
-  background-color: #55268be0;
+.submit-button:hover {
+  background-color: #0f2e3a;
 }
 
+// Styles spécifiques pour les écrans de petite taille (575px max)
 @media (max-width: 575px) {
   .container-form {
     margin: 10px;
   }
 }
 
+// Styles spécifiques pour les écrans de très petite taille (424px max)
 @media (max-width: 424px) {
   .container-form {
     padding: 30px 10px;
