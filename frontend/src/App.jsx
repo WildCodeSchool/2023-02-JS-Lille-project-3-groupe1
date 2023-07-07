@@ -9,14 +9,18 @@ import Carousel from "./components/Carousel/carousel";
 export default function App() {
   return (
     <div className="appcontainer">
+
       <div className="containerapp">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/galerie" element={<Carousel />} />
           <Route path="/apropos" element="" />
-          <Route path="/login" element={<LoginRegisterForm />} />
+          <Route path="/login" element={<LoginRegisterForm/>} />
+
         </Routes>
       </div>
+    
+   
     </div>
   );
 }

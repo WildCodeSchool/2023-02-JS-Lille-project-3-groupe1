@@ -47,9 +47,10 @@ function LoginRegisterForm() {
         Entrez vos informations de connexion
       </div>
       <form className="form" onSubmit={handleSubmit}>
+        <div className="text-information-input">
         <div className="input-informations">
           <span className="enter-id"></span>
-          <input
+          <input className="email-text"
             type="mail"
             placeholder="Entrez votre adresse mail"
             required
@@ -67,12 +68,11 @@ function LoginRegisterForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button
-              className="eye-icon"
-              onClick={togglePasswordVisibility}
-            >
+            
+            <button className="eye-icon" onClick={togglePasswordVisibility}>
               <FontAwesomeIcon icon={faEyeSlash} />
             </button>
+          </div>
           </div>
         </div>
         <div className="forgot-password">
@@ -83,7 +83,7 @@ function LoginRegisterForm() {
           </div>
         </div>
         <button className="submit-button text-center my-3">Se connecter</button>
-        <div className="text-center form text-muted">
+        <div className="inscription-text">
           Pas encore inscrit ? <a href="#">S'inscrire</a>
         </div>
       </form>
