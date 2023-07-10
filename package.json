@@ -30,5 +30,6 @@
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
     "sass": "^1.63.6"
-  }
+  },
+  "dependencies": {}
 }
