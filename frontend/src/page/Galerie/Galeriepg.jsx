@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import axios from "axios";
 
 import Card from "./card";
 
@@ -8,13 +9,21 @@ import "./Galerie.scss";
 import "./carousel.scss";
 
 import "swiper/swiper-bundle.css";
-import useineBelAir from "../../assets/image/UsineBelAir_40FI78.jpg";
-import treviseCannes from "../../assets/image/trevise-cannes_1861.jpg";
-import lapli from "../../assets/image/lapli Tampon.jpg";
-import girl from "../../assets/image/MORTIERTREVISE_Elise_1861.jpg";
 
 function GaleriePG() {
   const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);
+  const [artworks, setArtworks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/artworks")
+      .then((response) => {
+        setArtworks(response.data); // Utiliser response.data pour obtenir le tableau d'auteurs
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,12 +39,9 @@ function GaleriePG() {
 
   const contenuDesktop = (
     <div className="galleryContainer">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {artworks.map((artwork) => (
+        <Card key={artwork.id} artwork={artwork} />
+      ))}
     </div>
   );
 
@@ -43,7 +49,7 @@ function GaleriePG() {
 
   const contenuTablette = (
     <div className="swiper-container">
-      <Swiper
+      {/* <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
@@ -93,7 +99,7 @@ function GaleriePG() {
         <SwiperSlide>
           <img src={girl} alt="nature" />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </div>
   );
 
