@@ -8,12 +8,16 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.1",
+    "axios": "^1.4.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "6.11.2",
+    "swiper": "^9.3.2",
     "vite": "^4.0.4",
     "react-router-dom": "6.11.2",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "eslint": "^8.32.0",
@@ -27,5 +31,8 @@
     "husky": "^8.0.3",
     "prettier": "^2.8.3",
     "react-transition-group": "^4.4.5"
-  }
+  },
+  "tags": [
+    "swiper"
+  ]
 }
