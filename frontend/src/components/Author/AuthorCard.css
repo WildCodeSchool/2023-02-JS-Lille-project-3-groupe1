@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.authorcontainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 80vw;
+  transition: all ease 200ms;
+  border: 3px solid rgb(255, 233, 174);
+  border-radius: 0.3rem;
+  padding: 2rem;
+  background-color: #fcf2cd;
+  font-family: "Pill Gothic 600mg", sans-serif;
+}
+
+.profilpic {
+  height: 30vh;
+  border: 2px solid black;
+}
+
+h4 {
+  margin: 0;
+}
+
+.authorinfo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.description {
+  display: flex;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.authorcontainer:hover {
+  box-shadow: 5px 5px 5px 5px #808080, 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+}/*# sourceMappingURL=AuthorCard.css.map */
