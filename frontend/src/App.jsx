@@ -8,6 +8,8 @@ import Authors from "./page/Author/Author";
 import GaleriePG from "./page/Galerie/Galeriepg";
 import FormLogin from "./page/FormLogin/FormLogin";
 import FormInscription from "./page/FormInscription/FormInscription";
+import About from "./components/About/About";
+import "./App.scss";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("favoris");
@@ -24,11 +26,12 @@ export default function App() {
       <div className="containerapp">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/apropos" element="" />
           <Route path="/galerie" element={<GaleriePG />} />
           <Route path="/authors" element={<Authors />} />
           <Route path="/login" element={<FormLogin />} />
           <Route path="/register" element={<FormInscription />} />
+          <Route path="/apropos" element={<About />} />
+          <Route path="/authors" element={<Authors />} />
           <Route
             path="/account/favoris"
             element={

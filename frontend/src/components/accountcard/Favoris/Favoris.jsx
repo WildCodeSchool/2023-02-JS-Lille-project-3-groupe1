@@ -1,5 +1,5 @@
 import React from "react";
-import caille from "../../../assets/image/caille.jpg";
+import caille from "../../../../../backend/public/assets/images/image/caille.jpg";
 import "./Favoris.scss";
 
 function Favoris() {
