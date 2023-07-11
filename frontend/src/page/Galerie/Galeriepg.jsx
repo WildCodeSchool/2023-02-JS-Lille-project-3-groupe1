@@ -18,7 +18,7 @@ function GaleriePG() {
     axios
       .get("http://localhost:5000/artworks")
       .then((response) => {
-        setArtworks(response.data); // Utiliser response.data pour obtenir le tableau d'auteurs
+        setArtworks(response.data); // Utiliser response.data pour obtenir le tableau d'oeuvres
       })
       .catch((err) => {
         console.error(err);
@@ -49,7 +49,7 @@ function GaleriePG() {
 
   const contenuTablette = (
     <div className="swiper-container">
-      {/* <Swiper
+      <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
@@ -64,16 +64,12 @@ function GaleriePG() {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img src={treviseCannes} alt="nature" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={lapli} alt="nature" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={useineBelAir} alt="nature" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={girl} alt="nature" />
+          {artworks.map((artwork) => (
+            <img
+              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+              alt="images"
+            />
+          ))}
         </SwiperSlide>
       </Swiper>
 
@@ -88,18 +84,14 @@ function GaleriePG() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={treviseCannes} alt="nature" />
+          {artworks.map((artwork) => (
+            <img
+              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+              alt="nature"
+            />
+          ))}
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={lapli} alt="nature" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={useineBelAir} alt="nature" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={girl} alt="nature" />
-        </SwiperSlide>
-      </Swiper> */}
+      </Swiper>
     </div>
   );
 
