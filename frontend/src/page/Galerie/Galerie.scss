@@ -1,8 +1,8 @@
 @import "./src/variable.scss";
 
 .galleryContainer {
-  height: 10vw;
-  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .imageContainer {
   display: flex;
