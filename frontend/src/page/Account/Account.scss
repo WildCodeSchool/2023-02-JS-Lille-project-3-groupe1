@@ -1,0 +1,53 @@
+@import "../../variable.scss";
+
+.container_account {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  height: fit-content;
+  width: 90vw;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 -1vh 2vh rgba(0, 0, 0, 0.3);
+  border-radius: 3vh 3vh 3vh 3vh;
+  background: $color3;
+}
+
+.onglet {
+  padding: 2.5vh 0.7vh;
+  margin: 0vh;
+  background: $color3;
+  display: inline-block;
+  color: #fff;
+  border-radius: 3vh 3vh 0vh 0vh;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+
+.liste {
+  font-size: $text;
+  padding: 15px;
+  cursor: pointer;
+  color: #000000;
+  text-decoration: none;
+  background-color: rgb(125, 192, 207);
+  width: fit-content;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin-right: 2vw;
+}
+
+.liste.active {
+  font-weight: bold;
+  background-color: #fff;
+  color: #000000;
+}
+
+.liste.inactive {
+  font-weight: normal;
+}
+
+.liste:hover {
+  background-color: #fff;
+  color: #000000;
+}
