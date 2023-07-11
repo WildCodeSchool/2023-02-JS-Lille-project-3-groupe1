@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import GaleriePG from "./page/Galerie/Galeriepg";
 import Author from "./components/Author/Author";
 import About from "./components/About/About";
+import Account from "./page/Account/Account";
 import "./App.scss";
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/galerie" element={<GaleriePG />} />
           <Route path="/apropos" element={<About />} />
-          <Route path="/authors" element={<Author />} />           
+          <Route path="/authors" element={<Author />} />
           <Route
             path="/account/favoris"
             element={
