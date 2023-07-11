@@ -102,27 +102,6 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
       res.status(500).send("Error retrieving data from the database");
     });
 };
-// const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
-//   const { mail, hashedPassword } = req.body;
-
-//   models.user
-//     .login(mail, hashedPassword)
-//     .then((results) => {
-//       if (results.length > 0) {
-//         req.user = {
-//           mail: results[0].mail,
-//           hashedPassword: results[0].hashedPassword,
-//         };
-//         next();
-//       } else {
-//         res.sendStatus(401);
-//       }
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//       res.status(500).send("Error retrieving data from the database");
-//     });
-// };
 
 module.exports = {
   browse,

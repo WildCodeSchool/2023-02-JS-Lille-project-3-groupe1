@@ -17,29 +17,43 @@ router.post(
   usersControllers.getUserByEmailWithPasswordAndPassToNext,
   verifyPassword
 );
-router.get("/authors", authorControllers.browse);
+
+router.get("/show-token", (req, res) => {
+  console.info(req.cookies);
+
+  res.sendStatus(200);
+});
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+
+  res.sendStatus(204);
+});
+
 router.get("/authors/:id", authorControllers.read);
 router.get("/artworks", artworksControllers.browse);
 router.get("/artworks/:id", artworksControllers.read);
-router.put("/artworks/:id", verifyToken, artworksControllers.edit);
-router.delete("/artworks/:id", verifyToken, artworksControllers.destroy);
-router.post("/artworks", verifyToken, artworksControllers.add);
 router.post("/users", hashPassword, usersControllers.add);
 
 router.use(verifyToken);
-router.put("/users/:id", verifyToken, hashPassword, usersControllers.edit);
-router.get("/users", verifyToken, usersControllers.browse);
-router.get("/users/:id", verifyToken, usersControllers.read);
-router.delete("/users/:id", verifyToken, usersControllers.destroy);
+router.get("/authors", authorControllers.browse);
 
-router.put("/authors/:id", verifyToken, authorControllers.edit);
-router.delete("/authors/:id", verifyToken, authorControllers.destroy);
-router.post("/authors", verifyToken, authorControllers.add);
+router.put("/users/:id", hashPassword, usersControllers.edit);
+router.get("/users", usersControllers.browse);
+router.get("/users/:id", usersControllers.read);
+router.delete("/users/:id", usersControllers.destroy);
 
-router.get("/favori", verifyToken, favoriControllers.browse);
-router.get("/favori/:id", verifyToken, favoriControllers.read);
-router.put("/favori/:id", verifyToken, favoriControllers.edit);
-router.post("/favori", verifyToken, favoriControllers.add);
-router.delete("/favori/:id", verifyToken, favoriControllers.destroy);
+router.put("/authors/:id", authorControllers.edit);
+router.delete("/authors/:id", authorControllers.destroy);
+router.post("/authors", authorControllers.add);
+
+router.get("/favori", favoriControllers.browse);
+router.get("/favori/:id", favoriControllers.read);
+router.put("/favori/:id", favoriControllers.edit);
+router.post("/favori", favoriControllers.add);
+router.delete("/favori/:id", favoriControllers.destroy);
+
+router.put("/artworks/:id", artworksControllers.edit);
+router.post("/artworks", artworksControllers.add);
+router.delete("/artworks/:id", artworksControllers.destroy);
 
 module.exports = router;

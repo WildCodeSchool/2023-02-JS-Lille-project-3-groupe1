@@ -30,7 +30,7 @@ function FormInscription() {
   };
 
   return (
-    <div className="container">
+    <div className="containerregister">
       <form onSubmit={handleSubmit}>
         <label>
           Nom:

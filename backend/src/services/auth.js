@@ -33,8 +33,20 @@ const verifyPassword = (req, res) => {
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
+
         delete req.user.hashedPassword;
-        res.send({ token, user: req.user });
+
+        res.cookie("token", token, {
+          maxAge: 15 * 60 * 1000,
+          httpOnly: true, // try false, and console.log(document.cookie) in frontend
+        });
+
+        res.send({
+          user: {
+            id: req.user.id,
+            username: req.user.username,
+          },
+        });
       } else {
         res.sendStatus(401);
       }
