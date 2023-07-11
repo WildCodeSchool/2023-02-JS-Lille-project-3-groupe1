@@ -1,27 +1,17 @@
 @import "./src/variable.scss";
 
 .galleryContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  padding: 1%;
-  margin-bottom: 2%;
-  gap: 3vh;
+  height: 10vw;
+  margin: 20px;
 }
-
 .imageContainer {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  flex-direction: row;
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 2%;
-  background-color: rgb(246, 246, 246);
-  font-family: $font;
+  gap: 80px;
+}
+.imageContainer > img {
+  width: 20px;
 
   img {
     width: 100%;
