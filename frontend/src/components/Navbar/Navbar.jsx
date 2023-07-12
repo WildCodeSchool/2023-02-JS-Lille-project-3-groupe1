@@ -41,7 +41,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <NavLink to="/account/favoris">
+      <NavLink to="/login" className={profil}>
         <img className="profil" src={profil} alt="Profil" />
       </NavLink>
     </nav>

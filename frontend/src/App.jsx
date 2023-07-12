@@ -5,6 +5,7 @@ import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Account from "./page/Account/Account";
 import Authors from "./page/Author/Author";
+import LoginRegisterForm from "./components/LoginForm/LoginRegisterForm";
 import GaleriePG from "./page/Galerie/Galeriepg";
 import FormLogin from "./page/FormLogin/FormLogin";
 import FormInscription from "./page/FormInscription/FormInscription";
@@ -20,9 +21,7 @@ export default function App() {
 
   return (
     <div className="appcontainer">
-      <div className="navapp">
-        <Navbar />
-      </div>
+
       <div className="containerapp">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,7 +31,8 @@ export default function App() {
           <Route path="/register" element={<FormInscription />} />
           <Route path="/apropos" element={<About />} />
           <Route path="/authors" element={<Authors />} />
-          <Route
+          <Route path="/login2" element={<LoginRegisterForm/>} />
+              <Route
             path="/account/favoris"
             element={
               <Account activeTab={activeTab} onTabChange={handleTabChange} />
