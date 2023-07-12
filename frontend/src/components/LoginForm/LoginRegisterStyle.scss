@@ -1,3 +1,5 @@
+@import "../../variable.scss";
+
 .login-box {
   position: absolute;
   top: 50%;
@@ -6,17 +8,17 @@
   padding: 40px;
   margin: 20px auto;
   transform: translate(-50%, -55%);
-  background: rgba(0, 0, 0, 0.9);
-  box-sizing: border-box;
+  background: #257593;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  font-family: $font;
 
   p:first-child {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: $h1;
     font-weight: bold;
     letter-spacing: 1px;
   }
@@ -69,10 +71,11 @@
     transition: 0.5s;
     margin-top: 40px;
     letter-spacing: 3px;
+    
 
     &:hover {
       background: #fff;
-      color: #272727;
+      color: #257593;
       border-radius: 5px;
     }
 
@@ -121,7 +124,8 @@
     }
   }
 
-  p:last-child {
+  
+  .account-sign-up:last-child {
     color: #aaa;
     font-size: 14px;
   }
@@ -137,6 +141,7 @@
     }
   }
 }
+
 
 @keyframes btn-anim1 {
   0% {

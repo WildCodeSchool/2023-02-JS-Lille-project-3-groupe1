@@ -22,7 +22,14 @@ function LoginRegisterForm() {
           Se connecter
         </a>
       </form>
-      <p>Vous n'avez pas de compte ?<a href="" className="a2">Se connecter</a></p>
+
+      <p className="account-sign-up">
+        Vous n'avez pas de compte ?{" "}
+        <a href="" className="a2">
+          S'inscrire !
+        </a>
+      </p>
+
     </div>
   );
 }
