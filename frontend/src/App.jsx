@@ -14,6 +14,8 @@ import "./App.scss";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("favoris");
+  const [showNavbarAndFooter, setShowNavbarAndFooter] = useState(true);
+
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -22,7 +24,7 @@ export default function App() {
   return (
     <div className="appcontainer">
       <div className="navapp">
-        <Navbar />
+        {showNavbarAndFooter && <Navbar />}
         <div className="containerapp">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,8 +34,10 @@ export default function App() {
             <Route path="/register" element={<FormInscription />} />
             <Route path="/apropos" element={<About />} />
             <Route path="/authors" element={<Authors />} />
-            <Route path="/login2" element={<LoginRegisterForm />} />
             <Route
+  path="/login2"
+  element={<LoginRegisterForm setShowNavbarAndFooter={setShowNavbarAndFooter} />}
+/>            <Route
               path="/account/favoris"
               element={
                 <Account activeTab={activeTab} onTabChange={handleTabChange} />
@@ -47,9 +51,11 @@ export default function App() {
             />
           </Routes>
         </div>
-        <div className="footerapp">
-          <Footer />
-        </div>
+        {showNavbarAndFooter && (
+          <div className="footerapp">
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   );

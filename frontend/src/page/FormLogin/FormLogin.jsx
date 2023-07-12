@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./FormLogin.scss";
+import "../../components/LoginForm/LoginRegisterStyle.scss";
 
 function FormLogin() {
   const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ function FormLogin() {
   };
 
   return (
-    <div className="containerlogin">
+    <div className="login-box">
       <form onSubmit={handleSubmit}>
         <label>
           Email:
