@@ -325,6 +325,7 @@
   flex-direction: column;
   margin-left: 5vw;
   font-family: $font;
+  justify-content: center;
 }
 
 .galerie {
@@ -360,4 +361,60 @@
   height: 160px;
   width: 150px;
   margin: 10px;
+}
+
+@mixin white-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+$animationSpeed: 30s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(1);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+// Styling
+.sliderhome {
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 1800px;
+
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 400px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track-home {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(150px * 55);
+  }
 }
