@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
-import autoportait from "../../../../backend/public/assets/images/image/HCNMT_autoportrait.jpg";
 import "./AuthorCard.scss";
 
 function AuthorCard({ authors }) {
   return (
     <div className="authorcontainer">
       <div className="authorinfo">
-        <img className="profilpic" src={autoportait} alt="" />
+        <img
+          className="profilpic"
+          src={`http://localhost:5000/assets/images/image/${authors.avatarUrl}`}
+          alt="autoportrait"
+        />
         <div className="info">
           <h4>
             {authors.firstname}
@@ -30,6 +33,7 @@ AuthorCard.propTypes = {
     dod: PropTypes.string,
     nationality: PropTypes.string,
     description: PropTypes.string,
+    avatarUrl: PropTypes.string,
   }).isRequired,
 };
 
