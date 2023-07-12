@@ -1,11 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
-const {
-  hashPassword,
-  verifyPassword,
-  // verifyToken,
-} = require("./services/auth");
+const { hashPassword, verifyPassword } = require("./services/auth");
 
 const artworksControllers = require("./controllers/artworkControllers");
 const favoriControllers = require("./controllers/favoriControllers");
@@ -34,7 +30,6 @@ router.get("/artworks", artworksControllers.browse);
 router.get("/artworks/:id", artworksControllers.read);
 router.post("/users", hashPassword, usersControllers.add);
 
-// router.use(verifyToken);
 router.get("/authors", authorControllers.browse);
 
 router.put("/users/:id", hashPassword, usersControllers.edit);
