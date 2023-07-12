@@ -30,13 +30,9 @@ const read = (req, res) => {
 
 const edit = (req, res) => {
   const user = req.body;
-
-  // TODO validations (length, format...)
-
   user.id = parseInt(req.params.id, 10);
 
   models.user
-
     .update(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -53,8 +49,6 @@ const edit = (req, res) => {
 
 const add = (req, res) => {
   const user = req.body;
-
-  // TODO validations (length, format...)
 
   models.user
     .insert(user)
@@ -82,7 +76,6 @@ const destroy = (req, res) => {
       res.sendStatus(500);
     });
 };
-// ...
 
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
   const user = req.body;

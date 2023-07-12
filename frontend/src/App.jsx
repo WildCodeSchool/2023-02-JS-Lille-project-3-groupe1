@@ -21,34 +21,35 @@ export default function App() {
 
   return (
     <div className="appcontainer">
-
-      <div className="containerapp">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/galerie" element={<GaleriePG />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route path="/login" element={<FormLogin />} />
-          <Route path="/register" element={<FormInscription />} />
-          <Route path="/apropos" element={<About />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route path="/login2" element={<LoginRegisterForm/>} />
-              <Route
-            path="/account/favoris"
-            element={
-              <Account activeTab={activeTab} onTabChange={handleTabChange} />
-            }
-          />
-          <Route
-            path="/account/news"
-            element={
-              <Account activeTab={activeTab} onTabChange={handleTabChange} />
-            }
-          />
-        </Routes>
-      </div>
-
-      <div className="footerapp">
-        <Footer />
+      <div className="navapp">
+        <Navbar />
+        <div className="containerapp">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/galerie" element={<GaleriePG />} />
+            <Route path="/authors" element={<Authors />} />
+            <Route path="/login" element={<FormLogin />} />
+            <Route path="/register" element={<FormInscription />} />
+            <Route path="/apropos" element={<About />} />
+            <Route path="/authors" element={<Authors />} />
+            <Route path="/login2" element={<LoginRegisterForm />} />
+            <Route
+              path="/account/favoris"
+              element={
+                <Account activeTab={activeTab} onTabChange={handleTabChange} />
+              }
+            />
+            <Route
+              path="/account/news"
+              element={
+                <Account activeTab={activeTab} onTabChange={handleTabChange} />
+              }
+            />
+          </Routes>
+        </div>
+        <div className="footerapp">
+          <Footer />
+        </div>
       </div>
     </div>
   );

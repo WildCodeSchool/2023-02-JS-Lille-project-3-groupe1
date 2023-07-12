@@ -11,7 +11,6 @@ const hashingOptions = {
 const hashPassword = (req, res, next) => {
   argon2
     .hash(req.body.password, hashingOptions)
-
     .then((hashedPassword) => {
       req.body.hashedPassword = hashedPassword;
       delete req.body.password;
@@ -38,7 +37,7 @@ const verifyPassword = (req, res) => {
 
         res.cookie("token", token, {
           maxAge: 15 * 60 * 1000,
-          httpOnly: true, // try false, and console.log(document.cookie) in frontend
+          httpOnly: true,
         });
 
         res.send({

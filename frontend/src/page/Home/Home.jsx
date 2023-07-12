@@ -132,7 +132,6 @@ function Home() {
               <div className="hexagon-voir">
                 <div className="voir">Voir</div>
                 <div>les oeuvres</div>
-                 
               </div>
             </div>
           </div>

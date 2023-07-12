@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import "./LoginRegisterStyle.scss";
 
@@ -15,14 +16,19 @@ function LoginRegisterForm() {
           <label>Mot de passe</label>
         </div>
         <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
+          <span />
           Se connecter
         </a>
       </form>
-      <p>Vous n'avez pas de compte ?<a href="" className="a2">Se connecter</a></p>
+      <p>
+        Vous n'avez pas de compte ?
+        <a href="" className="a2">
+          Se connecter
+        </a>
+      </p>
     </div>
   );
 }
