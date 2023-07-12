@@ -1,143 +1,179 @@
-// Importation des variables depuis le fichier "variable.scss"
-@import "../../variable.scss";
-
-// Réinitialisation des styles pour tous les éléments
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-// Styles généraux pour le corps de la page
-body {
-  font-family: $font;
-  background: linear-gradient(to top, #fffff5 10%, #257693 90%) no-repeat;
-}
-
-// Conteneur principal du formulaire
-.container-form {
-  max-width: 65vh;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #fffff5;
-  align-items: center;
-  margin: 50px auto;
-  box-shadow: 20px 20px 80px #fffff5;
-  border: #257593 solid;
-  border-radius: 15px;
-  padding: 30px 40px;
-
-  a {
-    text-decoration: none;
-    color: #257693;
-  }
-
-  a:visited {
-    color: #257693;
-  }
-}
-
-// Titre du formulaire
-.title-form {
-  font-family: $font;
-  font-size: 4rem;
-  color: #257693;
-}
-
-// Zone pour entrer les informations
-.enter-informations {
-  font-family: $font;
-  color: grey;
-  font-size: 0.8rem;
-  padding-bottom: 15px;
-}
-
-// Champ de saisie
-.input-informations {
-  position: relative;
-}
-
-.email-text{
-  margin-bottom: 1rem;
-}
-
-.input-informations input {
-  width: 50vh;
-  height: 10vh;
-  padding: 15px 10px;
-  font-family: "Pill Gothic 600mg", sans-serif;
-  border: 2px solid #257693;
-  border-radius: 5px;
-}
-.text-information-input{
-  border: 2px solid #259c07;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.input-informations .eye-icon {
+.login-box {
   position: absolute;
-  right: 10px;
   top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  margin: 20px auto;
+  transform: translate(-50%, -55%);
+  background: rgba(0, 0, 0, 0.9);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 
-.input-informations .eye-icon:hover {
-  color: #257693;
-}
-
-// Message d'erreur pour l'adresse e-mail invalide
-.error-message {
-  color: #257693; /* Couleur du texte pour l'erreur */
-}
-
-// Bouton de validation du formulaire
-.submit-button {
-  border-radius: 2px;
-  background-color: #257693;
-  color: #fff;
-  border: none;
-}
-
-.submit-button:hover {
-  background-color: #0f2e3a;
-}
-
-// Styles spécifiques pour les écrans de petite taille (575px max)
-@media (max-width: 575px) {
-  .container-form {
-    margin: 10px;
+  p:first-child {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
-}
 
-// Styles spécifiques pour les écrans de très petite taille (424px max)
-@media (max-width: 424px) {
-  .container-form {
-    padding: 30px 10px;
-    margin: 5px;
-  }
-  .option {
+  .user-box {
     position: relative;
-    padding-left: 22px;
+
+    input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+
+    input:focus ~ label,
+    input:valid ~ label {
+      top: -20px;
+      left: 0;
+      color: #fff;
+      font-size: 12px;
+    }
   }
-  .option label.text-muted {
-    font-size: 0.95rem;
+
+  form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 3px;
+
+    &:hover {
+      background: #fff;
+      color: #272727;
+      border-radius: 5px;
+    }
+
+    span {
+      position: absolute;
+      display: block;
+
+      &:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #fff);
+        animation: btn-anim1 1.5s linear infinite;
+      }
+
+      &:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #fff);
+        animation: btn-anim2 1.5s linear infinite;
+        animation-delay: 0.375s;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #fff);
+        animation: btn-anim3 1.5s linear infinite;
+        animation-delay: 0.75s;
+      }
+
+      &:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #fff);
+        animation: btn-anim4 1.5s linear infinite;
+        animation-delay: 1.125s;
+      }
+    }
   }
-  .checkmark {
-    position: absolute;
-    top: 2px;
+
+  p:last-child {
+    color: #aaa;
+    font-size: 14px;
   }
-  .option .checkmark:after {
-    top: 50%;
+
+  a.a2 {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      background: transparent;
+      color: #aaa;
+      border-radius: 5px;
+    }
   }
-  #forgot {
-    font-size: 0.95rem;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
   }
 }
