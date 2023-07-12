@@ -1,0 +1,20 @@
+.caillee {
+  width: 150px;
+}
+.containerfav {
+  display: flex;
+  flex-direction: row;
+}
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2%;
+  background-color: rgb(246, 246, 246);
+  margin: 30px;
+}
