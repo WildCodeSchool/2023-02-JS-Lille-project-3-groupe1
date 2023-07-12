@@ -4,7 +4,9 @@ import "./LoginRegisterStyle.scss";
 function LoginRegisterForm() {
   return (
     <div className="login-box">
-      <p>AFAC 974</p>
+      <p>
+        <a href="Home">AFAC 974</a>
+      </p>
       <form>
         <div className="user-box">
           <input required name="" type="text" />
@@ -14,22 +16,28 @@ function LoginRegisterForm() {
           <input required name="" type="password" />
           <label>Mot de passe</label>
         </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Se connecter
-        </a>
+        <div className="connexion-button">
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Se connecter
+          </a>
+        </div>
       </form>
-
-      <p className="account-sign-up">
-        Vous n'avez pas de compte ?{" "}
-        <a href="" className="a2">
-          S'inscrire !
+      <p className="forgot-password">
+        <a href="" className="forgot-password">
+          Mot de passe oublié ?
         </a>
       </p>
 
+      <p className="account-sign-up">
+        Vous n'avez pas de compte ?{" "}
+        <a href="" className="suscribe">
+          S'inscrire !
+        </a>
+      </p>
     </div>
   );
 }

@@ -12,6 +12,8 @@
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   font-family: $font;
+  text-decoration: none;
+  color: #fff;
 
   p:first-child {
     margin: 0 0 30px;
@@ -36,6 +38,7 @@
       border-bottom: 1px solid #fff;
       outline: none;
       background: transparent;
+      margin-top: 10px;
     }
 
     label {
@@ -58,6 +61,10 @@
     }
   }
 
+  a:-webkit-any-link {
+    text-decoration: none;
+    color: #fff;
+  }
   form a {
     position: relative;
     display: inline-block;
@@ -69,16 +76,14 @@
     text-transform: uppercase;
     overflow: hidden;
     transition: 0.5s;
-    margin-top: 40px;
+    margin-top: 20px;
     letter-spacing: 3px;
-    
 
     &:hover {
       background: #fff;
       color: #257593;
       border-radius: 5px;
     }
-
     span {
       position: absolute;
       display: block;
@@ -124,24 +129,26 @@
     }
   }
 
-  
-  .account-sign-up:last-child {
-    color: #aaa;
-    font-size: 14px;
+  .connexion-button{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
   }
-
-  a.a2 {
+  a.suscribe,
+  a.forgot-password {
     color: #fff;
     text-decoration: none;
-
-    &:hover {
-      background: transparent;
-      color: #aaa;
-      border-radius: 5px;
-    }
   }
 }
 
+a.suscribe,
+a.forgot-password {
+  &:hover {
+    color: #fff;
+    border-radius: 2px;
+    text-decoration: underline;
+  }
+}
 
 @keyframes btn-anim1 {
   0% {
