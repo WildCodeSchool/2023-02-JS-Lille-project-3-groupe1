@@ -8,14 +8,12 @@
   width: 100vw;
   height: 100vh;
   background-image: url("../../assets/Background Image/brushes-4226688_1280.jpg"); // Image de fond
-
 }
 
 .opacity {
   display: flex;
   height: inherit;
   background-color: #000000af;
-
 }
 
 .container-background-opacity {
@@ -41,10 +39,10 @@
   padding: 2vw;
   gap: 50px;
 }
-.voir{
+.voir {
   font-size: $voir;
 }
-.description-home{
+.description-home {
   margin: 20px;
 }
 .hexagon-button {
@@ -55,7 +53,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .background {

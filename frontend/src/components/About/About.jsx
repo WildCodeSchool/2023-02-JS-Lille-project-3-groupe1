@@ -1,5 +1,6 @@
-import "./About.scss";
+/* eslint-disable */
 import { CSSTransition } from "react-transition-group";
+import "./About.scss";
 import { useState } from "react";
 import Card from "../Card/Card";
 import Card2 from "../Card/Card2";
