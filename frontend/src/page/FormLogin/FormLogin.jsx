@@ -2,16 +2,28 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../components/LoginForm/LoginRegisterStyle.scss";
 import { useEffect } from "react";
-
 function FormLogin({ setShowNavbarAndFooter }) {
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
+    isPasswordValid: false, // Ajoutez un nouvel état pour la validité du mot de passe
   });
 
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
+    const { name, value } = event.target;
+  let isPasswordValid = formData.isPasswordValid;
+
+  if (name === "password") {
+    // Vérifiez si le mot de passe est valide (par exemple, s'il a une longueur minimale)
+    isPasswordValid = value.length >= 8;
+  }
+
+  setFormData({
+    ...formData,
+    [name]: value,
+    isPasswordValid, // Mettez à jour l'état de validité du mot de passe
+  });
+};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,6 +62,7 @@ function FormLogin({ setShowNavbarAndFooter }) {
           <input
             type="email"
             name="mail"
+            autoComplete="off"
             value={formData.mail}
             onChange={handleChange}
             required
@@ -64,8 +77,9 @@ function FormLogin({ setShowNavbarAndFooter }) {
             value={formData.password}
             onChange={handleChange}
             required
+            className={formData.isPasswordValid ? "valid" : ""} // Ajoutez une classe si le mot de passe est valide
           />
-          <label>Mot de passe:</label>
+          <label>Mot de passe</label>
         </div>
         {/* Bouton de connexion */}
         <div className="connexion-button">

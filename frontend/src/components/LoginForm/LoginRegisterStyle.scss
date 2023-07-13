@@ -42,7 +42,7 @@
       border-bottom: 1px solid $color-div; /* Bordure inférieure des champs de saisie */
       outline: none;
       background: transparent;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     label {
@@ -57,7 +57,8 @@
     }
 
     input:focus ~ label,
-    input:valid ~ label {
+    input:valid,
+    input.valid ~ label { /* Ajoutez "input.valid ~ label" pour appliquer la transition au label lorsque le mot de passe est valide */
       top: -20px;
       left: 0;
       color: $color-div; /* Couleur du texte des labels lorsqu'un champ est sélectionné ou validé */
