@@ -6,15 +6,23 @@ class FavoriManager extends AbstractManager {
   }
 
   insert(favori) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      favori.title,
-    ]);
+    return this.database.query(
+      `insert into ${this.table} (artworks_id, user_id) values (?, ?)`,
+      [favori.artworks_id, favori.user_id]
+    );
+  }
+
+  remove(favori) {
+    return this.database.query(
+      `delete from ${this.table} where user_id = ? and artworks_id = ?`,
+      [favori.user_id, favori.artworks_id]
+    );
   }
 
   update(favori) {
     return this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [favori.title, favori.id]
+      `update ${this.table} set artworks_id = ? where user_id = ?`,
+      [favori.artworks_id, favori.user_id]
     );
   }
 }
