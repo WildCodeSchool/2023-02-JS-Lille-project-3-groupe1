@@ -64,6 +64,14 @@
 .swiper-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 13vh - 9vh);
+
   background-color: #3c3838;
+}
+
+.swiperThumb {
+  height: 20%;
+}
+.swiper-wrapper {
+  width: 10%;
 }

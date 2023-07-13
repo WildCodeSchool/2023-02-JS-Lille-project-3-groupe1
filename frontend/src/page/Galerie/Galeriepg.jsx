@@ -63,14 +63,15 @@ function GaleriePG() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          {artworks.map((artwork) => (
+        {artworks.map((artwork) => (
+          <SwiperSlide>
             <img
+              key={artwork.id}
               src={`http://localhost:5000/assets/images/image/${artwork.url}`}
-              alt="images"
+              alt="nature"
             />
-          ))}
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <Swiper
@@ -83,14 +84,15 @@ function GaleriePG() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          {artworks.map((artwork) => (
+        {artworks.map((artwork) => (
+          <SwiperSlide className="swiperThumb">
             <img
+              key={artwork.id}
               src={`http://localhost:5000/assets/images/image/${artwork.url}`}
               alt="nature"
             />
-          ))}
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
