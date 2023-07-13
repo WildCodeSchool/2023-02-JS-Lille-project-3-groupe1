@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../../components/LoginForm/LoginRegisterStyle.scss";
+import { useEffect } from "react";
 
-function FormLogin() {
+function FormLogin({ setShowNavbarAndFooter }) {
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
@@ -28,6 +29,14 @@ function FormLogin() {
       .catch((error) => {
         console.error("Erreur lors de la requête :", error);
       });
+    useEffect(() => {
+      // Masquer la barre de navigation et le pied de page
+      setShowNavbarAndFooter(false);
+      // Rétablir l'état initial lors du démontage de la page
+      return () => {
+        setShowNavbarAndFooter(true);
+      };
+    }, []);
   };
 
   return (
@@ -38,8 +47,6 @@ function FormLogin() {
       <form onSubmit={handleSubmit}>
         {/* Champ de saisie de l'email */}
         <div className="user-box">
-          <label>Email</label>
-
           <input
             type="email"
             name="mail"
@@ -47,19 +54,19 @@ function FormLogin() {
             onChange={handleChange}
             required
           />
+          <label>Email</label>
         </div>
-    {/* Champ de saisie du mot de passe */}
-    <div className="user-box">
-        <label>
-          Mot de passe:</label>
+        {/* Champ de saisie du mot de passe */}
+        <div className="user-box">
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
-          />     
-    </div>
+          />
+          <label>Mot de passe:</label>
+        </div>
         {/* Bouton de connexion */}
         <div className="connexion-button">
           <a href="#">
@@ -86,7 +93,6 @@ function FormLogin() {
         </a>
       </p>
     </div>
-    
   );
 }
 
