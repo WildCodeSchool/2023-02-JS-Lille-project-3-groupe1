@@ -32,9 +32,14 @@ function FormLogin() {
 
   return (
     <div className="login-box">
+      <p>
+        <a href="Home">AFAC 974</a>
+      </p>
       <form onSubmit={handleSubmit}>
-        <label>
-          Email:
+        {/* Champ de saisie de l'email */}
+        <div className="user-box">
+          <label>Email</label>
+
           <input
             type="email"
             name="mail"
@@ -42,22 +47,46 @@ function FormLogin() {
             onChange={handleChange}
             required
           />
-        </label>
-        <br />
+        </div>
+    {/* Champ de saisie du mot de passe */}
+    <div className="user-box">
         <label>
-          Mot de passe:
+          Mot de passe:</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
-          />
-        </label>
-        <br />
-        <button type="submit">Se connecter</button>
-      </form>
+          />     
     </div>
+        {/* Bouton de connexion */}
+        <div className="connexion-button">
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Se connecter
+          </a>
+        </div>
+      </form>
+      {/* Lien pour réinitialiser le mot de passe */}
+      <p className="forgot-password">
+        <a href="" className="forgot-password">
+          Mot de passe oublié ?
+        </a>
+      </p>
+
+      {/* Lien pour créer un compte */}
+      <p className="account-sign-up">
+        Vous n'avez pas de compte ?{" "}
+        <a href="" className="suscribe">
+          S'inscrire !
+        </a>
+      </p>
+    </div>
+    
   );
 }
 

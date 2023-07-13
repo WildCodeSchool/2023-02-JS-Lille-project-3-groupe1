@@ -1,23 +1,21 @@
 import React from "react";
 import "./LoginRegisterStyle.scss";
 import { useEffect } from "react";
-function LoginRegisterForm({setShowNavbarAndFooter}) {
-
-    useEffect(() => {
-      // Masquer la barre de navigation et le pied de page
-      setShowNavbarAndFooter(false);
-  
-      // Rétablir l'état initial lors du démontage de la page
-      return () => {
-        setShowNavbarAndFooter(true);
-      };
-    }, []);
+function LoginRegisterForm({ setShowNavbarAndFooter }) {
+  useEffect(() => {
+    // Masquer la barre de navigation et le pied de page
+    setShowNavbarAndFooter(false);
+    // Rétablir l'état initial lors du démontage de la page
+    return () => {
+      setShowNavbarAndFooter(true);
+    };
+  }, []);
   return (
     <div className="login-box">
       <p>
         <a href="Home">AFAC 974</a>
       </p>
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* Champ de saisie de l'email */}
         <div className="user-box">
           <input required name="" type="text" />
