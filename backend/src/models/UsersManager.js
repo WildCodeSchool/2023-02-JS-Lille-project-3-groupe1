@@ -18,6 +18,12 @@ class UsersManager extends AbstractManager {
       [user.name, user.mail, user.hashedPassword, user.admin, user.id]
     );
   }
+
+  login(user) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE mail = ?`, [
+      user.mail,
+    ]);
+  }
 }
 
 module.exports = UsersManager;
