@@ -28,6 +28,12 @@
     letter-spacing: 1px;
   }
 
+  a:-webkit-any-link {
+    text-decoration: none;
+    color: $color-div; /* Couleur des liens */
+    letter-spacing: 4px;
+  }
+
   /* Style du conteneur des champs de saisie */
   .user-box {
     position: relative;
@@ -58,7 +64,8 @@
 
     input:focus ~ label,
     input:valid,
-    input.valid ~ label { /* Ajoutez "input.valid ~ label" pour appliquer la transition au label lorsque le mot de passe est valide */
+    input.valid ~ label {
+      /* Ajoutez "input.valid ~ label" pour appliquer la transition au label lorsque le mot de passe est valide */
       top: -20px;
       left: 0;
       color: $color-div; /* Couleur du texte des labels lorsqu'un champ est sélectionné ou validé */
@@ -66,136 +73,68 @@
     }
   }
 
-  a:-webkit-any-link {
-    text-decoration: none;
-    color: $color-div; /* Couleur des liens */
-  }
-
-  form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    font-weight: bold;
-    color: $color-div; /* Couleur du texte des liens du formulaire */
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: 0.5s;
-    margin-top: 20px;
-    letter-spacing: 3px;
-
-    &:hover {
-      background: $color-div; /* Couleur de fond des liens du formulaire au survol */
-      color: $color-background-div; /* Couleur du texte des liens du formulaire au survol */
-      border-radius: 5px;
-    }
-
-    span {
-      position: absolute;
-      display: block;
-
-      &:nth-child(1) {
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, $color-div); /* Dégradé pour la première barre animée */
-        animation: btn-anim1 1.5s linear infinite;
-      }
-
-      &:nth-child(2) {
-        top: -100%;
-        right: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(180deg, transparent, $color-div); /* Dégradé pour la deuxième barre animée */
-        animation: btn-anim2 1.5s linear infinite;
-        animation-delay: 0.375s;
-      }
-
-      &:nth-child(3) {
-        bottom: 0;
-        right: -100%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(270deg, transparent, $color-div); /* Dégradé pour la troisième barre animée */
-        animation: btn-anim3 1.5s linear infinite;
-        animation-delay: 0.75s;
-      }
-
-      &:nth-child(4) {
-        bottom: -100%;
-        left: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(360deg, transparent, $color-div); /* Dégradé pour la quatrième barre animée */
-        animation: btn-anim4 1.5s linear infinite;
-        animation-delay: 1.125s;
-      }
-    }
-  }
-
   /* Style du bouton de connexion */
-  .connexion-button {
+  .button-container {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
   }
 
-  /* Style des liens d'inscription et de récupération de mot de passe */
+  button {
+    font-size: 16px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid $color-div;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: $color-background-div;
+    text-decoration: none;
+    transition: 1s ease all;
+    z-index: 1;
+  }
+
+  button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: $color-background-div;
+    z-index: -1;
+  }
+
+  button:hover,
+  button:focus {
+    color: $color-div;
+  }
+
+  button:hover:before,
+  button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
   a.suscribe {
-    color: $color-div; /* Couleur des liens d'inscription et de récupération de mot de passe */
+    color: $color-div;
     text-decoration: none;
   }
 }
 
-/* Style des liens d'inscription et de récupération de mot de passe au survol */
 a.suscribe {
   &:hover {
-    color: $color-div; /* Couleur des liens d'inscription et de récupération de mot de passe au survol */
-    border-radius: 2px;
+    color: $color-div;
+    border-radius: 4px;
     text-decoration: underline;
-  }
-}
-
-/* Animations pour le bouton de connexion */
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,
-  100% {
-    top: 100%;
-  }
-}
-
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,
-  100% {
-    right: 100%;
-  }
-}
-
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,
-  100% {
-    bottom: 100%;
   }
 }
