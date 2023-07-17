@@ -7,7 +7,7 @@ import Account from "./page/Account/Account";
 import Authors from "./page/Author/Author";
 import GaleriePG from "./page/Galerie/Galeriepg";
 import FormLogin from "./page/FormLogin/FormLogin"
-import FormInscription from "./page/FormInscription/FormInscription";
+import FormRegister from "./page/FormRegister/FormRegister";
 // import Register from "./page/FormLogin/RegisterForm";
 import About from "./components/About/About";
 import "./App.scss";
@@ -30,7 +30,7 @@ export default function App() {
             <Route path="/galerie" element={<GaleriePG />} />
             <Route path="/authors" element={<Authors />} />
             <Route path="/login" element={<FormLogin />} />
-            <Route path="/register" element={<FormInscription />} />
+            <Route path="/register" element={<FormRegister />} />
             <Route path="/apropos" element={<About />} />
             <Route path="/authors" element={<Authors />} />
             <Route path="/login2" />{" "}

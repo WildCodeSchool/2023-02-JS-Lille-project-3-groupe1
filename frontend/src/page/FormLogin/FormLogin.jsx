@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../FormLogin/FormLogin.scss";
+import "../FormLogin/FormLoginStyle.scss";
 import { useEffect } from "react";
 
 function FormLogin() {
@@ -41,6 +41,8 @@ function FormLogin() {
     <div className="login-box">
       <p>
         <a href="Home">AFAC 974</a>
+        <br />
+        <p className="connexion-text">Connexion</p>
       </p>
       <form onSubmit={handleSubmit}>
         {/* Champ de saisie de l'email */}
@@ -66,6 +68,7 @@ function FormLogin() {
             onChange={handleChange}
             required
           />
+
           <label>Mot de passe</label>
         </div>
         {/* Bouton de connexion */}
@@ -77,7 +80,7 @@ function FormLogin() {
       {/* Lien pour créer un compte */}
       <p className="account-sign-up">
         Vous n'avez pas de compte ?{" "}
-        <a href="" className="suscribe">
+        <a href="register" className="suscribe">
           S'inscrire !
         </a>
       </p>
