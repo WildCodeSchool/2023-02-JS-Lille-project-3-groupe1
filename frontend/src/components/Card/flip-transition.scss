@@ -1,0 +1,25 @@
+@import "./src/variable.scss";
+
+.Flip-exit {
+  transform: rotateY(0deg);
+}
+.Flip-exit-active {
+  transform: rotateY(180deg);
+  transition: transform 300ms;
+  transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 0.1.25);
+}
+.Flip-exit-done {
+  transform: rotateY(180deg);
+}
+
+.Flip-enter {
+  transform: rotateY(180deg);
+}
+.Flip-enter-active {
+  transform: rotateY(0deg);
+  transition: transform 300ms;
+  transition-timing-function: cubic-bezier(0.57, 021, 0.69, 0.1.25);
+}
+.Flip-enter-done {
+  transform: rotateY(0deg);
+}

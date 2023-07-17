@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import autoportait from "../../assets/image/HCNMT_autoportrait.jpg";
+import autoportait from "../../../../backend/public/assets/images/image/HCNMT_autoportrait.jpg";
 import "./AuthorCard.scss";
 
 function AuthorCard({ authors }) {

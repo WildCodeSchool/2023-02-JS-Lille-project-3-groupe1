@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.author
+  models.favori
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.author
+  models.favori
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -29,14 +29,14 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const author = req.body;
+  const favori = req.body;
 
   // TODO validations (length, format...)
 
-  author.id = parseInt(req.params.id, 10);
+  favori.id = parseInt(req.params.id, 10);
 
-  models.author
-    .update(author)
+  models.favori
+    .update(favori)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -51,14 +51,14 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const author = req.body;
+  const favori = req.body;
 
   // TODO validations (length, format...)
 
-  models.author
-    .insert(author)
+  models.favori
+    .insert(favori)
     .then(([result]) => {
-      res.location(`/authors/${result.insertId}`).sendStatus(201);
+      res.location(`/favori/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -67,13 +67,14 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.author
-    .delete(req.params.id)
+  const favori = req.body;
+  models.favori
+    .remove(favori)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.send(favori).status(204);
       }
     })
     .catch((err) => {
