@@ -34,7 +34,12 @@
     margin-top: 6px;
   }
 
-  a:-webkit-any-link {
+  // titre formulaire cliquable et sans surlignement ni changement de couleur
+.title-form{
+  text-decoration: none;
+    color: $color-div; /* Couleur des liens */
+}
+  a:title-form {
     text-decoration: none;
     color: $color-div; /* Couleur des liens */
   }
@@ -130,16 +135,10 @@
   button:active {
     transform: scale(0.9);
   }
+
+  // section inscription
   a.suscribe {
     color: $color-div;
-    text-decoration: none;
-  }
-}
-
-a.suscribe {
-  &:hover {
-    color: $color-div;
-    border-radius: 4px;
     text-decoration: underline;
   }
 }

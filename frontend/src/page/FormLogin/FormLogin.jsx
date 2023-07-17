@@ -40,7 +40,7 @@ function FormLogin() {
   return (
     <div className="login-box">
       <p>
-        <a href="Home">AFAC 974</a>
+        <a href="Home" className="title-form">AFAC 974</a>
         <br />
         <p className="connexion-text">Connexion</p>
       </p>
@@ -72,16 +72,16 @@ function FormLogin() {
           <label>Mot de passe</label>
         </div>
         {/* Bouton de connexion */}
-        <div class="button-container">
+        <div className="button-container">
           <button>Se connecter</button>
         </div>
       </form>
 
       {/* Lien pour créer un compte */}
       <p className="account-sign-up">
-        Vous n'avez pas de compte ?{" "}
+      Pas encore membre ? {" "}
         <a href="register" className="suscribe">
-          S'inscrire !
+        Inscrivez-vous dès maintenant !
         </a>
       </p>
     </div>

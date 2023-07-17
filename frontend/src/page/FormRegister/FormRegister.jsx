@@ -82,6 +82,13 @@ function FormRegister() {
           <button type="submit">S'inscrire</button>
         </div>
       </form>
+       {/* Lien pour créer un compte */}
+       <p className="account-sign-up">
+        Vous avez déjà un compte ?{" "}
+        <a href="login" className="suscribe">
+          Se connecter.
+        </a>
+      </p>
     </div>
   );
 }
