@@ -6,24 +6,16 @@ function FormLogin({ setShowNavbarAndFooter }) {
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
-    isPasswordValid: false, // Ajoutez un nouvel état pour la validité du mot de passe
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-  let isPasswordValid = formData.isPasswordValid;
 
-  if (name === "password") {
-    // Vérifiez si le mot de passe est valide (par exemple, s'il a une longueur minimale)
-    isPasswordValid = value.length >= 8;
-  }
-
-  setFormData({
-    ...formData,
-    [name]: value,
-    isPasswordValid, // Mettez à jour l'état de validité du mot de passe
-  });
-};
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,7 +46,7 @@ function FormLogin({ setShowNavbarAndFooter }) {
   return (
     <div className="login-box">
       <p>
-        <a href="Home">AFAC 974</a>
+        <a href="Home /">AFAC 974</a>
       </p>
       <form onSubmit={handleSubmit}>
         {/* Champ de saisie de l'email */}
@@ -77,7 +69,6 @@ function FormLogin({ setShowNavbarAndFooter }) {
             value={formData.password}
             onChange={handleChange}
             required
-            className={formData.isPasswordValid ? "valid" : ""} // Ajoutez une classe si le mot de passe est valide
           />
           <label>Mot de passe</label>
         </div>
@@ -92,12 +83,6 @@ function FormLogin({ setShowNavbarAndFooter }) {
           </a>
         </div>
       </form>
-      {/* Lien pour réinitialiser le mot de passe */}
-      <p className="forgot-password">
-        <a href="" className="forgot-password">
-          Mot de passe oublié ?
-        </a>
-      </p>
 
       {/* Lien pour créer un compte */}
       <p className="account-sign-up">

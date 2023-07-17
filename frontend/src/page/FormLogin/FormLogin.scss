@@ -144,16 +144,14 @@
   }
 
   /* Style des liens d'inscription et de récupération de mot de passe */
-  a.suscribe,
-  a.forgot-password {
+  a.suscribe {
     color: $color-div; /* Couleur des liens d'inscription et de récupération de mot de passe */
     text-decoration: none;
   }
 }
 
 /* Style des liens d'inscription et de récupération de mot de passe au survol */
-a.suscribe,
-a.forgot-password {
+a.suscribe {
   &:hover {
     color: $color-div; /* Couleur des liens d'inscription et de récupération de mot de passe au survol */
     border-radius: 2px;
