@@ -38,11 +38,21 @@ export default function App() {
             <Route path="/authors" element={<Authors />} />
             <Route
               path="/login"
-              element={<FormLogin onFormOpen={handleFormOpen} onFormClose={handleFormClose} />}
+              element={
+                <FormLogin
+                  onFormOpen={handleFormOpen}
+                  onFormClose={handleFormClose}
+                />
+              }
             />
             <Route
               path="/register"
-              element={<FormRegister onFormOpen={handleFormOpen} onFormClose={handleFormClose} />}
+              element={
+                <FormRegister
+                  onFormOpen={handleFormOpen}
+                  onFormClose={handleFormClose}
+                />
+              }
             />
             <Route path="/apropos" element={<About />} />
             <Route path="/authors" element={<Authors />} />
