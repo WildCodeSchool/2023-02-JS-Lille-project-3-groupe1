@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../FormLogin/FormLoginStyle.scss";
-import { useEffect } from "react";
 
-function FormLogin() {
+function FormLogin({ onFormOpen, onFormClose }) {
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
@@ -34,57 +33,67 @@ function FormLogin() {
       .catch((error) => {
         console.error("Erreur lors de la requête :", error);
       });
-    [];
   };
 
+  useEffect(() => {
+    onFormOpen();
+    return () => {
+      onFormClose();
+    };
+  }, [onFormOpen, onFormClose]);
+
   return (
-    <div className="login-box">
-      <p>
-        <a href="Home" className="title-form">AFAC 974</a>
-        <br />
-        <p className="connexion-text">Connexion</p>
-      </p>
-      <form onSubmit={handleSubmit}>
-        {/* Champ de saisie de l'email */}
-        <div className="user-box">
-          <input
-            type="email"
-            id="email"
-            name="mail"
-            autoComplete="off"
-            value={formData.mail}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="email">Email</label>
-        </div>
-        {/* Champ de saisie du mot de passe */}
-        <div className="user-box">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+    
+      <div className="login-box">
+        <p>
+          <a href="/" className="title-form">
+            AFAC 974
+          </a>
+          <br />
+          <p className="information-section-text">Connexion</p>
+        </p>
+        <form onSubmit={handleSubmit}>
+          {/* Champ de saisie de l'email */}
+          <div className="user-box">
+            <input
+              type="email"
+              id="email"
+              name="mail"
+              autoComplete="off"
+              value={formData.mail}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+          {/* Champ de saisie du mot de passe */}
+          <div className="user-box">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
 
-          <label>Mot de passe</label>
-        </div>
-        {/* Bouton de connexion */}
-        <div className="button-container">
-          <button>Se connecter</button>
-        </div>
-      </form>
+            <label>Mot de passe</label>
+          </div>
+          {/* Bouton de connexion */}
+          <div className="button-container">
+            <button>Se connecter</button>
+          </div>
+        </form>
 
-      {/* Lien pour créer un compte */}
-      <p className="account-sign-up">
-      Pas encore membre ? {" "}
-        <a href="register" className="suscribe">
-        Inscrivez-vous dès maintenant !
-        </a>
-      </p>
-    </div>
+        {/* Lien pour créer un compte */}
+        <p className="account-sign-up">
+          Pas encore membre ?{" "}
+          <a href="register" className="suscribe">
+            Inscrivez-vous dès maintenant !
+          </a>
+        </p>
+      </div>
+
   );
 }
 

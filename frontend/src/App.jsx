@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
@@ -6,9 +6,8 @@ import Footer from "./components/Footer/Footer";
 import Account from "./page/Account/Account";
 import Authors from "./page/Author/Author";
 import GaleriePG from "./page/Galerie/Galeriepg";
-import FormLogin from "./page/FormLogin/FormLogin"
+import FormLogin from "./page/FormLogin/FormLogin";
 import FormRegister from "./page/FormRegister/FormRegister";
-// import Register from "./page/FormLogin/RegisterForm";
 import About from "./components/About/About";
 import "./App.scss";
 
@@ -20,6 +19,14 @@ export default function App() {
     setActiveTab(tab);
   };
 
+  const handleFormOpen = () => {
+    setShowNavbarAndFooter(false);
+  };
+
+  const handleFormClose = () => {
+    setShowNavbarAndFooter(true);
+  };
+
   return (
     <div className="appcontainer">
       <div className="navapp">
@@ -29,11 +36,17 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/galerie" element={<GaleriePG />} />
             <Route path="/authors" element={<Authors />} />
-            <Route path="/login" element={<FormLogin />} />
-            <Route path="/register" element={<FormRegister />} />
+            <Route
+              path="/login"
+              element={<FormLogin onFormOpen={handleFormOpen} onFormClose={handleFormClose} />}
+            />
+            <Route
+              path="/register"
+              element={<FormRegister onFormOpen={handleFormOpen} onFormClose={handleFormClose} />}
+            />
             <Route path="/apropos" element={<About />} />
             <Route path="/authors" element={<Authors />} />
-            <Route path="/login2" />{" "}
+            <Route path="/login2" />
             <Route
               path="/account/favoris"
               element={
@@ -48,10 +61,11 @@ export default function App() {
             />
           </Routes>
         </div>
-
-        <div className="footerapp">
-          <Footer />
-        </div>
+        {showNavbarAndFooter && (
+          <div className="footerapp">
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   );
