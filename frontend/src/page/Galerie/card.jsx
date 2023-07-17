@@ -5,14 +5,12 @@ import "./carousel.scss";
 import "./Galerie.scss";
 import Heart from "react-animated-heart";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Card({ artwork }) {
   const [isClick, setClick] = useState(false);
 
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  console.log(artwork);
   function openModal() {
     setIsOpen(true);
   }
@@ -24,6 +22,11 @@ function Card({ artwork }) {
   function afterOpenModal() {
     subtitle.style.color = "#f00";
   }
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  console.log(artwork);
 
   let user_id = 1;
 
@@ -58,6 +61,9 @@ function Card({ artwork }) {
       });
   }
 
+  const added = () => toast.success("Ajouté aux favoris!");
+  const removed = () => toast.success("Supprimé des favoris!");
+
   return (
     <>
       <div className="imageContainerGal">
@@ -72,8 +78,10 @@ function Card({ artwork }) {
           onClick={() => {
             setClick(!isClick);
             if (isClick) {
+              removed();
               removeFromFavorites();
             } else {
+              added();
               addToFavorites();
             }
           }}
@@ -102,6 +110,17 @@ function Card({ artwork }) {
           </div>
         </div>
       </Modal>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="colored"
+      />
     </>
   );
 }
