@@ -42,6 +42,7 @@ function FormRegister() {
             type="text"
             name="name"
             id="name"
+            autoComplete="off"
             value={formData.name}
             onChange={handleChange}
             required
