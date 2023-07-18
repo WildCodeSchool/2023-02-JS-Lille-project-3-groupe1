@@ -14,10 +14,9 @@
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Ombre de la boîte de connexion */
   border-radius: 10px;
   font-family: $font; /* Police de caractères utilisée */
-  text-decoration: none;
   color: $color-div; /* Couleur du texte */
 
-  .title-form{
+  .title-form {
     margin: 0 0 30px;
     padding: 0;
     color: $color-div; /* Couleur du titre */
@@ -25,7 +24,6 @@
     font-size: $h1; /* Taille du titre du premier paragraphe */
     font-weight: bold;
     letter-spacing: 1px;
-    text-decoration: none;
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -37,7 +35,7 @@
   }
 
   // titre formulaire cliquable et sans surlignement ni changement de couleur
-  a:title-form {
+  .title-form {
     text-decoration: none;
     color: $color-div; /* Couleur des liens */
   }
@@ -76,7 +74,7 @@
       top: -20px;
       left: 0;
       color: $color-div; /* Couleur du texte des labels lorsqu'un champ est sélectionné ou validé */
-      font-size: 12px;
+      font-size: 16px;
     }
   }
 
@@ -98,7 +96,6 @@
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
     color: $color-background-div;
-    text-decoration: none;
     transition: 0, 5s ease all;
     z-index: 1;
   }
@@ -134,11 +131,10 @@
   }
 
   // section inscription
-  a:-webkit-any-link  {
+  .subscribe:-webkit-any-link {
     color: $color-div;
-    text-decoration: none;
   }
-  a:subscribe{
+  a:subscribe {
     color: $color-div;
     text-decoration: underline;
   }
