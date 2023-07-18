@@ -1,9 +1,13 @@
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import logo from "../../assets/logos/nega.png";
 import profil from "../../assets/logos/profil.png";
+import { AuthContext } from "../../Context/authContext";
 
 export default function Navbar() {
+  const { isconnected } = useContext(AuthContext);
+
   return (
     <nav>
       <NavLink to="/" className="logo">
@@ -41,9 +45,16 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <NavLink to="/login" className={profil}>
-        <img className="profil" src={profil} alt="Profil" />
-      </NavLink>
+
+      {isconnected ? (
+        <NavLink to="/account/favoris" className="profil">
+          <img className="profil" src={profil} alt="Profil" />
+        </NavLink>
+      ) : (
+        <NavLink to="/login" className="profil">
+          <img className="profil" src={profil} alt="Profil" />
+        </NavLink>
+      )}
     </nav>
   );
 }
