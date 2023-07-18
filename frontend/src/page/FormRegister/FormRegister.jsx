@@ -1,32 +1,27 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
-import "./FormLoginStyle.scss";
+import "../FormLogin/FormLoginStyle.scss";
+import PropTypes from "prop-types";
 
-function FormLogin({ onFormOpen, onFormClose }) {
+function FormRegister({ onFormOpen, onFormClose }) {
   const [formData, setFormData] = useState({
-    mail: "",
-    password: "",
+    name: "", // Champ pour le nom
+    mail: "", // Champ pour l'email
+    password: "", // Champ pour le mot de passe
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/login", formData, {
-        withCredentials: true,
-      })
+      .post("http://localhost:5000/users", formData)
       .then(() => {
         setFormData({
+          name: "",
           mail: "",
           password: "",
         });
@@ -37,20 +32,41 @@ function FormLogin({ onFormOpen, onFormClose }) {
   };
 
   useEffect(() => {
-    onFormOpen();
+    if (typeof onFormOpen === "function") {
+      onFormOpen();
+    }
     return () => {
-      onFormClose();
+      if (typeof onFormClose === "function") {
+        onFormClose();
+      }
     };
   }, [onFormOpen, onFormClose]);
 
   return (
     <div className="login-box">
+      {/* En-tête du formulaire */}
       <div>
         <a href="/" className="title-form">
           AFAC 974
         </a>
       </div>
+
+      {/* Formulaire d'inscription */}
       <form onSubmit={handleSubmit}>
+        {/* Champ de saisie du nom */}
+        <div className="user-box">
+          <label htmlFor="name">Nom</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            autoComplete="off"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         {/* Champ de saisie de l'email */}
         <div className="user-box">
           <label htmlFor="email">Email</label>
@@ -64,6 +80,7 @@ function FormLogin({ onFormOpen, onFormClose }) {
             required
           />
         </div>
+
         {/* Champ de saisie du mot de passe */}
         <div className="user-box">
           <label htmlFor="password">Mot de passe</label>
@@ -76,26 +93,28 @@ function FormLogin({ onFormOpen, onFormClose }) {
             required
           />
         </div>
-        {/* Bouton de connexion */}
+
+        {/* Bouton de soumission */}
         <div className="button-container">
-          <button type="submit">Se connecter</button>
+          <button type="submit">S'inscrire</button>
         </div>
       </form>
 
-      {/* Lien pour créer un compte */}
+      {/* Lien pour se connecter */}
       <p className="account-sign-up">
-        Pas encore membre ?{" "}
-        <a href="/register" className="subscribe">
-          Inscrivez-vous dès maintenant !
+        Vous êtes déjà membre ?{" "}
+        <a href="login" className="subscribe">
+          Connectez-vous ici.
         </a>
       </p>
     </div>
   );
 }
 
-FormLogin.propTypes = {
+// Spécification des types des propriétés attendues par le composant
+FormRegister.propTypes = {
   onFormOpen: PropTypes.func.isRequired,
   onFormClose: PropTypes.func.isRequired,
 };
 
-export default FormLogin;
+export default FormRegister;
