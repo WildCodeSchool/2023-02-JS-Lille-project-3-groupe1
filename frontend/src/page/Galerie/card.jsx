@@ -25,7 +25,6 @@ function Card({ artwork }) {
   }
 
   let subtitle;
-
   let user_id = 1;
 
   // localStorage.getItem("userId");
