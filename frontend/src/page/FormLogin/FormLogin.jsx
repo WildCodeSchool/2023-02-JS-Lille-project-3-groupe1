@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FormLoginStyle.scss";
+import { AuthContext } from "../../Context/authContext";
+
 
 function FormLogin({ onFormOpen, onFormClose }) {
+  const { setUser, setIsconnected } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
@@ -28,15 +33,19 @@ function FormLogin({ onFormOpen, onFormClose }) {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/login", formData, {
-        withCredentials: true,
-      })
-      .then(() => {
-        notify();
+      .post("http://localhost:5000/login", formData)
+      .then(({ data }) => {
+        const { user } = data;
         setFormData({
           mail: "",
           password: "",
         });
+
+        // Set the user using the setUser function from the AuthContext
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        setIsconnected(true);
+        navigate("/account/favoris");
       })
       .catch((error) => {
         incorrect();

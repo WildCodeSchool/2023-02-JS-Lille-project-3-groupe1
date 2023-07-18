@@ -23,7 +23,7 @@ const hashPassword = (req, res, next) => {
     });
 };
 
-const verifyPassword = (req, res) => {
+const verifyPasswordAndGenerateToken = (req, res, next) => {
   argon2
     .verify(req.user.hashedPassword, req.body.password)
     .then((isVerified) => {
@@ -37,18 +37,22 @@ const verifyPassword = (req, res) => {
 
         res.cookie("token", token, {
           maxAge: 15 * 60 * 1000,
-          httpOnly: true,
+          httpOnly: false,
+          sameSite: "None",
+          secure: true,
         });
 
         res.send({
           user: {
             id: req.user.id,
             username: req.user.username,
+            admin: req.user.admin,
           },
         });
       } else {
         res.sendStatus(401);
       }
+      next();
     })
     .catch((err) => {
       console.error(err);
@@ -58,23 +62,24 @@ const verifyPassword = (req, res) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    const authorizationHeader = req.get("Authorization");
-    if (authorizationHeader == null) {
-      throw new Error("Authorization header is missing");
+    const { token } = req.cookies; // Récupérer le token à partir du cookie
+    if (!token) {
+      throw new Error("Token is missing");
     }
-    const [type, token] = authorizationHeader.split(" ");
-    if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
-    }
-    req.payload = jwt.verify(token, process.env.JWT_SECRET);
+
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET); // Vérifier et décoder le token
+
+    req.userId = decodedToken.sub; // Récupérer l'ID de l'utilisateur à partir du token décodé
+
     next();
   } catch (err) {
     console.error(err);
     res.sendStatus(401);
   }
 };
+
 module.exports = {
   hashPassword,
-  verifyPassword,
+  verifyPasswordAndGenerateToken,
   verifyToken,
 };
