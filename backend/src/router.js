@@ -41,5 +41,7 @@ router.get("/favori/:id", favoriControllers.read);
 router.put("/favori/:id", favoriControllers.edit);
 router.post("/favori", favoriControllers.add);
 router.delete("/favori/:id", favoriControllers.destroy);
+router.post("/send-email", favoriControllers.send_Email);
+
 
 module.exports = router;

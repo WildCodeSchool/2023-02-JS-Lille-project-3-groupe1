@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Carousel from "./components/Carousel/carousel";
+import Form from "./components/Mailer/Mailer";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/galerie" element={<Carousel />} />
-          <Route path="/apropos" element="" />
+          <Route path="/apropos" element={<Form />} />
         </Routes>
       </div>
       <div className="footerapp">

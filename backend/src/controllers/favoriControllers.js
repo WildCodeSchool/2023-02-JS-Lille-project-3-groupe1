@@ -82,10 +82,37 @@ const destroy = (req, res) => {
     });
 };
 
+const sendEmail = require("../../sendEmail");
+
+const send_Email = (req, res) => {
+  const { recipient, subject, message } = req.body;
+  console.log(req.body);
+
+  const emailData = {
+    from: "a.rohde.ferreira@gmail.com",
+    to: recipient,
+    subject,
+    text: message,
+    html: `<p>${message}</p>`,
+  };
+
+  sendEmail(emailData, (err, info) => {
+    if (err) {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occurred while sending the email" });
+    } else {
+      console.info(info);
+      res.json({ message: "Email sent successfully" });
+    }
+  });
+};
 module.exports = {
   browse,
   read,
   edit,
   add,
   destroy,
+  send_Email
 };
