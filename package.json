@@ -39,6 +39,7 @@
     "js-cookie": "^3.0.5",
     "mysql2": "^3.4.0",
     "prop-types": "^15.8.1",
+    "react-animated-heart": "^0.0.8",
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.1"
   }
