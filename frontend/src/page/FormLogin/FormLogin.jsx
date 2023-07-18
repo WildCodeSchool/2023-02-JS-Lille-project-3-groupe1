@@ -38,6 +38,7 @@ function FormLogin({ onFormOpen, onFormClose }) {
           mail: "",
           password: "",
         });
+        notify();
 
         // Set the user using the setUser function from the AuthContext
         setUser(user);
