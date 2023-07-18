@@ -2,6 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./FormLoginStyle.scss";
 import { AuthContext } from "../../Context/authContext";
 
 function FormLogin({ onFormOpen, onFormClose }) {
@@ -11,6 +14,10 @@ function FormLogin({ onFormOpen, onFormClose }) {
     mail: "",
     password: "",
   });
+
+  const notify = () => toast.success("Connecté");
+  const incorrect = () =>
+    toast.error("Mauvais identifiants, veuillez recommencer");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,6 +39,7 @@ function FormLogin({ onFormOpen, onFormClose }) {
           mail: "",
           password: "",
         });
+        notify();
 
         // Set the user using the setUser function from the AuthContext
         setUser(user);
@@ -40,6 +48,7 @@ function FormLogin({ onFormOpen, onFormClose }) {
         navigate("/account/favoris");
       })
       .catch((error) => {
+        incorrect();
         console.error("Erreur lors de la requête :", error);
       });
   };
@@ -85,18 +94,12 @@ function FormLogin({ onFormOpen, onFormClose }) {
           />
         </div>
         {/* Bouton de connexion */}
+        <ToastContainer />
+
         <div className="button-container">
           <button type="submit">Se connecter</button>
         </div>
       </form>
-
-      {/* Lien pour créer un compte */}
-      <p className="account-sign-up">
-        Pas encore membre ?{" "}
-        <a href="/register" className="subscribe">
-          Inscrivez-vous dès maintenant !
-        </a>
-      </p>
     </div>
   );
 }

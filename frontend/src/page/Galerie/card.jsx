@@ -5,11 +5,11 @@ import "./carousel.scss";
 import "./Galerie.scss";
 import Heart from "react-animated-heart";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Card({ artwork }) {
   const [isClick, setClick] = useState(false);
-
-  let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -24,6 +24,7 @@ function Card({ artwork }) {
     subtitle.style.color = "#f00";
   }
 
+  let subtitle;
   let user_id = 1;
 
   // localStorage.getItem("userId");
@@ -57,27 +58,32 @@ function Card({ artwork }) {
       });
   }
 
+  const added = () => toast.success("Ajouté aux favoris!");
+  const removed = () => toast.success("Supprimé des favoris!");
+
   return (
     <>
       <div className="imageContainerGal">
         <img
-          src={`http://localhost:5000/assets/images/image/${artwork.url}`}
-          alt={artwork.full_title}
+          src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+          alt={artwork?.full_title}
           onClick={openModal}
-        />{" "}
+        />
         <Heart
           className="heart"
           isClick={isClick}
           onClick={() => {
             setClick(!isClick);
             if (isClick) {
+              removed();
               removeFromFavorites();
             } else {
+              added();
               addToFavorites();
             }
           }}
         />
-        <h3>{artwork.full_title}</h3>
+        <h3>{artwork?.full_title}</h3>
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -88,19 +94,30 @@ function Card({ artwork }) {
         <div className="fullCard">
           <img
             className="imageFull"
-            src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+            src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
           />
           <div className="details">
-            <h1>{artwork.full_title}</h1>
-            <h2>{artwork.category}</h2>
+            <h1>{artwork?.full_title}</h1>
+            <h2>{artwork?.category}</h2>
             <h2>
-              <b>{artwork.technique}</b>
+              <b>{artwork?.technique}</b>
             </h2>
-            <p>{artwork.description}</p>
-            <a href={artwork.related_article}>link</a>
+            <p>{artwork?.description}</p>
+            <a href={artwork?.related_article}>link</a>
           </div>
         </div>
       </Modal>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="colored"
+      />
     </>
   );
 }

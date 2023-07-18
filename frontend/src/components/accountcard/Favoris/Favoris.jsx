@@ -7,15 +7,15 @@ function Favoris() {
     <div>
       <div className="containerfav">
         <div className="imageContainer">
-          <img className="caillee" src={caille} alt="Card" />
+          <img className="caille" src={caille} alt="Card" />
           <h2>Caille</h2>
         </div>
         <div className="imageContainer">
-          <img className="caillee" src={caille} alt="Card" />
+          <img className="caille" src={caille} alt="Card" />
           <h2>Caille</h2>
         </div>
         <div className="imageContainer">
-          <img className="caillee" src={caille} alt="Card" />
+          <img className="caille" src={caille} alt="Card" />
           <h2>Caille</h2>
         </div>
       </div>

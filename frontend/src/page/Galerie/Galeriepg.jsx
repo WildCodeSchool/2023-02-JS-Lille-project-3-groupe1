@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
 import axios from "axios";
-
-import Card from "./card";
-
 import "./Galerie.scss";
 import "./carousel.scss";
-
 import "swiper/swiper-bundle.css";
+import ContenuTablette from "./ContenuTablette";
+import ContenuDesktop from "./desktop";
 
 function GaleriePG() {
   const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);
@@ -18,7 +14,7 @@ function GaleriePG() {
     axios
       .get("http://localhost:5000/artworks")
       .then((response) => {
-        setArtworks(response.data); // Utiliser response.data pour obtenir le tableau d'oeuvres
+        setArtworks(response.data);
       })
       .catch((err) => {
         console.error(err);
@@ -37,72 +33,18 @@ function GaleriePG() {
     };
   }, []);
 
-  const contenuDesktop = (
-    <div className="galleryContainer">
-      {artworks.map((artwork) => (
-        <Card key={artwork.id} artwork={artwork} />
-      ))}
-    </div>
-  );
-
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-  const contenuTablette = (
-    <div className="swiper-container">
-      <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
-        loop
-        spaceBetween={10}
-        navigation
-        thumbs={{
-          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-        }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        {artworks.map((artwork) => (
-          <SwiperSlide>
-            <img
-              key={artwork.id}
-              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
-              alt="nature"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        loop
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode
-        watchSlidesProgress
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        {artworks.map((artwork) => (
-          <SwiperSlide className="swiperThumb">
-            <img
-              key={artwork.id}
-              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
-              alt="nature"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-
   return (
     <div>
-      {largeurEcran > 1181 ? (
-        contenuDesktop
-      ) : (
-        <div className="tablet-container">{contenuTablette}</div>
+      {artworks.length > 0 && (
+        <div>
+          {largeurEcran > 1181 ? (
+            <ContenuDesktop artworks={artworks} />
+          ) : (
+            <div className="tablet-container">
+              <ContenuTablette artworks={artworks} />
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
