@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./FormLogin.scss";
+import { AuthContext } from "../../Context/authContext";
 
 function FormLogin() {
+  const { setUser, setIsconnected } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     mail: "",
     password: "",
@@ -16,14 +20,19 @@ function FormLogin() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/login", formData, {
-        withCredentials: true,
-      })
-      .then(() => {
+      .post("http://localhost:5000/login", formData)
+      .then(({ data }) => {
+        const { user } = data;
         setFormData({
           mail: "",
           password: "",
         });
+
+        // Set the user using the setUser function from the AuthContext
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        setIsconnected(true);
+        navigate("/account/favoris");
       })
       .catch((error) => {
         console.error("Erreur lors de la requête :", error);

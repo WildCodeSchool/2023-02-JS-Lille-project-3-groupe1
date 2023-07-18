@@ -3,7 +3,7 @@
 .appcontainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 .navapp {
   height: 13vh;
@@ -11,5 +11,5 @@
 .containerapp {
 }
 .footerapp {
-  height: 13vh;
+  height: 9vh;
 }

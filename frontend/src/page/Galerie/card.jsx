@@ -12,7 +12,6 @@ function Card({ artwork }) {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  console.log(artwork);
   function openModal() {
     setIsOpen(true);
   }

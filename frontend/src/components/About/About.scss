@@ -11,8 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: 74vh;
-  background-image: url(../../assets/image/FRAD974_40FI80.jpg);
+  height: calc(100vh - 13vh - 9vh);
+  background-image: url("../../assets/Background\ Image/FRAD974_40FI80.jpg");
   background-size: cover;
   align-items: center;
 }
