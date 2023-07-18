@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Card({ artwork }) {
   const [isClick, setClick] = useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -24,9 +25,6 @@ function Card({ artwork }) {
   }
 
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  console.log(artwork);
 
   let user_id = 1;
 
@@ -68,10 +66,10 @@ function Card({ artwork }) {
     <>
       <div className="imageContainerGal">
         <img
-          src={`http://localhost:5000/assets/images/image/${artwork.url}`}
-          alt={artwork.full_title}
+          src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+          alt={artwork?.full_title}
           onClick={openModal}
-        />{" "}
+        />
         <Heart
           className="heart"
           isClick={isClick}
@@ -86,7 +84,7 @@ function Card({ artwork }) {
             }
           }}
         />
-        <h3>{artwork.full_title}</h3>
+        <h3>{artwork?.full_title}</h3>
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -97,16 +95,16 @@ function Card({ artwork }) {
         <div className="fullCard">
           <img
             className="imageFull"
-            src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+            src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
           />
           <div className="details">
-            <h1>{artwork.full_title}</h1>
-            <h2>{artwork.category}</h2>
+            <h1>{artwork?.full_title}</h1>
+            <h2>{artwork?.category}</h2>
             <h2>
-              <b>{artwork.technique}</b>
+              <b>{artwork?.technique}</b>
             </h2>
-            <p>{artwork.description}</p>
-            <a href={artwork.related_article}>link</a>
+            <p>{artwork?.description}</p>
+            <a href={artwork?.related_article}>link</a>
           </div>
         </div>
       </Modal>

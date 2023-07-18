@@ -4,6 +4,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-image: url("../../assets/Background Image/marjan-blan-qqz06qPB_F0-unsplash.jpg");
+  background-color: rgb(111, 111, 111);
+  background-blend-mode: multiply;
+  border: $color1 solid 8px;
+  border-radius: 1px;
+  margin: 8px;
 }
 .imageContainerGal {
   display: flex;
@@ -14,9 +20,7 @@
   flex-direction: column;
   padding: 1%;
   margin: 2%;
-  background-color: rgb(240, 240, 240);
-  border: rgb(203, 203, 203) solid 1px;
-  border-radius: 3px;
+
   justify-content: center;
   align-items: center;
 }
@@ -24,6 +28,9 @@
   width: 80%;
 
   cursor: pointer;
+}
+.imageContainerGal:hover {
+  background-color: rgba(97, 96, 96, 0.551);
 }
 
 .fullCard {
@@ -44,6 +51,25 @@ h1 {
 }
 
 h3 {
-  color: $bg;
+  color: white;
   letter-spacing: 1px;
+}
+
+.slideshow-button {
+  display: flex;
+  flex-wrap: nowrap;
+  height: fit-content;
+  margin-top: 5px;
+  background-color: $color1;
+}
+
+// .div_button {
+//   top: 0px;
+// }
+.slideshow-button1 {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  z-index: 10;
+  background-color: $color1;
 }
