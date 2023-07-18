@@ -2,6 +2,12 @@
 
 /* Importation des variables de style pour réutiliser les valeurs prédéfinies */
 /* Style de la boîte de connexion */
+.loginpage {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 .login-box {
   position: absolute;
   top: 50%;

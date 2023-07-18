@@ -2,10 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./FormLoginStyle.scss";
 import { AuthContext } from "../../Context/authContext";
+import { ToastContainer, toast } from "react-toastify";
 
 function FormLogin({ onFormOpen, onFormClose }) {
   const { setUser, setIsconnected } = useContext(AuthContext);
@@ -14,7 +12,6 @@ function FormLogin({ onFormOpen, onFormClose }) {
     mail: "",
     password: "",
   });
-
   const notify = () => toast.success("Connecté");
   const incorrect = () =>
     toast.error("Mauvais identifiants, veuillez recommencer");
@@ -40,7 +37,6 @@ function FormLogin({ onFormOpen, onFormClose }) {
           password: "",
         });
         notify();
-
         // Set the user using the setUser function from the AuthContext
         setUser(user);
         localStorage.setItem("user", JSON.stringify(user));
@@ -61,45 +57,53 @@ function FormLogin({ onFormOpen, onFormClose }) {
   }, [onFormOpen, onFormClose]);
 
   return (
-    <div className="login-box">
-      <div>
-        <a href="/" className="title-form">
-          AFAC 974
-        </a>
+    <div className="loginpage">
+      <ToastContainer />
+      <div className="login-box">
+        <div>
+          <a href="/" className="title-form">
+            AFAC 974
+          </a>
+        </div>
+        <form onSubmit={handleSubmit}>
+          {/* Champ de saisie de l'email */}
+          <div className="user-box">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="mail"
+              autoComplete="off"
+              value={formData.mail}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {/* Champ de saisie du mot de passe */}
+          <div className="user-box">
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {/* Bouton de connexion */}
+          <div className="button-container">
+            <button type="submit">Se connecter</button>
+          </div>
+        </form>
+        {/* Lien pour créer un compte */}
+        <p className="account-sign-up">
+          Pas encore membre ?{" "}
+          <a href="/register" className="subscribe">
+            Inscrivez-vous dès maintenant !
+          </a>
+        </p>
       </div>
-      <form onSubmit={handleSubmit}>
-        {/* Champ de saisie de l'email */}
-        <div className="user-box">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="mail"
-            autoComplete="off"
-            value={formData.mail}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {/* Champ de saisie du mot de passe */}
-        <div className="user-box">
-          <label htmlFor="password">Mot de passe</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {/* Bouton de connexion */}
-        <ToastContainer />
-
-        <div className="button-container">
-          <button type="submit">Se connecter</button>
-        </div>
-      </form>
     </div>
   );
 }
