@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./FormLoginStyle.scss";
 import { AuthContext } from "../../Context/authContext";
 
 function FormLogin({ onFormOpen, onFormClose }) {
