@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./FormLogin.scss";
 import { AuthContext } from "../../Context/authContext";
 
 function FormLogin({ onFormOpen, onFormClose }) {

@@ -32,17 +32,26 @@ export default function App() {
   return (
     <div className="appcontainer">
       <div className="containerapp">
-        <div className="navapp">
-          <Navbar />
-        </div>
+        {showNavbarAndFooter && (
+          <div className="navapp">
+            <Navbar />
+          </div>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/galerie" element={<GaleriePG />} />
           <Route path="/authors" element={<Authors />} />
-          <Route path="/login" element={<FormLogin />} />
-          <Route path="/register" element={<FormInscription />} />
           <Route
-            path="/register2"
+            path="/login"
+            element={
+              <FormLogin
+                onFormOpen={handleFormOpen}
+                onFormClose={handleFormClose}
+              />
+            }
+          />
+          <Route
+            path="/register"
             element={
               <FormRegister
                 onFormOpen={handleFormOpen}
@@ -52,7 +61,6 @@ export default function App() {
           />
           <Route path="/apropos" element={<About />} />
           <Route path="/authors" element={<Authors />} />
-          <Route path="/login2" element={<LoginRegisterForm />} />
           <Route
             path="/account/favoris"
             element={
