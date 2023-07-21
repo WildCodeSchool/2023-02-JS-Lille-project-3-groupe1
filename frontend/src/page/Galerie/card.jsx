@@ -88,37 +88,6 @@ function Card({ artwork }) {
 
   let subtitle;
 
-  // localStorage.getItem("userId");
-  // function addToFavorites() {
-  //   axios
-  //     .post("http://localhost:5000/favori", {
-  //       user_id: user.id,
-  //       artworks_id: artwork.id,
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-
-  // function removeFromFavorites() {
-  //   axios
-  //     .delete(`http://localhost:5000/favori/:id`, {
-  //       data: {
-  //         user_id: user.id,
-  //         artworks_id: artwork.id,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-
   const added = () => toast.success("Ajouté aux favoris!");
   const removed = () => toast.success("Supprimé des favoris!");
 
@@ -130,20 +99,6 @@ function Card({ artwork }) {
           alt={artwork?.full_title}
           onClick={openModal}
         />
-        {/* <Heart
-          className="heart"
-          isClick={toggleFavorite}
-          onClick={() => {
-            setClick(!isClick);
-            // if (isClick) {
-            //   removed();
-            //   removeFromFavorites();
-            // } else {
-            //   added();
-            //   addToFavorites();
-            // }
-          }}
-        /> */}
 
         <Heart
           className="heart"
@@ -173,6 +128,8 @@ function Card({ artwork }) {
             </h2>
             <p>{artwork?.description}</p>
             <a href={artwork?.related_article}>link</a>
+            <br />
+            <a href="/authors">Page auteur</a>
           </div>
         </div>
       </Modal>
