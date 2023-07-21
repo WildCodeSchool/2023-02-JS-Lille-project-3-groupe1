@@ -12,6 +12,13 @@ class FavoriManager extends AbstractManager {
     );
   }
 
+  findbyuser(favori) {
+    return this.database.query(
+      `select * from  ${this.table} where user_id = ?`,
+      [favori]
+    );
+  }
+
   remove(favori) {
     return this.database.query(
       `delete from ${this.table} where user_id = ? and artworks_id = ?`,

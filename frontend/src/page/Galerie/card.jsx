@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./carousel.scss";
 import "./Galerie.scss";
@@ -7,10 +7,72 @@ import Heart from "react-animated-heart";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../Context/authContext";
+import { useContext } from "react";
 
 function Card({ artwork }) {
+  const { user } = useContext(AuthContext);
   const [isClick, setClick] = useState(false);
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [userFavorites, setUserFavorites] = useState([]);
+
+  useEffect(() => {
+    // Fetch the user's favorites when the component mounts or when the user changes
+    fetchUserFavorites();
+  }, [user]);
+
+  const fetchUserFavorites = () => {
+    if (user && user.id) {
+      axios
+        .get(`http://localhost:5000/favori/${user.id}`)
+        .then((response) => {
+          setUserFavorites(response.data.map((fav) => fav.artworks_id));
+          // Check if the artwork is in the user's favorites and update the heart state accordingly
+          setClick(response.data.some((fav) => fav.artworks_id === artwork.id));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  function toggleFavorite() {
+    if (user && user.id) {
+      if (userFavorites.includes(artwork.id)) {
+        // Remove the artwork from user's favorites
+        axios
+          .delete(`http://localhost:5000/favori/${user.id}`, {
+            data: {
+              user_id: user.id,
+              artworks_id: artwork.id,
+            },
+          })
+          .then((response) => {
+            setClick(false);
+            fetchUserFavorites();
+            removed();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        // Add the artwork to user's favorites
+        axios
+          .post("http://localhost:5000/favori", {
+            user_id: user.id,
+            artworks_id: artwork.id,
+          })
+          .then((response) => {
+            setClick(true);
+            fetchUserFavorites();
+            added();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }
 
   function openModal() {
     setIsOpen(true);
@@ -25,38 +87,37 @@ function Card({ artwork }) {
   }
 
   let subtitle;
-  let user_id = 1;
 
   // localStorage.getItem("userId");
-  function addToFavorites() {
-    axios
-      .post("http://localhost:5000/favori", {
-        user_id,
-        artworks_id: artwork.id,
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // function addToFavorites() {
+  //   axios
+  //     .post("http://localhost:5000/favori", {
+  //       user_id: user.id,
+  //       artworks_id: artwork.id,
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
-  function removeFromFavorites() {
-    axios
-      .delete(`http://localhost:5000/favori/:id`, {
-        data: {
-          user_id,
-          artworks_id: artwork.id,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // function removeFromFavorites() {
+  //   axios
+  //     .delete(`http://localhost:5000/favori/:id`, {
+  //       data: {
+  //         user_id: user.id,
+  //         artworks_id: artwork.id,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   const added = () => toast.success("Ajouté aux favoris!");
   const removed = () => toast.success("Supprimé des favoris!");
@@ -69,18 +130,26 @@ function Card({ artwork }) {
           alt={artwork?.full_title}
           onClick={openModal}
         />
+        {/* <Heart
+          className="heart"
+          isClick={toggleFavorite}
+          onClick={() => {
+            setClick(!isClick);
+            // if (isClick) {
+            //   removed();
+            //   removeFromFavorites();
+            // } else {
+            //   added();
+            //   addToFavorites();
+            // }
+          }}
+        /> */}
+
         <Heart
           className="heart"
           isClick={isClick}
           onClick={() => {
-            setClick(!isClick);
-            if (isClick) {
-              removed();
-              removeFromFavorites();
-            } else {
-              added();
-              addToFavorites();
-            }
+            toggleFavorite();
           }}
         />
         <h3>{artwork?.full_title}</h3>
