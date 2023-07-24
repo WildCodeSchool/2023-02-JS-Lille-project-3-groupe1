@@ -38,7 +38,7 @@ function ContenuDesktop({ artworks }) {
             {artworks.map((artwork) => (
               <SwiperSlide key={artwork.id}>
                 <img
-                  src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+                  src={`http://localhost:5001/assets/images/image/${artwork.url}`}
                   alt="k"
                 />
               </SwiperSlide>
@@ -58,7 +58,7 @@ function ContenuDesktop({ artworks }) {
             {artworks.map((artwork) => (
               <SwiperSlide key={artwork.id} className="swiperThumb">
                 <img
-                  src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+                  src={`http://localhost:5001/assets/images/image/${artwork.url}`}
                   alt="nature"
                 />
               </SwiperSlide>

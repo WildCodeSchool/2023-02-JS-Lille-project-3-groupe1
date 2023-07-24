@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import logohome from "../../assets/logos/logohome.svg";
 import "./Home.scss";
-import img1 from "../../../../backend/public/assets/images/image/AD974_40FI72-ChanvertGolo.jpg";
-import img2 from "../../../../backend/public/assets/images/image/caille.jpg";
-import img3 from "../../../../backend/public/assets/images/image/FRAD974_40FI52.jpg";
-import img5 from "../../../../backend/public/assets/images/image/MORTIER.de.TREVISE_Mr.Bourraye.dans.jardin.Casernes_1861.jpg";
-import img6 from "../../../../backend/public/assets/images/image/UsineBelAir_40FI78.jpg";
+import img1 from "../../assets/images/AD974_40FI72-ChanvertGolo.jpg";
+import img2 from "../../assets/images/caille.jpg";
+import img3 from "../../assets/images/FRAD974_40FI52.jpg";
+import img5 from "../../assets/images/MORTIER.de.TREVISE_Mr.Bourraye.dans.jardin.Casernes_1861.jpg";
+import img6 from "../../assets/images/UsineBelAir_40FI78.jpg";
 
 function Home() {
   const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);
@@ -28,7 +27,9 @@ function Home() {
     <div className="containerhome">
       <div className="afac">
         <div className="imghome">
-          <img className="logohome" src={logohome} alt="logo afac" />
+          <a href="/">
+            <img className="logohome" src={logohome} alt="logo afac" />
+          </a>
         </div>
 
         <div className="text">
@@ -55,55 +56,29 @@ function Home() {
       </NavLink>
 
       <div className="sliderhome">
-        <div className="slide-track-home">
-          <div>
-            <img className="sliderart1" src={img1} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img2} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img3} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img3} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img5} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img6} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img6} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img1} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img1} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img2} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img3} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img3} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img5} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img6} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart1" src={img6} alt="art" />
-          </div>
-          <div>
-            <img className="sliderart2" src={img1} alt="art" />
-          </div>
+        <div>
+          <img className="sliderart1" src={img1} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart2" src={img2} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart1" src={img3} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart2" src={img3} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart1" src={img5} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart2" src={img6} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart1" src={img6} alt="art" />
+        </div>
+        <div>
+          <img className="sliderart2" src={img1} alt="art" />
         </div>
       </div>
     </div>
@@ -128,12 +103,10 @@ function Home() {
               rigoureuse d'une vingtaine d'aquarelles et de dessins
               représentatifs de notre patrimoine artistique.
             </div>
-            <div className="hexagon-button">
-              <div className="hexagon-voir">
-                <div className="voir">Voir</div>
-                <div>les oeuvres</div>
-              </div>
-            </div>
+            <NavLink to="/galerie" className="hexagon-button ">
+              {" "}
+              Voir <br /> les œuvres{" "}
+            </NavLink>
           </div>
         </div>
       </div>

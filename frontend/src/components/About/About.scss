@@ -1,18 +1,79 @@
 @import "../../variable.scss";
 
-.FlipCardComp {
-  margin-bottom: 18vh;
+.container{
   display: flex;
-  width: 70%;
-  height: 31%;
-  justify-content: center;
+  justify-content: space-around;
+  margin-top: 5vh;
 }
-.container {
+
+.card {
+  width: 30vw;
+  height: 15vw;
+  perspective: 100%;
+}
+
+.card-inner {
+  width: 70vh;
+  height: 50vh;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front-img,
+.card-back {
+  position: absolute;
+  width: 80vh;
+  height: 60vh;
+  backface-visibility: hidden;
+}
+
+.card-front-img{
+  background-color: $color-background-div;
+  color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  height: calc(100vh - 13vh - 9vh);
-  background-image: url("../../assets/Background\ Image/FRAD974_40FI80.jpg");
-  background-size: cover;
+  border: 10px solid $color-background-div;
+  border-radius: 10px;
+  justify-content: center;
+  transform: rotateY(0deg);
+  box-shadow: -3px 6px 8px 0px rgba(0, 0, 0, 0.6);
+}
+
+.card-back {
+  background-color: $color-background-div;
+  color: #fff;
+  display: flex;
   align-items: center;
+  border: 10px solid $color-background-div;
+  border-radius: 10px;
+  justify-content: center;
+  transform: rotateY(180deg);
+  font-size: $h4;
+  text-align: center;
+  box-shadow: -3px 6px 8px 0px rgba(0, 0, 0, 0.6);
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column; /* Aligner les éléments en colonne */
+  align-items: center; /* Centrer les éléments horizontalement */
+}
+
+.button-card-back {
+  margin-bottom: 5vh; /* Espace entre le bouton et le paragraphe */
+  color: $font-content;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
 }

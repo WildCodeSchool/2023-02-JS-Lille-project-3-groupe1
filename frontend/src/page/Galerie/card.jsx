@@ -30,7 +30,7 @@ function Card({ artwork }) {
   // localStorage.getItem("userId");
   function addToFavorites() {
     axios
-      .post("http://localhost:5000/favori", {
+      .post("http://localhost:5001/favori", {
         user_id,
         artworks_id: artwork.id,
       })
@@ -44,7 +44,7 @@ function Card({ artwork }) {
 
   function removeFromFavorites() {
     axios
-      .delete(`http://localhost:5000/favori/:id`, {
+      .delete(`http://localhost:5001/favori/:id`, {
         data: {
           user_id,
           artworks_id: artwork.id,
@@ -65,7 +65,7 @@ function Card({ artwork }) {
     <>
       <div className="imageContainerGal">
         <img
-          src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+          src={`http://localhost:5001/assets/images/image/${artwork?.url}`}
           alt={artwork?.full_title}
           onClick={openModal}
         />
@@ -94,7 +94,7 @@ function Card({ artwork }) {
         <div className="fullCard">
           <img
             className="imageFull"
-            src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+            src={`http://localhost:5001/assets/images/image/${artwork?.url}`}
           />
           <div className="details">
             <h1>{artwork?.full_title}</h1>
