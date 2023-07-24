@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import logohome from "../../assets/logos/logohome.svg";
 import "./Home.scss";
 import img1 from "../../assets/image/AD974_40FI72-ChanvertGolo.jpg";
@@ -28,7 +27,9 @@ function Home() {
     <div className="containerhome">
       <div className="afac">
         <div className="imghome">
-          <img className="logohome" src={logohome} alt="logo afac" />
+          <a href="/">
+            <img className="logohome" src={logohome} alt="logo afac" />
+          </a>
         </div>
 
         <div className="text">
@@ -102,13 +103,10 @@ function Home() {
               rigoureuse d'une vingtaine d'aquarelles et de dessins
               représentatifs de notre patrimoine artistique.
             </div>
-            <div className="hexagon-button">
-              <div className="hexagon-voir">
-                <div className="voir">Voir</div>
-                <div>les oeuvres</div>
-                 
-              </div>
-            </div>
+            <NavLink to="/galerie" className="hexagon-button ">
+              {" "}
+              Voir <br /> les œuvres{" "}
+            </NavLink>
           </div>
         </div>
       </div>

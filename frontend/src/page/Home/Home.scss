@@ -1,168 +1,78 @@
+/* Comment: Importing a variable file */
 @import "../../variable.scss";
 
-// Background Image with Opacity
-
+/* Comment: Styles for the background image */
 .background-image {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/Background Image/brushes-4226688_1280.jpg"); // Image de fond
-
+  background-image: url("../../assets/Background Image/brushes-4226688_1280.jpg"); /* Comment: Background image path */
 }
 
+/* Comment: Styles for opacity overlay */
 .opacity {
   display: flex;
   height: inherit;
-  background-color: #000000af;
-
+  background-color: #000000af; /* Comment: Background color with transparency */
 }
 
+/* Comment: Styles for a container with background opacity */
 .container-background-opacity {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: $color-background-div solid 5px;
+  border: $color-background-div solid 5px; /* Comment: Using a variable for border color, but it's imported from "variable.scss" */
   align-items: center;
   margin: auto;
   width: 90%;
   height: 70%;
-  background-color: rgba(0, 0, 0, 0.719);
+  background-color: rgba(0, 0, 0, 0.719); /* Comment: Background color with transparency */
 }
 
+/* Comment: Styles for a container with description and home opacity */
 .container-description-home-opacity {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: $font;
-  color: $font-content;
-  font-size: $h3;
+  font-family: $font; /* Comment: Using a variable for font family, but it's imported from "variable.scss" */
+  color: $font-content; /* Comment: Using a variable for font content color, but it's imported from "variable.scss" */
+  font-size: $h3; /* Comment: Using a variable for font size, but it's imported from "variable.scss" */
   text-align: center;
   padding: 2vw;
   gap: 50px;
 }
-.voir{
-  font-size: $voir;
+
+/* Comment: Styles for a specific font size class */
+.voir {
+  font-size: $voir; /* Comment: Using a variable for font size, but it's imported from "variable.scss" */
 }
-.description-home{
+
+/* Comment: Styles for the description home section */
+.description-home {
   margin: 20px;
 }
+
+/* Comment: Styles for a hexagon-shaped button */
 .hexagon-button {
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   width: 150px;
   height: 150px;
-  background-color: $color-background-div;
+  background-color: $color-background-div; /* Comment: Using a variable for background color, but it's imported from "variable.scss" */
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-size: $h4;
+  text-decoration: none;
+  color: $font-content;
 }
 
-.background {
-}
-
-// .container-description-home-opacity {
-//   border: $color-background-div solid 5px; // Bordure de la div hexagonale
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   position: relative;
-//   background-color: #00000087; // Couleur de fond avec opacité
-//   height: 70%;
-//   width: 80%;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   color: $font-content; // Couleur du contenu
-//   margin-top: 3%;
-// }
-
-// // Home Page Description Text
-
-// .description-home {
-//   font-size: 25px; // Taille de police
-//   margin-bottom: 15%; // Marge inférieure
-//   margin-left: 5%; // Marge gauche
-//   margin-right: 5%; // Marge droite
-//   text-align: center; // Alignement du texte
-//   -webkit-animation-name: pulse;
-//   animation-name: pulse;
-//   -webkit-animation-duration: 1s;
-//   animation-duration: 1s;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   @-webkit-keyframes pulse {
-//     0% {
-//       -webkit-transform: scale3d(1, 1, 1);
-//       transform: scale3d(1, 1, 1);
-//     }
-//     50% {
-//       -webkit-transform: scale3d(1.05, 1.05, 1.05);
-//       transform: scale3d(1.05, 1.05, 1.05);
-//     }
-//     100% {
-//       -webkit-transform: scale3d(1, 1, 1);
-//       transform: scale3d(1, 1, 1);
-//     }
-//   }
-//   @keyframes pulse {
-//     0% {
-//       -webkit-transform: scale3d(1, 1, 1);
-//       transform: scale3d(1, 1, 1);
-//     }
-//     50% {
-//       -webkit-transform: scale3d(1.05, 1.05, 1.05);
-//       transform: scale3d(1.05, 1.05, 1.05);
-//     }
-//     100% {
-//       -webkit-transform: scale3d(1, 1, 1);
-//       transform: scale3d(1, 1, 1);
-//     }
-//   }
-// }
-// // Hexagon Button
-// .hexagon-text {
-//   filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.749)); // Ombre du texte
-//   cursor: pointer; // Curseur pointeur
-//   transition: color 500ms ease, text-shadow 500ms ease; // Transition pour la couleur du texte et l'ombre du texte
-//   color: $color-background-div;
-//   font-size: 15rem; // Taille de police
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%); // Centrage horizontal et vertical
-//   margin-top: 10%; // Marge supérieure
-//   text-decoration: none; // Pas de soulignement du texte
-// }
-// // Hexagon Button on Hover
-
-// .hexagon-button:hover {
-//   text-shadow: 0 0 10px $font-content; // Text shadow on hover
-
-//   .hexagon-para:hover {
-//     color: $font-content; // Text color on hover (specific to hexagon paragraph)
-//   }
-// }
-
-// // Hexagon Paragraph
-
-// .hexagon-para {
-//   cursor: pointer; // Cursor style
-//   transition: color 500ms ease; // Transition for text color and text shadow
-//   font-size: 1.275rem; // Font size
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%); // Center alignment
-//   margin-top: 14%; // Top margin
-//   text-decoration: none; // Text decoration (no underline)
-//   color: $font-content; // Text color
-// }
+/* Comment: Styles for the logo image in the home container */
 .logohome {
   width: 300px;
 }
 
+/* Comment: Styles for the home container */
 .containerhome {
   display: flex;
   flex-direction: column;
@@ -173,6 +83,7 @@
   margin-bottom: 5vh;
 }
 
+/* Comment: Styles for the "afac" element */
 .afac {
   display: flex;
   flex-direction: row;
@@ -181,28 +92,33 @@
   margin-top: 5vh;
 }
 
+/* Comment: Styles for a text container */
 .text {
   display: flex;
   flex-direction: column;
   margin-left: 5vw;
-  font-family: $font;
+  font-family: $font; /* Comment: Using a variable for font family, but it's imported from "variable.scss" */
 }
 
+/* Comment: Styles for the "galerie" element */
 .galerie {
-  background-color: $color1;
+  background-color: $color1; /* Comment: Using a variable for background color, but it's imported from "variable.scss" */
   padding: 10px 20px 10px 20px;
-  font-size: $h2;
-  font-family: $font;
+  font-size: $h2; /* Comment: Using a variable for font size, but it's imported from "variable.scss" */
+  font-family: $font; /* Comment: Using a variable for font family, but it's imported from "variable.scss" */
   text-decoration: none;
   color: white;
   box-shadow: 8px 5px 5px -2px black;
   margin-bottom: 20px;
 }
+
+/* Comment: Styles for the home slider section */
 .sliderhome {
   display: flex;
   flex-direction: row;
 }
 
+/* Comment: Styles for the first slide in the home slider */
 .sliderart1 {
   margin-top: 5vh;
   display: flex;
@@ -211,147 +127,10 @@
   height: 160px;
   width: 150px;
 
-  margin-top: 200px;
-}
-.sliderart2 {
-  margin-top: 5vh;
-  display: flex;
-  back.logohome {
-    width: 300px;
-  }
-
-  .containerhome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100vw;
-    overflow-x: hidden;
-    margin-bottom: 5vh;
-  }
-
-  .afac {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 80%;
-    margin-top: 5vh;
-  }
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5vw;
-    font-family: $font;
-  }
-
-  .galerie {
-    background-color: $color1;
-    padding: 10px 20px 10px 20px;
-    font-size: $h2;
-    font-family: $font;
-    text-decoration: none;
-    color: white;
-    box-shadow: 8px 5px 5px -2px black;
-    margin-bottom: 20px;
-  }
-  .sliderhome {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .sliderart1 {
-    margin-top: 5vh;
-    display: flex;
-    background-size: cover;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    height: 160px;
-    width: 150px;
-
-    margin-top: 200px;
-  }
-  .sliderart2 {
-    margin-top: 5vh;
-    display: flex;
-    background-size: cover;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    height: 160px;
-    width: 150px;
-    margin: 10px;
-  }
-  ground-size: cover;
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  height: 160px;
-  width: 150px;
-  margin: 10px;
-}
-// .hexagon-voir {
-//   cursor: pointer; // Cursor style
-//   transition: color 500ms ease; // Transition for text color and text shadow
-//   font-size: 4rem; // Font size
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%); // Center alignment
-//   margin-top: 11%; // Top margin
-//   text-decoration: none; // Text decoration (no underline)
-//   color: $font-content; // Text color
-// }
-
-.logohome {
-  width: 300px;
+  margin-top: 200px; /* Comment: Duplicate "margin-top" property */
 }
 
-.containerhome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100vw;
-  overflow-x: hidden;
-  margin-bottom: 5vh;
-}
-
-.afac {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 80%;
-  margin-top: 5vh;
-}
-
-.text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5vw;
-  font-family: $font;
-}
-
-.galerie {
-  background-color: $color1;
-  padding: 10px 20px 10px 20px;
-  font-size: $h2;
-  font-family: $font;
-  text-decoration: none;
-  color: white;
-  box-shadow: 8px 5px 5px -2px black;
-  margin-bottom: 20px;
-}
-.sliderhome {
-  display: flex;
-  flex-direction: row;
-}
-
-.sliderart1 {
-  margin-top: 5vh;
-  display: flex;
-  background-size: cover;
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  height: 160px;
-  width: 150px;
-
-  margin-top: 200px;
-}
+/* Comment: Styles for the second slide in the home slider */
 .sliderart2 {
   margin-top: 5vh;
   display: flex;
@@ -359,5 +138,5 @@
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   height: 160px;
   width: 150px;
-  margin: 10px;
+  margin: 10px; 
 }
