@@ -4,7 +4,7 @@ const browse = (req, res) => {
   models.artworks
     .findAll()
     .then(([rows]) => {
-      let total = rows.totalResults;
+      const total = rows.totalResults;
       res.set("Access-Control-Expose-Headers", "X-Total-Count");
       res.set("X-Total-Count", total);
       res.send(rows);
