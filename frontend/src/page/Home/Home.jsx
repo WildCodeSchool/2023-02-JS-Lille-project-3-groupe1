@@ -128,12 +128,14 @@ function Home() {
               rigoureuse d'une vingtaine d'aquarelles et de dessins
               représentatifs de notre patrimoine artistique.
             </div>
-            <div className="hexagon-button">
-              <div className="hexagon-voir">
-                <div className="voir">Voir</div>
-                <div>les oeuvres</div>
+            <a className="tablette-link" href="/galerie">
+              <div className="hexagon-button">
+                <div className="hexagon-voir">
+                  <div className="voir">Voir</div>
+                  <div>les oeuvres</div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
