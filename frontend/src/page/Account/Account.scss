@@ -17,7 +17,7 @@
   width: 90vw;
   box-shadow: 0 -1vh 2vh rgba(0, 0, 0, 0.3);
   border-radius: 3vh 3vh 3vh 3vh;
-  background: #b982ae;
+  background: $color1;
   padding-bottom: 50px;
   min-height: 54vh;
 }
@@ -25,7 +25,7 @@
 .onglet {
   padding: 2.5vh 0.7vh;
   margin: 0vh;
-  background: $color3;
+  background: $color1;
   display: inline-block;
   color: #fff;
   border-radius: 3vh 3vh 0vh 0vh;
@@ -38,37 +38,24 @@
   cursor: pointer;
   color: #000000;
   text-decoration: none;
-  background-color: rgb(125, 192, 207);
   width: fit-content;
   border-radius: 25px;
-  border: 2px solid black;
   margin-right: 2vw;
 }
 
 .liste.inactive {
-  font-weight: normal;
-  background-color: $color1;
   color: #fff;
-  border: none;
-  border-radius: 50px;
   padding: 12px;
-  font-size: 16px;
   cursor: pointer;
 }
 
 .liste.active {
-  background-color: $color1;
   color: #fff;
-  border: none;
-  border-radius: 50px;
   padding: 12px;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
-  border: #000000 2px solid;
-}
-
-.liste.active:hover {
-  background-color: #43869e;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .container-boutton {

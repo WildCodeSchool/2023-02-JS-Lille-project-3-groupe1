@@ -42,7 +42,7 @@ function Favoris() {
   return (
     <div className="containerfav">
       {userFavorites.map((artworkId) => (
-        <div className="imageContainer" key={artworkId}>
+        <div className="imageContainerfavoris" key={artworkId}>
           <Card
             artwork={artworks.find((artwork) => artwork.id === artworkId)}
             isFavorite={userFavorites.includes(artworkId)}

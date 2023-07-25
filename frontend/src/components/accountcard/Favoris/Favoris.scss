@@ -1,10 +1,18 @@
 .containerfav {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
+  align-items: flex-start;
+  max-width: 100%;
 }
-.imageContainer {
-  display: flex;
-  width: 20vw;
+
+.imageContainerfavoris {
+  padding: 5%;
+}
+.imageContainerfavoris > .imageContainerGal {
+  width: 300px;
+}
+.imageContainerfavoris > .imageContainerGal > img {
+  width: 80%;
 }

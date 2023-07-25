@@ -10,6 +10,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Context/authContext";
 import { useContext } from "react";
 
+// const customStyles = {
+//   overlay: {
+//     background: "#000",
+//   },
+// };
 function Card({ artwork }) {
   const { user } = useContext(AuthContext);
   const [isClick, setClick] = useState(false);
@@ -114,6 +119,9 @@ function Card({ artwork }) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Image"
+        style={{
+          overlay: { background: "rgba(0, 0, 0, 0.8)", overflow: "hidden" },
+        }}
       >
         <div className="fullCard">
           <img

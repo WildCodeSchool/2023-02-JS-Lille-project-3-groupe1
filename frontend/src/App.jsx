@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
@@ -16,6 +16,19 @@ export default function App() {
   const { user } = useContext(AuthContext);
   const [activeTab, setActiveTab] = useState("favoris");
   const [showNavbarAndFooter, setShowNavbarAndFooter] = useState(true);
+
+  // Disable right-click on the entire site
+  useEffect(() => {
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    document.body.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.body.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
