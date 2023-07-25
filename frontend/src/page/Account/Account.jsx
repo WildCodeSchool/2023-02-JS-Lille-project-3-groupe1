@@ -20,7 +20,7 @@ function Account({ activeTab, onTabChange }) {
   };
 
   return (
-    <div>
+    <div className="container-page-account">
       <div className="container-boutton">
         <button className="logout" onClick={handleLogout} type="submit">
           Se déconnecter

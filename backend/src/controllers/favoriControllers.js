@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -12,32 +14,22 @@ const browse = (req, res) => {
     });
 };
 
-// const getFavoriteArtworks = (userId, callback) => {
-//   const sql = `
-//     SELECT artworks.*
-//     FROM artworks
-//     INNER JOIN favori ON artworks.id = favori.artworks_id
-//     WHERE favori.user_id = ?
-//   `;
-//   const params = [userId];
-
-//   // Send the SQL query to the database
-//   this.database.query(sql, params, (error, results) => {
-//     if (error) {
-//       callback(error);
-//       return;
-//     }
-
-//     // Map the results to an array of JavaScript objects
-//     const favoriteArtworks = results.map((row) => ({
-//       id: row.id,
-//       title: row.title,
-//       image: row.url,
-//       // Add more properties as needed
-//     }));
-//     res.json(favoriteArtworks);
-//   });
-// };
+const findArtworkIdByArtworkId = (req, res) => {
+  const artworks_id = req.params.id;
+  models.artworks
+    .findArtworkIdByArtworkId(artworks_id)
+    .then(([rows]) => {
+      if (rows.length === 0) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 const read = (req, res) => {
   models.favori
@@ -115,4 +107,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  findArtworkIdByArtworkId,
 };

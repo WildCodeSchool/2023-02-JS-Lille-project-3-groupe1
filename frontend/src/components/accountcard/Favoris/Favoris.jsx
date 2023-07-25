@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Card from "../../../page/Galerie/card";
-import { useContext } from "react";
-import { AuthContext } from "../../../Context/authContext";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import Card from "../../../page/Galerie/card";
+import { AuthContext } from "../../../Context/authContext";
+import "./Favoris.scss";
 
-function Favoris({ artworks }) {
+function Favoris() {
   const [userFavorites, setUserFavorites] = useState([]);
   const { user } = useContext(AuthContext);
-
-  useEffect(() => {
-    // Fetch the user's favorites when the component mounts or when the user changes
-    fetchUserFavorites();
-  }, [user]);
+  const [artworks, setArtworks] = useState([]);
 
   const fetchUserFavorites = () => {
     if (user && user.id) {
@@ -20,20 +16,38 @@ function Favoris({ artworks }) {
         .then((response) => {
           setUserFavorites(response.data.map((fav) => fav.artworks_id));
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          console.error(err);
         });
     }
   };
 
+  useEffect(() => {
+    fetchUserFavorites();
+  }, [userFavorites, user]);
+
+  useEffect(() => {
+    // Define setClick state variable here if required
+
+    axios
+      .get("http://localhost:5000/artworks")
+      .then((response) => {
+        setArtworks(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   return (
-    <div>
-      {artworks.map((artwork) => (
-        <Card
-          key={artwork.id}
-          artwork={artwork}
-          isFavorite={userFavorites.includes(artwork.id)}
-        />
+    <div className="containerfav">
+      {userFavorites.map((artworkId) => (
+        <div className="imageContainer" key={artworkId}>
+          <Card
+            artwork={artworks.find((artwork) => artwork.id === artworkId)}
+            isFavorite={userFavorites.includes(artworkId)}
+          />
+        </div>
       ))}
     </div>
   );

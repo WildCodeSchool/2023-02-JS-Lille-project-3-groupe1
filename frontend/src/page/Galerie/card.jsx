@@ -19,7 +19,7 @@ function Card({ artwork }) {
   useEffect(() => {
     // Fetch the user's favorites when the component mounts or when the user changes
     fetchUserFavorites();
-  }, [user]);
+  }, [userFavorites]);
 
   const fetchUserFavorites = () => {
     if (user && user.id) {

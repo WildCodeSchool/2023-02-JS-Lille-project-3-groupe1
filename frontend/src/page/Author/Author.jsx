@@ -17,7 +17,7 @@ function Author() {
   }, []);
 
   return (
-    <div>
+    <div className="author-page">
       {authors.map((author) => (
         <AuthorCard key={author.id} authors={authors[0]} />
       ))}

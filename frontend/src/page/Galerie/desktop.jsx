@@ -17,7 +17,14 @@ function ContenuDesktop({ artworks }) {
   }
 
   return (
-    <div>
+    <div className="containerpagedestop">
+      <button
+        className="slideshow-button"
+        type="button"
+        onClick={startSlideShow}
+      >
+        {slideshow ? "Galerie" : "Carrousel"}
+      </button>
       {slideshow ? (
         <div className="swiper-container">
           <Swiper
@@ -44,7 +51,6 @@ function ContenuDesktop({ artworks }) {
               </SwiperSlide>
             ))}
           </Swiper>
-
           <Swiper
             onSwiper={setThumbsSwiper}
             loop
@@ -64,33 +70,26 @@ function ContenuDesktop({ artworks }) {
               </SwiperSlide>
             ))}
           </Swiper>
-          <button
-            className="slideshow-button1"
-            type="button"
-            onClick={startSlideShow}
-          >
-            Stop SlideShow
-          </button>
         </div>
       ) : (
         <div className="galleryContainer">
-          <button
-            className="slideshow-button"
-            type="button"
-            onClick={startSlideShow}
-          >
-            Start SlideShow
-          </button>
           {artworks.map((artwork) => (
-            <Card key={artwork.id} artwork={artwork} />
+            <Card key={artwork.id} artwork={artwork} className="child" />
           ))}
         </div>
       )}
     </div>
   );
 }
+
 ContenuDesktop.propTypes = {
-  artworks: PropTypes.arrayOf().isRequired,
+  artworks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      // Add other necessary PropTypes for artwork object properties
+    })
+  ).isRequired,
 };
 
 export default ContenuDesktop;

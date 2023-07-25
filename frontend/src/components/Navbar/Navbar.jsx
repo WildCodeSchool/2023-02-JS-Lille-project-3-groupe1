@@ -51,7 +51,7 @@ export default function Navbar() {
           <img className="profil" src={profil} alt="Profil" />
         </NavLink>
       ) : (
-        <NavLink to="/login" className="profil">
+        <NavLink to="/login">
           <img className="profil" src={profil} alt="Profil" />
         </NavLink>
       )}

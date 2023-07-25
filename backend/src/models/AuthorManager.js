@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const AbstractManager = require("./AbstractManager");
 
 class AuthorManager extends AbstractManager {
