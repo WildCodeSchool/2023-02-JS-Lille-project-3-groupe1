@@ -4,6 +4,9 @@ const browse = (req, res) => {
   models.author
     .findAll()
     .then(([rows]) => {
+      const total = rows.totalResults;
+      res.set("Access-Control-Expose-Headers", "X-Total-Count");
+      res.set("X-Total-Count", total);
       res.send(rows);
     })
     .catch((err) => {
