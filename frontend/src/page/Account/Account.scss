@@ -6,7 +6,7 @@
   margin: auto;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  height: fit-content;
+  height: calc(100vh - 13vh - 9vh);
   width: 90vw;
   transition: box-shadow 0.3s;
   box-shadow: 0 -1vh 2vh rgba(0, 0, 0, 0.3);
@@ -50,4 +50,24 @@
 .liste:hover {
   background-color: #fff;
   color: #000000;
+}
+
+.logout {
+  background-color: $color1;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.logout:hover {
+  background-color: #43869e;
+}
+
+.container-boutton {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 5vh;
+  margin-right: 5vw;
 }

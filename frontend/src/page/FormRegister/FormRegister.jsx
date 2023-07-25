@@ -1,58 +1,48 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../../Context/authContext";
+import "../FormLogin/FormLoginStyle.scss";
+import PropTypes from "prop-types";
 import { ToastContainer, toast } from "react-toastify";
 
-function FormLogin({ onFormOpen, onFormClose }) {
-  const { setUser, setIsconnected } = useContext(AuthContext);
-  const navigate = useNavigate();
+function FormRegister({ onFormOpen, onFormClose }) {
+  const notify = () => toast.success("Créé");
+
   const [formData, setFormData] = useState({
-    mail: "",
-    password: "",
+    name: "", // Champ pour le nom
+    mail: "", // Champ pour l'email
+    password: "", // Champ pour le mot de passe
   });
-  const notify = () => toast.success("Connecté");
-  const incorrect = () =>
-    toast.error("Mauvais identifiants, veuillez recommencer");
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/login", formData)
-      .then(({ data }) => {
-        const { user } = data;
+      .post("http://localhost:5000/users", formData)
+      .then(() => {
         setFormData({
+          name: "",
           mail: "",
           password: "",
         });
         notify();
-        // Set the user using the setUser function from the AuthContext
-        setUser(user);
-        localStorage.setItem("user", JSON.stringify(user));
-        setIsconnected(true);
-        navigate("/account/favoris");
       })
       .catch((error) => {
-        incorrect();
         console.error("Erreur lors de la requête :", error);
       });
   };
 
   useEffect(() => {
-    onFormOpen();
+    if (typeof onFormOpen === "function") {
+      onFormOpen();
+    }
     return () => {
-      onFormClose();
+      if (typeof onFormClose === "function") {
+        onFormClose();
+      }
     };
   }, [onFormOpen, onFormClose]);
 
@@ -60,12 +50,27 @@ function FormLogin({ onFormOpen, onFormClose }) {
     <div className="loginpage">
       <ToastContainer />
       <div className="login-box">
+        {/* En-tête du formulaire */}
         <div>
           <a href="/" className="title-form">
             AFAC 974
           </a>
         </div>
+        {/* Formulaire d'inscription */}
         <form onSubmit={handleSubmit}>
+          {/* Champ de saisie du nom */}
+          <div className="user-box">
+            <label htmlFor="name">Nom</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              autoComplete="off"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
           {/* Champ de saisie de l'email */}
           <div className="user-box">
             <label htmlFor="email">Email</label>
@@ -91,16 +96,16 @@ function FormLogin({ onFormOpen, onFormClose }) {
               required
             />
           </div>
-          {/* Bouton de connexion */}
+          {/* Bouton de soumission */}
           <div className="button-container">
-            <button type="submit">Se connecter</button>
+            <button type="submit">S'inscrire</button>
           </div>
         </form>
-        {/* Lien pour créer un compte */}
+        {/* Lien pour se connecter */}
         <p className="account-sign-up">
-          Pas encore membre ?{" "}
-          <a href="/register" className="subscribe">
-            Inscrivez-vous dès maintenant !
+          Vous êtes déjà membre ?{" "}
+          <a href="login" className="subscribe">
+            Connectez-vous ici.
           </a>
         </p>
       </div>
@@ -108,9 +113,10 @@ function FormLogin({ onFormOpen, onFormClose }) {
   );
 }
 
-FormLogin.propTypes = {
+// Spécification des types des propriétés attendues par le composant
+FormRegister.propTypes = {
   onFormOpen: PropTypes.func.isRequired,
   onFormClose: PropTypes.func.isRequired,
 };
 
-export default FormLogin;
+export default FormRegister;

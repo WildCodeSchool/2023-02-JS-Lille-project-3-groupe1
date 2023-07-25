@@ -1,0 +1,147 @@
+@import "../../variable.scss";
+
+/* Importation des variables de style pour réutiliser les valeurs prédéfinies */
+/* Style de la boîte de connexion */
+.loginpage {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  margin: 20px auto;
+  transform: translate(-50%, -55%);
+  background: $color-background-div; /* Couleur de fond de la boîte de connexion */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Ombre de la boîte de connexion */
+  border-radius: 10px;
+  font-family: $font; /* Police de caractères utilisée */
+  color: $color-div; /* Couleur du texte */
+
+  .title-form {
+    margin: 0 0 30px;
+    padding: 0;
+    color: $color-div; /* Couleur du titre */
+    text-align: center;
+    font-size: $h1; /* Taille du titre du premier paragraphe */
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .information-section-text {
+    display: flex;
+    justify-content: center;
+    font-size: $h2;
+  }
+
+  // titre formulaire cliquable et sans surlignement ni changement de couleur
+  .title-form {
+    text-decoration: none;
+    color: $color-div; /* Couleur des liens */
+  }
+  /* Style du conteneur des champs de saisie */
+  .user-box {
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: $color-div; /* Couleur du texte des champs de saisie */
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid $color-div; /* Bordure inférieure des champs de saisie */
+      outline: none;
+      background: transparent;
+      margin-top: 20px;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: $color-div; /* Couleur du texte des labels */
+      pointer-events: none;
+      transition: 0.5s;
+    }
+
+    input:focus ~ label,
+    input:valid,
+    input.valid ~ label {
+      /* Ajoutez "input.valid ~ label" pour appliquer la transition au label lorsque le mot de passe est valide */
+      top: -20px;
+      left: 0;
+      color: $color-div; /* Couleur du texte des labels lorsqu'un champ est sélectionné ou validé */
+      font-size: 16px;
+    }
+  }
+
+  /* Style du bouton de connexion */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  button {
+    font-size: 16px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid $color-div;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: $color-background-div;
+    transition: 0, 5s ease all;
+    z-index: 1;
+  }
+
+  button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: $color-background-div;
+    z-index: -1;
+  }
+
+  button:hover,
+  button:focus {
+    color: $color-div;
+  }
+
+  button:hover:before,
+  button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  // section inscription
+  .subscribe:-webkit-any-link {
+    color: $color-div;
+  }
+  a:subscribe {
+    color: $color-div;
+    text-decoration: underline;
+  }
+}
