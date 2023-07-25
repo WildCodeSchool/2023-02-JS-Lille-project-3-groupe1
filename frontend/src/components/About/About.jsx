@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { CSSTransition } from "react-transition-group";
 import "./About.scss";
 import { useState } from "react";

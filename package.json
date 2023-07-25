@@ -14,7 +14,7 @@
     "cli": "npm"
   },
   "scripts": {
-    "postinstall": "cross-env-shell \"husky install && cd ./frontend && $npm_package_config_cli install && cd ../backend && $npm_package_config_cli install\" && cd ../admin && $npm_package_config_cli install\"",
+    "postinstall": "cross-env-shell \"husky install && cd ./frontend && $npm_package_config_cli install && cd ../backend && $npm_package_config_cli install\"",
     "migrate": "cd ./backend && node migrate.js",
     "dev": "concurrently -n front,back,admin -c green,yellow,cyan -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\" \"npm --prefix ./admin run dev\"",
     "dev-front": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run dev\"",
@@ -30,4 +30,5 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3"
-  }}
+  }
+}

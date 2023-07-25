@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./page/Home/Home";
@@ -17,6 +17,19 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("favoris");
   const [showNavbarAndFooter, setShowNavbarAndFooter] = useState(true);
 
+  // Disable right-click on the entire site
+  useEffect(() => {
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    document.body.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.body.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -31,58 +44,56 @@ export default function App() {
 
   return (
     <div className="appcontainer">
-      <div className="containerapp">
-        {showNavbarAndFooter && (
-          <div className="navapp">
-            <Navbar />
-          </div>
-        )}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/galerie" element={<GaleriePG />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route
-            path="/login"
-            element={
-              <FormLogin
-                onFormOpen={handleFormOpen}
-                onFormClose={handleFormClose}
-              />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <FormRegister
-                onFormOpen={handleFormOpen}
-                onFormClose={handleFormClose}
-              />
-            }
-          />
-          <Route path="/apropos" element={<About />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route
-            path="/account/favoris"
-            element={
-              user.id !== undefined ? (
-                <Account activeTab={activeTab} onTabChange={handleTabChange} />
-              ) : (
-                ""
-              )
-            }
-          />
-          <Route
-            path="/account/news"
-            element={
-              user.id !== undefined ? (
-                <Account activeTab={activeTab} onTabChange={handleTabChange} />
-              ) : (
-                ""
-              )
-            }
-          />
-        </Routes>
-      </div>
+      {showNavbarAndFooter && (
+        <div className="navapp">
+          <Navbar />
+        </div>
+      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/galerie" element={<GaleriePG />} />
+        <Route path="/authors" element={<Authors />} />
+        <Route
+          path="/login"
+          element={
+            <FormLogin
+              onFormOpen={handleFormOpen}
+              onFormClose={handleFormClose}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <FormRegister
+              onFormOpen={handleFormOpen}
+              onFormClose={handleFormClose}
+            />
+          }
+        />
+        <Route path="/apropos" element={<About />} />
+        <Route path="/authors" element={<Authors />} />
+        <Route
+          path="/account/favoris"
+          element={
+            user.id !== undefined ? (
+              <Account activeTab={activeTab} onTabChange={handleTabChange} />
+            ) : (
+              ""
+            )
+          }
+        />
+        <Route
+          path="/account/news"
+          element={
+            user.id !== undefined ? (
+              <Account activeTab={activeTab} onTabChange={handleTabChange} />
+            ) : (
+              ""
+            )
+          }
+        />
+      </Routes>
       {showNavbarAndFooter && (
         <div className="footerapp">
           <Footer />

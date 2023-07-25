@@ -1,5 +1,11 @@
 @import "../../variable.scss";
 
+.author-page {
+  display: flex;
+  flex-direction: column;
+  height: 81vh;
+}
+
 .authorcontainer {
   display: flex;
   flex-direction: column;
@@ -9,7 +15,6 @@
   background-color: rgb(170, 170, 170);
   background-blend-mode: multiply;
   height: 100vh;
-
   font-family: $font;
   background-image: url("../../assets/Background Image/marjan-blan-qqz06qPB_F0-unsplash.jpg");
 }

@@ -41,10 +41,10 @@ router.delete("/authors/:id", verifyToken, authorControllers.destroy);
 router.post("/authors", verifyToken, authorControllers.add);
 
 router.get("/favori", verifyToken, favoriControllers.browse);
-router.get("/favori/:id", verifyToken, favoriControllers.read);
-router.put("/favori/:id", verifyToken, favoriControllers.edit);
-router.post("/favori", verifyToken, favoriControllers.add);
-router.delete("/favori/:id", verifyToken, favoriControllers.destroy);
+router.get("/favori/:id", favoriControllers.read);
+router.put("/favori/:id", favoriControllers.edit);
+router.post("/favori", favoriControllers.add);
+router.delete("/favori/:id", favoriControllers.destroy);
 
 router.put("/artworks/:id", verifyToken, artworksControllers.edit);
 router.post("/artworks", verifyToken, artworksControllers.add);

@@ -5,7 +5,7 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 13vh;
+  height: 10vh;
   width: 100vw;
   background-color: $color1;
 }
@@ -15,7 +15,7 @@ ul {
   display: flex;
   flex-direction: inherit;
   gap: 3rem;
-  height: 13vh;
+  height: 10vh;
 }
 
 li {
@@ -29,7 +29,7 @@ li {
   color: #ffffff;
   text-decoration: none;
   font-family: $font;
-  height: 13vh;
+  height: 10vh;
   padding-left: 2vh;
   padding-right: 2vh;
   align-items: center;
@@ -40,7 +40,7 @@ li {
   color: $color1;
   text-decoration: none;
   font-family: $font;
-  height: 13vh;
+  height: 10vh;
   padding-left: 2vh;
   padding-right: 2vh;
   align-items: center;
@@ -50,7 +50,7 @@ li {
 }
 
 .logo {
-  height: 12vh;
+  height: 10vh;
   position: absolute;
   left: 2vw;
   top: 0;
@@ -59,7 +59,8 @@ li {
 .profil {
   position: absolute;
   right: 2vw;
-  height: 7vh;
+  height: 6vh;
+  top: 2vh;
 }
 
 .logo-img {

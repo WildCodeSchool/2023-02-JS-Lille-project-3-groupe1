@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 10vh - 9vh);
   background-image: url("../../assets/Background Image/brushes-4226688_1280.jpg"); // Image de fond
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   margin: auto;
   width: 90%;
-  height: 70%;
+  height: 85%;
   background-color: rgba(0, 0, 0, 0.719);
 }
 
@@ -37,7 +37,7 @@
   font-size: $h3;
   text-align: center;
   padding: 2vw;
-  gap: 50px;
+  gap: 10px;
 }
 .voir {
   font-size: $voir;
@@ -261,7 +261,7 @@
   );
 }
 
-$animationSpeed: 30s;
+$animationSpeed: 50s;
 
 // Animation
 @keyframes scroll {

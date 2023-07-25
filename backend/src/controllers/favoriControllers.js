@@ -12,11 +12,12 @@ const browse = (req, res) => {
     });
 };
 
-const read = (req, res) => {
-  models.favori
-    .find(req.params.id)
+const findArtworkIdByArtworkId = (req, res) => {
+  const artworksId = req.params.id;
+  models.artworks
+    .findArtworkIdByArtworkId(artworksId)
     .then(([rows]) => {
-      if (rows[0] == null) {
+      if (rows.length === 0) {
         res.sendStatus(404);
       } else {
         res.send(rows[0]);
@@ -28,6 +29,21 @@ const read = (req, res) => {
     });
 };
 
+const read = (req, res) => {
+  models.favori
+    .findbyuser(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 const edit = (req, res) => {
   const favori = req.body;
 
@@ -89,4 +105,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  findArtworkIdByArtworkId,
 };

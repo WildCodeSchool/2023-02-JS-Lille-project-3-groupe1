@@ -6,7 +6,6 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #555252;
 
   /* Center slide text vertically */
   display: flex;
@@ -64,9 +63,12 @@
 .swiper-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 13vh - 9vh);
-
-  background-color: #3c3838;
+  height: inherit;
+}
+@media screen and (min-width: 1025px) {
+  .swiper-container {
+    height: 66vh; /* Utiliser 66vh pour les bureaux */
+  }
 }
 
 .swiperThumb {
@@ -74,4 +76,9 @@
 }
 .swiper-wrapper {
   width: 10%;
+  height: inherit;
+}
+
+.swiper-horizontal {
+  margin: 10px;
 }
