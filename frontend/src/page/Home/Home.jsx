@@ -1,14 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import logohome from "../../assets/logos/logohome.svg";
 import "./Home.scss";
-// import img1 from "../../../../backend/public/assets/images/image/AD974_40FI72-ChanvertGolo.jpg";
-// import img2 from "../../../../backend/public/assets/images/image/caille.jpg";
-// import img3 from "../../../../backend/public/assets/images/image/FRAD974_40FI52.jpg";
-// import img5 from "../../../../backend/public/assets/images/image/MORTIER.de.TREVISE_Mr.Bourraye.dans.jardin.Casernes_1861.jpg";
-// import img6 from "../../../../backend/public/assets/images/image/UsineBelAir_40FI78.jpg";
 
 function Home() {
   const [largeurEcran, setLargeurEcran] = useState(window.innerWidth);

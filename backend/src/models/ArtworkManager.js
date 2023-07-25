@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const AbstractManager = require("./AbstractManager");
 
 class ArtworksManager extends AbstractManager {
@@ -44,13 +42,13 @@ class ArtworksManager extends AbstractManager {
     );
   }
 
-  findArtworkIdByArtworkId(artworks_id) {
+  findArtworkIdByArtworkId(artworksId) {
     return this.database.query(
       `SELECT a.id
       FROM ${this.table} AS a
       INNER JOIN favori AS f ON a.id = f.artworks_id
       WHERE f.artworks_id = ?`,
-      [artworks_id]
+      [artworksId]
     );
   }
 }

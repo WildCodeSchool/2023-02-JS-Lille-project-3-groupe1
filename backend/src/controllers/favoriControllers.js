@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -15,9 +13,9 @@ const browse = (req, res) => {
 };
 
 const findArtworkIdByArtworkId = (req, res) => {
-  const artworks_id = req.params.id;
+  const artworksId = req.params.id;
   models.artworks
-    .findArtworkIdByArtworkId(artworks_id)
+    .findArtworkIdByArtworkId(artworksId)
     .then(([rows]) => {
       if (rows.length === 0) {
         res.sendStatus(404);

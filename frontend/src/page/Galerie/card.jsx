@@ -1,5 +1,7 @@
 /* eslint-disable */
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types"; // Import PropTypes for prop type validations
 import Modal from "react-modal";
 import "./carousel.scss";
 import "./Galerie.scss";
@@ -8,23 +10,14 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Context/authContext";
-import { useContext } from "react";
 
-// const customStyles = {
-//   overlay: {
-//     background: "#000",
-//   },
-// };
 function Card({ artwork }) {
   const { user } = useContext(AuthContext);
   const [isClick, setClick] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [userFavorites, setUserFavorites] = useState([]);
-
-  useEffect(() => {
-    // Fetch the user's favorites when the component mounts or when the user changes
-    fetchUserFavorites();
-  }, [userFavorites]);
+  const added = () => toast.success("Ajouté aux favoris!");
+  const removed = () => toast.success("Supprimé des favoris!");
 
   const fetchUserFavorites = () => {
     if (user && user.id) {
@@ -35,11 +28,16 @@ function Card({ artwork }) {
           // Check if the artwork is in the user's favorites and update the heart state accordingly
           setClick(response.data.some((fav) => fav.artworks_id === artwork.id));
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          console.error(err);
         });
     }
   };
+
+  useEffect(() => {
+    // Fetch the user's favorites when the component mounts or when the user changes
+    fetchUserFavorites();
+  }, [userFavorites]);
 
   function toggleFavorite() {
     if (user && user.id) {
@@ -52,13 +50,13 @@ function Card({ artwork }) {
               artworks_id: artwork.id,
             },
           })
-          .then((response) => {
+          .then(() => {
             setClick(false);
             fetchUserFavorites();
             removed();
           })
-          .catch((error) => {
-            console.log(error);
+          .catch((err) => {
+            console.error(err);
           });
       } else {
         // Add the artwork to user's favorites
@@ -67,18 +65,19 @@ function Card({ artwork }) {
             user_id: user.id,
             artworks_id: artwork.id,
           })
-          .then((response) => {
+          .then(() => {
             setClick(true);
             fetchUserFavorites();
             added();
           })
-          .catch((error) => {
-            console.log(error);
+          .catch((err) => {
+            console.error(err);
           });
       }
     }
   }
 
+  let subtitle;
   function openModal() {
     setIsOpen(true);
   }
@@ -90,11 +89,13 @@ function Card({ artwork }) {
   function afterOpenModal() {
     subtitle.style.color = "#f00";
   }
+  function handleHeartClick(event) {
+    toggleFavorite();
+  }
 
-  let subtitle;
-
-  const added = () => toast.success("Ajouté aux favoris!");
-  const removed = () => toast.success("Supprimé des favoris!");
+  function handleImageClick() {
+    openModal();
+  }
 
   return (
     <>
@@ -102,16 +103,10 @@ function Card({ artwork }) {
         <img
           src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
           alt={artwork?.full_title}
-          onClick={openModal}
+          onClick={handleImageClick}
         />
 
-        <Heart
-          className="heart"
-          isClick={isClick}
-          onClick={() => {
-            toggleFavorite();
-          }}
-        />
+        <Heart className="heart" onClick={handleHeartClick} isClick={isClick} />
         <h3>{artwork?.full_title}</h3>
       </div>
       <Modal
@@ -120,13 +115,15 @@ function Card({ artwork }) {
         onRequestClose={closeModal}
         contentLabel="Image"
         style={{
-          overlay: { background: "rgba(0, 0, 0, 0.8)", overflow: "hidden" },
+          overlay: { background: "rgba(0, 0, 0, 0.8)" },
+          content: { background: "rgb(202, 201, 199)" },
         }}
       >
         <div className="fullCard">
           <img
             className="imageFull"
             src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+            alt={artwork?.full_title} // Add alt prop to img element
           />
           <div className="details">
             <h1>{artwork?.full_title}</h1>
@@ -155,5 +152,17 @@ function Card({ artwork }) {
     </>
   );
 }
+
+Card.propTypes = {
+  artwork: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    full_title: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    technique: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    related_article: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Card;
