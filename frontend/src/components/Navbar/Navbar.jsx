@@ -49,7 +49,7 @@ export default function Navbar() {
       </ul>
 
       {isconnected ? (
-        <NavLink to="/account/favoris" className="profil">
+        <NavLink to="/account/favoris">
           <img className="profil" src={profil1} alt="Profil" />
         </NavLink>
       ) : (
