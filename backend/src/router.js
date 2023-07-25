@@ -45,7 +45,6 @@ router.get("/favori/:id", favoriControllers.read);
 router.put("/favori/:id", favoriControllers.edit);
 router.post("/favori", favoriControllers.add);
 router.delete("/favori/:id", favoriControllers.destroy);
-// router.get("/favorites/:id", favoriControllers.read);
 
 router.put("/artworks/:id", verifyToken, artworksControllers.edit);
 router.post("/artworks", verifyToken, artworksControllers.add);
