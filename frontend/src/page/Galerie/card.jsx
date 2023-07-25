@@ -12,12 +12,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Context/authContext";
 
 function Card({ artwork }) {
-  const { user } = useContext(AuthContext);
+  const { user, isconnected } = useContext(AuthContext);
   const [isClick, setClick] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [userFavorites, setUserFavorites] = useState([]);
   const added = () => toast.success("Ajouté aux favoris!");
   const removed = () => toast.success("Supprimé des favoris!");
+  const notLoggedin = () =>
+    toast.info("Veuillez vous connecter ou créer un compte pour cela !");
 
   const fetchUserFavorites = () => {
     if (user && user.id) {
@@ -89,8 +91,13 @@ function Card({ artwork }) {
   function afterOpenModal() {
     subtitle.style.color = "#f00";
   }
-  function handleHeartClick(event) {
-    toggleFavorite();
+
+  function handleHeartClick() {
+    if (!isconnected) {
+      notLoggedin();
+    } else {
+      toggleFavorite();
+    }
   }
 
   function handleImageClick() {
@@ -107,6 +114,7 @@ function Card({ artwork }) {
         />
 
         <Heart className="heart" onClick={handleHeartClick} isClick={isClick} />
+
         <h3>{artwork?.full_title}</h3>
       </div>
       <Modal
@@ -132,7 +140,7 @@ function Card({ artwork }) {
               <b>{artwork?.technique}</b>
             </h2>
             <p>{artwork?.description}</p>
-            <a href={artwork?.related_article}>link</a>
+            <a href={artwork?.related_article}>En savoir plus...</a>
             <br />
             <a href="/authors">Page auteur</a>
           </div>

@@ -3,7 +3,6 @@
 .author-page {
   display: flex;
   flex-direction: column;
-  height: 81vh;
 }
 
 .authorcontainer {
@@ -14,7 +13,6 @@
   padding: 4rem;
   background-color: rgb(170, 170, 170);
   background-blend-mode: multiply;
-  height: 100vh;
   font-family: $font;
   background-image: url("../../assets/Background Image/marjan-blan-qqz06qPB_F0-unsplash.jpg");
 }
@@ -46,7 +44,6 @@ h4 {
   line-height: 4vh;
 }
 .authorcontainer:hover {
-  // transform: scale(1.005);
   box-shadow: 5px 5px 5px 5px #292929, 0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
     0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
 }
