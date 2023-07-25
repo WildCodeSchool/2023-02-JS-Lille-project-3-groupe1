@@ -38,22 +38,24 @@ function Account({ activeTab, onTabChange }) {
             Favoris
           </NavLink>
           <NavLink
-            to="/account/news"
-            className={`liste ${activeTab === "news" ? "active" : "inactive"}`}
-            onClick={() => handleTabClick("news")}
+            to="/account/Programme"
+            className={`liste ${
+              activeTab === "Programme" ? "active" : "inactive"
+            }`}
+            onClick={() => handleTabClick("Programme")}
           >
-            News
+            Programme
           </NavLink>
         </div>
         {activeTab === "favoris" && <Favoris user={user} />}
-        {activeTab === "news" && <News />}
+        {activeTab === "Programme" && <News />}
       </div>
     </div>
   );
 }
 
 Account.propTypes = {
-  activeTab: PropTypes.oneOf(["favoris", "news"]).isRequired,
+  activeTab: PropTypes.oneOf(["favoris", "Programme"]).isRequired,
   onTabChange: PropTypes.func.isRequired,
 };
 

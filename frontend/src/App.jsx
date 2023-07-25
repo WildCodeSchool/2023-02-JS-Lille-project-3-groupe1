@@ -84,7 +84,7 @@ export default function App() {
           }
         />
         <Route
-          path="/account/news"
+          path="/account/Programme"
           element={
             user.id !== undefined ? (
               <Account activeTab={activeTab} onTabChange={handleTabChange} />
