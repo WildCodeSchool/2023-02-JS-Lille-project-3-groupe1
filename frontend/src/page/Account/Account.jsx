@@ -44,7 +44,7 @@ function Account({ activeTab, onTabChange }) {
             }`}
             onClick={() => handleTabClick("Programme")}
           >
-            Programme
+            Capeline 974
           </NavLink>
         </div>
         {activeTab === "favoris" && <Favoris user={user} />}
@@ -55,7 +55,7 @@ function Account({ activeTab, onTabChange }) {
 }
 
 Account.propTypes = {
-  activeTab: PropTypes.oneOf(["favoris", "Programme"]).isRequired,
+  activeTab: PropTypes.oneOf(["favoris", "Capeline 974"]).isRequired,
   onTabChange: PropTypes.func.isRequired,
 };
 

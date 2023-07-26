@@ -57,7 +57,7 @@ function FormLogin({ onFormOpen, onFormClose }) {
   }, [onFormOpen, onFormClose]);
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   return (

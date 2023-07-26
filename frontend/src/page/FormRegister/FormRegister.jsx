@@ -3,9 +3,11 @@ import axios from "axios";
 import "../FormLogin/FormLoginStyle.scss";
 import PropTypes from "prop-types";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function FormRegister({ onFormOpen, onFormClose }) {
   const notify = () => toast.success("Créé");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "", // Champ pour le nom
@@ -29,6 +31,7 @@ function FormRegister({ onFormOpen, onFormClose }) {
           password: "",
         });
         notify();
+        navigate("/login");
       })
       .catch((error) => {
         console.error("Erreur lors de la requête :", error);
@@ -46,8 +49,14 @@ function FormRegister({ onFormOpen, onFormClose }) {
     };
   }, [onFormOpen, onFormClose]);
 
+  const handleGoBack = () => {
+    navigate("/");
+  };
   return (
     <div className="loginpage">
+      <button id="go-back" type="submit" onClick={handleGoBack}>
+        Retour
+      </button>
       <ToastContainer />
       <div className="login-box">
         {/* En-tête du formulaire */}
@@ -60,7 +69,7 @@ function FormRegister({ onFormOpen, onFormClose }) {
         <form onSubmit={handleSubmit}>
           {/* Champ de saisie du nom */}
           <div className="user-box">
-            <label htmlFor="name">Nom</label>
+            <label htmlFor="name">identifiant</label>
             <input
               type="text"
               name="name"
