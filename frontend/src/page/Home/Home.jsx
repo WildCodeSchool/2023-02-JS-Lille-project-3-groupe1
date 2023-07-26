@@ -39,9 +39,9 @@ function Home() {
 
         <div className="text">
           <p>
-            L’Association des HomePageFamilles Amies de Capeline 974 souhaite
-            mettre à disposition des élèves de l’Océan Indien et de leurs
-            familles des ressources spécifiques aux espaces ultramarins.
+            L’Association des Familles Amies de Capeline 974 souhaite mettre à
+            disposition des élèves de l’Océan Indien et de leurs familles des
+            ressources spécifiques aux espaces ultramarins.
           </p>
           <p>
             Plongez au cœur de la magie artistique lors de notre exposition

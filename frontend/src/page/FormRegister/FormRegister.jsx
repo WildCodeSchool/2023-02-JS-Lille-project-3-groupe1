@@ -69,7 +69,7 @@ function FormRegister({ onFormOpen, onFormClose }) {
         <form onSubmit={handleSubmit}>
           {/* Champ de saisie du nom */}
           <div className="user-box">
-            <label htmlFor="name">identifiant</label>
+            <label htmlFor="name">Identifiant</label>
             <input
               type="text"
               name="name"

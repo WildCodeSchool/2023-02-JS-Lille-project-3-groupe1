@@ -142,7 +142,7 @@ function Card({ artwork }) {
             </h2>
             <p>Référence image: {artwork?.img_ref}</p>
             <p>{artwork?.description}</p>
-            {artwork ? (
+            {artwork.related_article ? (
               <a href={artwork?.related_article}>En savoir plus...</a>
             ) : (
               ""
