@@ -5,7 +5,7 @@ import PadletEmbed from "./Padlet";
 function News() {
   return (
     <div className="ContainerNews">
-      <PadletEmbed />{" "}
+      <PadletEmbed />
     </div>
   );
 }
