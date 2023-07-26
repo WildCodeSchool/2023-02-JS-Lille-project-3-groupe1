@@ -56,8 +56,15 @@ function FormLogin({ onFormOpen, onFormClose }) {
     };
   }, [onFormOpen, onFormClose]);
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="loginpage">
+      <button id="go-back" type="submit" onClick={handleGoBack}>
+        Retour
+      </button>
       <ToastContainer />
       <div className="login-box">
         <div>
