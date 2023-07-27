@@ -12,7 +12,7 @@ function GaleriePG() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/artworks")
+      .get("http://localhost:5001/artworks")
       .then((response) => {
         setArtworks(response.data);
       })

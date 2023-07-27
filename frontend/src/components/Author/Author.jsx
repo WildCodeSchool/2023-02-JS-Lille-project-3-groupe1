@@ -7,7 +7,7 @@ function Author() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/authors")
+      .get("http://localhost:5001/authors")
       .then((response) => {
         setAuthors(response.data); // Utiliser response.data pour obtenir le tableau d'auteurs
       })

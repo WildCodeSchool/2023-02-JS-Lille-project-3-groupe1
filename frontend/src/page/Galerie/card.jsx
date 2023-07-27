@@ -24,7 +24,7 @@ function Card({ artwork }) {
   const fetchUserFavorites = () => {
     if (user && user.id) {
       axios
-        .get(`http://localhost:5000/favori/${user.id}`)
+        .get(`http://localhost:5001/favori/${user.id}`)
         .then((response) => {
           setUserFavorites(response.data.map((fav) => fav.artworks_id));
           // Check if the artwork is in the user's favorites and update the heart state accordingly
@@ -46,7 +46,7 @@ function Card({ artwork }) {
       if (userFavorites.includes(artwork.id)) {
         // Remove the artwork from user's favorites
         axios
-          .delete(`http://localhost:5000/favori/${user.id}`, {
+          .delete(`http://localhost:5001/favori/${user.id}`, {
             data: {
               user_id: user.id,
               artworks_id: artwork.id,
@@ -63,7 +63,7 @@ function Card({ artwork }) {
       } else {
         // Add the artwork to user's favorites
         axios
-          .post("http://localhost:5000/favori", {
+          .post("http://localhost:5001/favori", {
             user_id: user.id,
             artworks_id: artwork.id,
           })
@@ -108,7 +108,7 @@ function Card({ artwork }) {
     <>
       <div className="imageContainerGal">
         <img
-          src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+          src={`http://localhost:5001/assets/images/image/${artwork?.url}`}
           alt={artwork?.full_title}
           onClick={handleImageClick}
         />
@@ -130,7 +130,7 @@ function Card({ artwork }) {
         <div className="fullCard">
           <img
             className="imageFull"
-            src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
+            src={`http://localhost:5001/assets/images/image/${artwork?.url}`}
             alt={artwork?.full_title} // Add alt prop to img element
           />
           <div className="details">

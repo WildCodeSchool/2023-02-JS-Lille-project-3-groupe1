@@ -1,7 +1,6 @@
 @import "../../variable.scss";
 
 // Background Image with Opacity
-
 .background-image {
   display: flex;
   flex-direction: column;
@@ -261,7 +260,7 @@
   );
 }
 
-$animationSpeed: 50s;
+$animationSpeed: 80s;
 
 // Animation
 @keyframes scroll {
