@@ -104,6 +104,13 @@ function Card({ artwork }) {
     openModal();
   }
 
+  const shortTitle = artwork ? artwork.short_title : null;
+  const category = artwork?.category;
+  const technique = artwork?.technique;
+  const imgRef = artwork?.img_ref;
+  const description = artwork?.description;
+  const relatedArticle = artwork?.related_article;
+
   return (
     <>
       <div className="imageContainerGal">
@@ -112,9 +119,7 @@ function Card({ artwork }) {
           alt={artwork?.full_title}
           onClick={handleImageClick}
         />
-
         <Heart className="heart" onClick={handleHeartClick} isClick={isClick} />
-
         <h3>{artwork?.full_title}</h3>
       </div>
       <Modal
@@ -131,22 +136,20 @@ function Card({ artwork }) {
           <img
             className="imageFull"
             src={`http://localhost:5000/assets/images/image/${artwork?.url}`}
-            alt={artwork?.full_title} // Add alt prop to img element
+            alt={artwork?.full_title}
           />
           <div className="details">
             <h1>{artwork?.full_title}</h1>
-            {artwork ? <h2>{artwork.short_title}</h2> : ""}
-            <h2>Categorie: {artwork?.category}</h2>
-            <h2>
-              <b>Technique: {artwork?.technique}</b>{" "}
-            </h2>
-            <p>Référence image: {artwork?.img_ref}</p>
-            <p>{artwork?.description}</p>
-            {artwork.related_article ? (
-              <a href={artwork?.related_article}>En savoir plus...</a>
-            ) : (
-              ""
+            {shortTitle && <h2>{shortTitle}</h2>}
+            {category && <h2>Categorie: {category}</h2>}
+            {technique && (
+              <h2>
+                <b>Technique: {technique}</b>
+              </h2>
             )}
+            {imgRef && <p>Référence image: {imgRef}</p>}
+            {description && <p>{description}</p>}
+            {relatedArticle && <a href={relatedArticle}>En savoir plus...</a>}
             <br />
             <a href="/authors">Page auteur</a>
           </div>
