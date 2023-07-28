@@ -12,7 +12,7 @@ function Favoris() {
   const fetchUserFavorites = () => {
     if (user && user.id) {
       axios
-        .get(`http://localhost:5000/favori/${user.id}`)
+        .get(`http://localhost:5001/favori/${user.id}`)
         .then((response) => {
           setUserFavorites(response.data.map((fav) => fav.artworks_id));
         })
@@ -30,7 +30,7 @@ function Favoris() {
     // Define setClick state variable here if required
 
     axios
-      .get("http://localhost:5000/artworks")
+      .get("http://localhost:5001/artworks")
       .then((response) => {
         setArtworks(response.data);
       })

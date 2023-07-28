@@ -10,7 +10,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/artworks")
+      .get("http://localhost:5001/artworks")
       .then((response) => {
         setArtworks(response.data);
       })
@@ -66,7 +66,7 @@ function Home() {
             <div key={artwork.id}>
               <img
                 className={index % 2 === 0 ? "sliderart1" : "sliderart2"}
-                src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+                src={`http://localhost:5001/assets/images/image/${artwork.url}`}
                 alt="art"
               />
             </div>
@@ -75,7 +75,7 @@ function Home() {
             <div key={artwork.id}>
               <img
                 className={index % 2 === 0 ? "sliderart1" : "sliderart2"}
-                src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+                src={`http://localhost:5001/assets/images/image/${artwork.url}`}
                 alt="art"
               />
             </div>

@@ -15,7 +15,7 @@ function ContenuTablette({ artworks }) {
   const fetchUserFavorites = () => {
     if (user && user.id) {
       axios
-        .get(`http://localhost:5000/favori/${user.id}`)
+        .get(`http://localhost:5001/favori/${user.id}`)
         .then((response) => {
           setUserFavorites(response.data.map((fav) => fav.artworks_id));
         })
@@ -34,7 +34,7 @@ function ContenuTablette({ artworks }) {
       if (userFavorites.includes(artworkId)) {
         // Remove the artwork from user's favorites
         axios
-          .delete(`http://localhost:5000/favori/${user.id}`, {
+          .delete(`http://localhost:5001/favori/${user.id}`, {
             data: {
               user_id: user.id,
               artworks_id: artworkId,
@@ -49,7 +49,7 @@ function ContenuTablette({ artworks }) {
       } else {
         // Add the artwork to user's favorites
         axios
-          .post("http://localhost:5000/favori", {
+          .post("http://localhost:5001/favori", {
             user_id: user.id,
             artworks_id: artworkId,
           })
@@ -91,7 +91,7 @@ function ContenuTablette({ artworks }) {
               />
             </div>
             <img
-              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+              src={`http://localhost:5001/assets/images/image/${artwork.url}`}
               alt="nature"
             />
           </SwiperSlide>
@@ -111,7 +111,7 @@ function ContenuTablette({ artworks }) {
         {artworks.map((artwork) => (
           <SwiperSlide key={artwork.id} className="swiperThumb">
             <img
-              src={`http://localhost:5000/assets/images/image/${artwork.url}`}
+              src={`http://localhost:5001/assets/images/image/${artwork.url}`}
               alt="nature"
             />
           </SwiperSlide>

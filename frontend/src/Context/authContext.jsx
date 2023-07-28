@@ -26,7 +26,7 @@ function AuthProvider({ children }) {
 
     // Fetch user data from the server using the token
     axios
-      .get("http://localhost:5000/users")
+      .get("http://localhost:5001/users")
       .then((response) => {
         setUser(response.data.user);
         setIsconnected(true);

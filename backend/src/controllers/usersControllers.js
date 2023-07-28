@@ -11,7 +11,6 @@ const browse = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const read = (req, res) => {
   models.user
     .find(req.params.id)
@@ -27,11 +26,9 @@ const read = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const edit = (req, res) => {
   const user = req.body;
   user.id = parseInt(req.params.id, 10);
-
   models.user
     .update(user)
     .then(([result]) => {
@@ -46,10 +43,8 @@ const edit = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const add = (req, res) => {
   const user = req.body;
-
   models.user
     .insert(user)
     .then(([result]) => {
@@ -60,7 +55,6 @@ const add = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const destroy = (req, res) => {
   models.user
     .delete(req.params.id)
@@ -76,10 +70,8 @@ const destroy = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
   const user = req.body;
-
   models.user
     .login(user)
     .then(([users]) => {
@@ -95,7 +87,6 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
       res.status(500).send("Error retrieving data from the database");
     });
 };
-
 module.exports = {
   browse,
   read,

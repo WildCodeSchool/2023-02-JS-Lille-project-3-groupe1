@@ -25,5 +25,4 @@ class UsersManager extends AbstractManager {
     ]);
   }
 }
-
 module.exports = UsersManager;
