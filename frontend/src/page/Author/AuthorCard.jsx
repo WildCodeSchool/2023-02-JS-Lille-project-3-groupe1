@@ -10,7 +10,11 @@ function AuthorCard({ authors }) {
   return (
     <div className="authorcontainer">
       <div className="authorinfo">
-        <img className="profilpic" src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/image/HCNMT_autoportrait.jpg`} alt="illustration d'une image d'autoportrait de profil" />
+        <img 
+          className="profilpic"
+          src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/image/HCNMT_autoportrait.jpg`}
+          alt="illustration d'autoportrait de profil"
+        />
         <div className="info">
           <h4>
             {authors.firstname}
