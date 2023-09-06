@@ -1,0 +1,23 @@
+$h1: 3rem;
+$h2: 2rem;
+$h3: 1.3rem;
+$navbar: 2.6vw;
+$voir: 3rem;
+$text: 1rem;
+$footer: 0.7rem;
+$color1: #257593;
+$color2: #73658a;
+$color3: #b982ae;
+$bg: Black;
+$color-background-div: #257593;
+$color-div: #fafafa;
+$font-content: #e3e4e2;
+$font: "Pill Gothic 600mg", sans-serif;
+$grad: linear-gradient(#e66465, #9198e5);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+  overflow-x: hidden;
+}

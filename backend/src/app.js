@@ -6,18 +6,28 @@ const path = require("node:path");
 // create express app
 
 const express = require("express");
+const cookieParser = require("cookie-parser");
 
 const app = express();
-
+app.use(cookieParser());
 // use some application-level middlewares
 
 app.use(express.json());
-
 const cors = require("cors");
 
+const whitelist = process.env.FRONTEND_URL?.split(",") || [
+  "http://localhost:3000/",
+];
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
+    origin(origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        // callback(new Error("Not allowed by CORS"));
+        callback(null, true);
+      }
+    },
     optionsSuccessStatus: 200,
   })
 );
