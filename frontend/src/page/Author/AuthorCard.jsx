@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { DateTime } from "luxon";
-import autoportait from "../../../../backend/public/assets/images/image/HCNMT_autoportrait.jpg";
 import "./AuthorCard.scss";
 
 function AuthorCard({ authors }) {
@@ -11,7 +10,11 @@ function AuthorCard({ authors }) {
   return (
     <div className="authorcontainer">
       <div className="authorinfo">
-        <img className="profilpic" src={autoportait} alt="" />
+        <img 
+          className="profilpic"
+          src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/image/HCNMT_autoportrait.jpg`}
+          alt="illustration d'autoportrait de profil"
+        />
         <div className="info">
           <h4>
             {authors.firstname}
